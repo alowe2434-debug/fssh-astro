@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products } from '../../data/products.js';
+
+const extProducts = products.filter(p => p.category === 'fire-extinguishers').slice(0, 3);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires",
+  "description": "A practical breakdown of NFPA 10 inspection requirements for commercial fire extinguishers.",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "datePublished": "2026-03-15",
+};
+---
+
+<Base
+  title="Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires"
+  description="A practical breakdown of NFPA 10 inspection requirements for commercial properties. Monthly checks, annual service, 6-year internal examination, and 12-year hydrostatic testing explained."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/blog/" class="hover:text-gray-700 no-underline">Blog</a>
+      <span>/</span>
+      <span class="text-gray-700">NFPA 10 Inspection Guide</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <article class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Compliance · March 2026 · 8 min read</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4 leading-tight">Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">NFPA 10 is the standard that governs portable fire extinguishers in the United States. For property managers, facility teams, and fire protection contractors, understanding exactly what's required — and when — is the difference between compliance and a failed AHJ inspection.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-3">The Four Inspection Intervals</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">NFPA 10 establishes four distinct inspection and maintenance requirements, each with different personnel requirements and documentation obligations.</p>
+
+        <h3 class="text-lg font-bold mb-3">1. Monthly Visual Inspection</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">The monthly inspection can be performed by building personnel — it doesn't require a certified technician. The purpose is to verify that extinguishers haven't been used, moved, or obstructed since the last check.</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">What to check: location (mounted in designated spot), accessibility (no obstructions within 3 feet), pressure gauge in the green zone, condition (no obvious damage, corrosion, or discharge), and safety pin with tamper seal intact.</p>
+
+        <h3 class="text-lg font-bold mb-3">2. Annual Inspection</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">The annual inspection must be performed by a certified fire protection technician. This is the inspection that gets tagged on the extinguisher and documented in your service records.</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">For stored-pressure extinguishers (the most common type), the annual inspection includes: checking the mechanical parts, extinguishing agent, and expelling means. For carbon dioxide and wet chemical units, additional checks apply. All findings must be documented.</p>
+
+        <h3 class="text-lg font-bold mb-3">3. 6-Year Internal Examination</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-3">Every six years, stored-pressure extinguishers must undergo an internal examination. The extinguisher is emptied, the valve removed, and the inside inspected for corrosion, moisture, and condition of the agent. This is often combined with a recharge.</p>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">This requirement applies to stored-pressure dry chemical, stored-pressure water-based, and stored-pressure clean agent extinguishers. CO2 and non-stored-pressure units have different schedules.</p>
+
+        <h3 class="text-lg font-bold mb-3">4. 12-Year Hydrostatic Testing</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">Hydrostatic pressure testing is required every 12 years for most extinguisher types. The cylinder is pressurized to a specified test pressure to verify the shell hasn't been weakened by corrosion, damage, or fatigue. Units that fail hydrostatic testing must be destroyed — they cannot be returned to service.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-3 mt-8">Placement Requirements Under NFPA 10</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">Proper placement is as important as proper inspection. NFPA 10 specifies maximum travel distances from any point in the building to the nearest extinguisher:</p>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm border-collapse">
+            <thead><tr class="bg-gray-50"><th class="text-left p-3 border border-gray-200 font-bold">Hazard Class</th><th class="text-left p-3 border border-gray-200 font-bold">Max Travel Distance</th><th class="text-left p-3 border border-gray-200 font-bold">Common Applications</th></tr></thead>
+            <tbody>
+              <tr><td class="p-3 border border-gray-200">Class A (Light)</td><td class="p-3 border border-gray-200">75 feet</td><td class="p-3 border border-gray-200 text-gray-600">Offices, classrooms, hotels</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">Class A (Ordinary)</td><td class="p-3 border border-gray-200">75 feet</td><td class="p-3 border border-gray-200 text-gray-600">Retail, warehouses, manufacturing</td></tr>
+              <tr><td class="p-3 border border-gray-200">Class B (Flammable Liquids)</td><td class="p-3 border border-gray-200">30–50 feet</td><td class="p-3 border border-gray-200 text-gray-600">Garages, paint booths, gas stations</td></tr>
+              <tr class="bg-gray-50"><td class="p-3 border border-gray-200">Class K (Kitchen)</td><td class="p-3 border border-gray-200">30 feet</td><td class="p-3 border border-gray-200 text-gray-600">Commercial kitchens, restaurants</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-3 mt-8">Common Violations Found During AHJ Inspections</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">These are the most frequently cited NFPA 10 violations during fire marshal inspections of commercial properties:</p>
+        <div class="flex flex-col gap-3 mb-8">
+          {[
+            'Expired inspection tags — annual service date has passed',
+            'Obstructed extinguisher location — boxes, equipment, or furniture blocking access',
+            'Wrong extinguisher type for the hazard (e.g., CO2 unit near Class A hazards only)',
+            'Pressure gauge in the red — unit needs recharge or replacement',
+            'No extinguisher in required location — placement doesn\'t meet travel distance requirements',
+            'Missing or altered tamper seal',
+            'No documentation of monthly visual checks',
+          ].map(v => (
+            <div class="flex items-start gap-3 p-3 bg-red-light rounded-lg border border-red-200">
+              <span class="text-red-brand font-bold flex-shrink-0">!</span>
+              <span class="text-sm text-gray-700">{v}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-3">Related Products</h2>
+        <div class="grid grid-cols-3 gap-4">
+          {extProducts.map(p => (
+            <div class="card flex flex-col">
+              <div class="bg-gray-50 aspect-square p-4 flex items-center justify-center">
+                <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+              </div>
+              <div class="p-3 flex flex-col flex-1">
+                <span class="text-xs font-bold text-gray-400">{p.manufacturer}</span>
+                <span class="text-xs font-mono font-medium">#{p.sku}</span>
+                <p class="text-xs text-gray-500 flex-1 mb-2 mt-1">{p.desc}</p>
+                <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-1.5 rounded hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Get Quote</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <div>
+        <div class="sticky top-20 flex flex-col gap-5">
+          <div class="bg-red-light rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-2">Need NFPA 10 Compliant Extinguishers?</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">Wholesale pricing on commercial fire extinguishers for contractors and property managers.</p>
+            <button onclick="openRFQ('','','NFPA 10 Extinguisher Quote')" class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">More Compliance Guides</h3>
+            <div class="flex flex-col gap-2">
+              <a href="/compliance/nfpa-10/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">NFPA 10 Full Guide &rarr;</a>
+              <a href="/compliance/nfpa-25/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">NFPA 25 Sprinkler ITM &rarr;</a>
+              <a href="/resources/fire-safety-checklist-property-managers/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5">PM Compliance Checklist &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

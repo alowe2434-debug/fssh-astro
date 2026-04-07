@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #c0392b;
+  --red-dk: #a93226;
+  --red-lt: #fdf2f1;
+  --border: rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; }
+
+@layer components {
+  .btn-primary {
+    @apply bg-red-brand text-white px-7 py-3 rounded-full text-sm font-semibold transition-colors hover:bg-red-dark cursor-pointer border-0;
+  }
+  .btn-secondary {
+    @apply bg-transparent text-gray-900 px-7 py-3 rounded-full text-sm font-medium border border-gray-200 transition-colors hover:border-gray-400 cursor-pointer;
+  }
+  .card {
+    @apply bg-white border border-gray-100 rounded-xl overflow-hidden transition-all hover:shadow-lg hover:-translate-y-0.5;
+  }
+  .section {
+    @apply max-w-7xl mx-auto px-6 lg:px-10;
+  }
+  .tag {
+    @apply inline-block text-xs font-bold tracking-wider uppercase;
+  }
+}

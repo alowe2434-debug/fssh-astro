@@ -1,0 +1,259 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: object;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = '/og-default.png',
+  schema,
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = canonical || Astro.url.href;
+const siteName = 'Fire Safety Supply House';
+const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:image" content={`https://firesafetysupplyhouse.com${ogImage}`} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- Structured Data -->
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+
+  <!-- Org schema on every page -->
+  <script type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Fire Safety Supply House",
+    "url": "https://firesafetysupplyhouse.com",
+    "description": "Wholesale fire protection equipment supplier for contractors, property managers, and facilities teams. Serving all 50 states.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Sales",
+      "email": "quotes@firesafetysupplyhouse.com"
+    },
+    "areaServed": "US",
+    "serviceType": "Wholesale Fire Protection Equipment Supply"
+  })}</script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="font-sans text-gray-900 bg-white">
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 h-[60px] flex items-center px-6 lg:px-10 justify-between">
+    <a href="/" class="flex items-center gap-2.5 font-bold text-sm tracking-tight text-gray-900 no-underline">
+      <span class="w-2 h-2 rounded-full bg-red-brand inline-block"></span>
+      Fire Safety Supply House
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="/products/" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors no-underline">Products</a>
+      <a href="/compliance/" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors no-underline">NFPA Compliance</a>
+      <a href="/regions/" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors no-underline">By Region</a>
+      <a href="/resources/" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors no-underline">Resources</a>
+      <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors no-underline">Contact</a>
+      <button onclick="document.getElementById('rfqModal').classList.add('open')" class="btn-primary text-sm">Request a Quote</button>
+    </div>
+    <!-- Mobile menu button -->
+    <button class="md:hidden text-gray-600" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden fixed top-[60px] left-0 right-0 z-40 bg-white border-b border-gray-100 shadow-lg">
+    <div class="flex flex-col p-4 gap-3">
+      <a href="/products/" class="text-sm font-medium text-gray-700 py-2">Products</a>
+      <a href="/compliance/" class="text-sm font-medium text-gray-700 py-2">NFPA Compliance</a>
+      <a href="/regions/" class="text-sm font-medium text-gray-700 py-2">By Region</a>
+      <a href="/resources/" class="text-sm font-medium text-gray-700 py-2">Resources</a>
+      <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-sm font-medium text-gray-700 py-2">Contact</a>
+      <button onclick="document.getElementById('rfqModal').classList.add('open')" class="btn-primary text-sm w-full">Request a Quote</button>
+    </div>
+  </div>
+
+  <main class="pt-[60px]">
+    <slot />
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-100 py-12 mt-20">
+    <div class="section">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div>
+          <div class="flex items-center gap-2 font-bold text-sm mb-3">
+            <span class="w-2 h-2 rounded-full bg-red-brand inline-block"></span>
+            Fire Safety Supply House
+          </div>
+          <p class="text-xs text-gray-400 leading-relaxed">Wholesale fire protection equipment for contractors, property managers, and facilities teams. Trade accounts only.</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Products</h4>
+          <ul class="space-y-2">
+            <li><a href="/products/fire-extinguishers/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Fire Extinguishers</a></li>
+            <li><a href="/products/fire-alarm-systems/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Fire Alarm Systems</a></li>
+            <li><a href="/products/sprinkler-systems/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Sprinkler Systems</a></li>
+            <li><a href="/products/kitchen-suppression/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Kitchen Suppression</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">NFPA Compliance</h4>
+          <ul class="space-y-2">
+            <li><a href="/compliance/nfpa-10/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">NFPA 10 — Extinguishers</a></li>
+            <li><a href="/compliance/nfpa-25/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">NFPA 25 — Sprinklers</a></li>
+            <li><a href="/compliance/nfpa-72/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">NFPA 72 — Fire Alarms</a></li>
+            <li><a href="/compliance/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">All Standards</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Contact</h4>
+          <ul class="space-y-2">
+            <li><a href="mailto:quotes@firesafetysupplyhouse.com" class="text-xs text-gray-600 hover:text-gray-900 no-underline">quotes@firesafetysupplyhouse.com</a></li>
+            <li><a href="/resources/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Resources & Guides</a></li>
+            <li><a href="/regions/" class="text-xs text-gray-600 hover:text-gray-900 no-underline">Regional Coverage</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-100 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+        <p class="text-xs text-gray-400">&copy; 2026 Fire Safety Supply House. All rights reserved. Trade accounts only.</p>
+        <p class="text-xs text-gray-400">NFPA 10 · NFPA 25 · NFPA 72 · NFPA 96 · NFPA 101</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RFQ MODAL -->
+  <div id="rfqModal" class="hidden fixed inset-0 bg-black/50 z-[200] items-center justify-center p-5" style="display:none" onclick="if(event.target===this)closeRFQ()">
+    <div class="bg-white rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto p-8" onclick="event.stopPropagation()">
+      <div class="flex justify-between items-start mb-6">
+        <h3 class="text-xl font-bold tracking-tight">Request a Quote</h3>
+        <button onclick="closeRFQ()" class="text-gray-400 hover:text-gray-600 text-2xl leading-none bg-transparent border-0 cursor-pointer">&times;</button>
+      </div>
+      <div id="rfqForm">
+        <div id="rfqProduct" class="inline-block bg-red-light text-red-brand px-3 py-1.5 rounded-md text-xs font-bold mb-6">General Quote Request</div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">First Name</label><input type="text" placeholder="John" class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Last Name</label><input type="text" placeholder="Smith" class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+        </div>
+        <div class="mb-3"><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Company</label><input type="text" placeholder="ABC Fire Protection Inc." class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Phone</label><input type="tel" placeholder="(555) 000-0000" class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Email</label><input type="email" placeholder="john@company.com" class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">City / State</label><input type="text" placeholder="Los Angeles, CA" class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand" /></div>
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Business Type</label>
+            <select class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand">
+              <option value="">Select...</option>
+              <option>Fire Protection Contractor</option>
+              <option>Property Manager</option>
+              <option>Facilities Manager</option>
+              <option>Fire Inspector / ITM</option>
+              <option>General Contractor</option>
+              <option>Distributor / Reseller</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 mb-3">
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Quantity</label>
+            <select class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand">
+              <option value="">Select...</option>
+              <option>1&ndash;10 units</option>
+              <option>11&ndash;50 units</option>
+              <option>51&ndash;200 units</option>
+              <option>200+ units</option>
+              <option>Ongoing / Account</option>
+            </select>
+          </div>
+          <div><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Timeframe</label>
+            <select class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand">
+              <option value="">Select...</option>
+              <option>ASAP / Emergency</option>
+              <option>Within 1 week</option>
+              <option>1&ndash;2 weeks</option>
+              <option>2&ndash;4 weeks</option>
+              <option>Planning ahead (1+ month)</option>
+            </select>
+          </div>
+        </div>
+        <div class="mb-4"><label class="block text-xs font-bold uppercase tracking-wide text-gray-400 mb-1.5">Notes / Spec Details</label>
+          <textarea placeholder="Additional SKUs, project specs, NFPA requirements, or anything else we should know..." class="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-red-brand resize-y min-h-[80px]"></textarea>
+        </div>
+        <button onclick="submitRFQ()" class="w-full bg-red-brand text-white py-3.5 rounded-lg text-sm font-bold hover:bg-red-dark transition-colors cursor-pointer border-0">Submit Quote Request</button>
+      </div>
+      <div id="rfqSuccess" class="hidden text-center py-5">
+        <div class="text-5xl mb-4">✅</div>
+        <h4 class="text-xl font-bold mb-2">Quote Request Received</h4>
+        <p class="text-sm text-gray-600">We'll review your request and get back to you within 48 business hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openRFQ(mfr, sku, desc) {
+      const label = sku ? `${mfr} · #${sku}` : (desc || 'General Quote Request');
+      document.getElementById('rfqProduct').textContent = label;
+      document.getElementById('rfqForm').style.display = 'block';
+      document.getElementById('rfqSuccess').classList.add('hidden');
+      const modal = document.getElementById('rfqModal');
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeRFQ() {
+      const modal = document.getElementById('rfqModal');
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    function submitRFQ() {
+      document.getElementById('rfqForm').style.display = 'none';
+      document.getElementById('rfqSuccess').classList.remove('hidden');
+    }
+    window.openRFQ = openRFQ;
+    window.closeRFQ = closeRFQ;
+    window.submitRFQ = submitRFQ;
+  </script>
+</body>
+</html>

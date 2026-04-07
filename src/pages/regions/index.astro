@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import { regions } from '../../data/regions.js';
+---
+
+<Base
+  title="Fire Protection Equipment by Region | County-Specific Compliance"
+  description="County and metro-specific fire protection compliance guides. Local fire code requirements, fire marshal contacts, and wholesale equipment for contractors in LA, Chicago, Houston, Miami, Phoenix, and Seattle."
+>
+  <div class="section py-12">
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Regional Coverage</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-3">Fire Protection Equipment by Region</h1>
+      <p class="text-base text-gray-500 max-w-xl">County-specific fire code guidance for commercial fire protection contractors and facilities teams. Each region covers local AHJ requirements, code amendments, and compliance priorities.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {regions.map(r => (
+        <a href={`/regions/${r.id}/`} class="card p-6 no-underline group">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-red-brand mb-1">{r.state} — {r.metro}</div>
+              <h2 class="text-lg font-bold text-gray-900 group-hover:text-red-brand transition-colors">{r.name}</h2>
+            </div>
+            <span class="text-2xl font-bold text-gray-100">{r.stateCode}</span>
+          </div>
+          <p class="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-2">{r.fireCode}</p>
+          <div class="mb-4">
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Industries</div>
+            <div class="flex flex-wrap gap-1.5">
+              {r.keyIndustries.slice(0, 3).map(ind => (
+                <span class="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">{ind}</span>
+              ))}
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-400">{r.townships.length} sub-regions covered</span>
+            <span class="text-xs font-medium text-red-brand group-hover:text-red-dark">View guide &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- More regions teaser -->
+    <div class="bg-gray-50 rounded-2xl p-8 text-center border border-gray-200">
+      <h3 class="text-lg font-bold mb-2">More Regions Coming</h3>
+      <p class="text-sm text-gray-500 max-w-lg mx-auto mb-6">We're expanding coverage to include all major metro areas. Currently adding: New York/NYC (5 boroughs), Dallas-Fort Worth, Atlanta, Denver, San Francisco Bay Area, Boston, and more.</p>
+      <button onclick="openRFQ('','','Regional Coverage Inquiry')" class="btn-primary">Request Coverage for Your Region</button>
+    </div>
+  </div>
+</Base>

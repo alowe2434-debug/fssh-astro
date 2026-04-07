@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products } from '../../data/products.js';
+
+const extProducts = products.filter(p => ['fire-extinguishers','cabinets-accessories'].includes(p.category));
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NFPA 10 Compliance Guide: Portable Fire Extinguishers",
+  "description": "Complete guide to NFPA 10 compliance requirements for portable fire extinguishers in commercial facilities.",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "publisher": { "@type": "Organization", "name": "Fire Safety Supply House" },
+};
+---
+
+<Base
+  title="NFPA 10 Compliance Guide: Commercial Fire Extinguishers"
+  description="Complete NFPA 10 compliance guide for portable fire extinguishers. Inspection schedules, hydrostatic testing requirements, placement standards, and wholesale equipment for contractors."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/compliance/" class="hover:text-gray-700 no-underline">Compliance</a>
+      <span>/</span>
+      <span class="text-gray-700">NFPA 10</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <!-- Main Content -->
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">NFPA 10</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Standard for Portable Fire Extinguishers</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">NFPA 10 is the national standard governing the selection, installation, inspection, maintenance, and testing of portable fire extinguishers. Compliance is required in virtually all commercial occupancies across the United States.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Inspection & Maintenance Schedule</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Frequency</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Who Performs</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Requirements</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">Monthly</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Building Personnel</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Visual check: location, accessibility, pressure gauge, condition</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Annual</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Certified Technician</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Full inspection, tag update, internal examination if required</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">Every 6 Years</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Certified Technician</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Internal examination of stored-pressure extinguishers</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Every 12 Years</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Certified Technician</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Hydrostatic pressure testing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Placement Requirements</h2>
+        <div class="flex flex-col gap-3 mb-8">
+          {[
+            'Class A hazards: Maximum 75-foot travel distance to extinguisher',
+            'Class B hazards: Maximum 50-foot travel distance',
+            'Class K (kitchen): Required within 30 feet of cooking equipment',
+            'Extinguishers must be visible, unobstructed, and readily accessible',
+            'Mounted no higher than 5 feet (handle) for extinguishers over 40 lbs; 3.5 feet for heavier units',
+            'Inspection tags must be current and readable',
+          ].map(req => (
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <span class="text-red-brand font-bold flex-shrink-0">▸</span>
+              <span class="text-sm text-gray-700">{req}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Extinguisher Classification Guide</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+          {[
+            { cls: 'Class A', desc: 'Ordinary combustibles (wood, paper, cloth, rubber, plastics)', color: 'bg-green-50 border-green-200' },
+            { cls: 'Class B', desc: 'Flammable liquids and gases (gasoline, oil, solvents)', color: 'bg-red-light border-red-200' },
+            { cls: 'Class C', desc: 'Energized electrical equipment', color: 'bg-blue-50 border-blue-200' },
+            { cls: 'Class D', desc: 'Combustible metals (magnesium, titanium, sodium)', color: 'bg-yellow-50 border-yellow-200' },
+            { cls: 'Class K', desc: 'Cooking oils and fats in commercial kitchens', color: 'bg-orange-50 border-orange-200' },
+            { cls: 'ABC', desc: 'Multi-purpose: covers Class A, B, and C hazards', color: 'bg-gray-50 border-gray-200' },
+          ].map(c => (
+            <div class={`p-3 rounded-lg border ${c.color}`}>
+              <div class="font-bold text-sm mb-1">{c.cls}</div>
+              <p class="text-xs text-gray-600 leading-snug">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Documentation Requirements</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">NFPA 10 requires detailed records for every inspection, maintenance, and recharge event. Records must include the date of service, the name of the person performing the service, observations, and corrective actions taken. Records must be maintained for a minimum of the previous service interval.</p>
+        <p class="text-sm text-gray-600 leading-relaxed">For commercial fire protection contractors, proper documentation is also critical for liability protection and demonstrates due diligence in the event of an incident investigation.</p>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="sticky top-20">
+          <div class="bg-red-light rounded-xl p-5 mb-6">
+            <h3 class="text-sm font-bold mb-3">Need NFPA 10 Compliant Equipment?</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">We supply wholesale extinguishers and accessories for contractors servicing commercial accounts.</p>
+            <button onclick="openRFQ('','','NFPA 10 Extinguisher Equipment')" class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+
+          <h3 class="text-sm font-bold mb-3">Related Products</h3>
+          <div class="flex flex-col gap-3">
+            {extProducts.slice(0, 6).map(p => (
+              <div class="flex items-center gap-3 p-2 rounded-lg border border-gray-100 hover:border-red-200 transition-colors cursor-pointer" onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`}>
+                <div class="w-10 h-10 bg-gray-50 rounded flex items-center justify-center flex-shrink-0 overflow-hidden p-1">
+                  <img src={`/images/products/${p.photo}`} alt={p.sku} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-700">{p.manufacturer} {p.sku}</div>
+                  <div class="text-xs text-gray-400">{p.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="/products/fire-extinguishers/" class="block text-center text-xs font-medium text-red-brand mt-3 hover:text-red-dark no-underline">View all extinguishers &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const standards = [
+  {
+    id: 'nfpa-10',
+    code: 'NFPA 10',
+    title: 'Standard for Portable Fire Extinguishers',
+    summary: 'Governs the selection, installation, inspection, maintenance, and testing of portable fire extinguishers in commercial and industrial facilities.',
+    keyReqs: ['Annual inspection by a certified technician', '6-year internal examination for stored-pressure extinguishers', 'Hydrostatic testing every 12 years', 'Monthly visual inspections by building personnel'],
+    audience: 'Fire protection contractors, property managers, facility managers',
+  },
+  {
+    id: 'nfpa-25',
+    code: 'NFPA 25',
+    title: 'Inspection, Testing & Maintenance of Water-Based Fire Protection Systems',
+    summary: 'The primary standard for ITM (Inspection, Testing, and Maintenance) of sprinkler systems, standpipes, fire pumps, and water storage tanks in commercial buildings.',
+    keyReqs: ['Weekly, monthly, quarterly, and annual inspection schedules', '5-year internal inspection of sprinkler systems', 'Annual flow testing for fire pumps', 'Quarterly inspection of waterflow alarm devices'],
+    audience: 'Fire sprinkler contractors, ITM professionals, facilities managers',
+  },
+  {
+    id: 'nfpa-72',
+    code: 'NFPA 72',
+    title: 'National Fire Alarm and Signaling Code',
+    summary: 'Establishes minimum requirements for the application, installation, location, performance, and inspection of fire alarm systems, supervising station alarms, and public emergency alarm reporting systems.',
+    keyReqs: ['Annual inspection and testing of all alarm components', 'Semi-annual testing of battery systems', 'Quarterly visual inspections of control panels', 'Documentation requirements for all tests'],
+    audience: 'Fire alarm contractors, building owners, facilities engineers',
+  },
+  {
+    id: 'nfpa-96',
+    code: 'NFPA 96',
+    title: 'Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations',
+    summary: 'Applies to all commercial cooking equipment and governs hood systems, grease removal, fire suppression, and maintenance requirements for restaurants and food service operations.',
+    keyReqs: ['Semi-annual cleaning of exhaust systems for high-volume cooking', 'Annual inspection of suppression systems', 'Fusible links replaced during every cleaning', 'Nozzle inspection at each service visit'],
+    audience: 'Restaurant operators, kitchen suppression contractors, food service facilities',
+  },
+  {
+    id: 'nfpa-101',
+    code: 'NFPA 101',
+    title: 'Life Safety Code',
+    summary: 'The Life Safety Code addresses construction, protection, and operational features designed to provide safety from fire, smoke, and panic in new and existing buildings.',
+    keyReqs: ['Emergency lighting in all means of egress', 'Exit signs at all required exits', 'Photoluminescent markings in high-rise buildings', 'Regular testing of emergency lighting (monthly 30-second, annual 90-minute)'],
+    audience: 'Building owners, architects, fire marshals, facilities managers',
+  },
+];
+---
+
+<Base
+  title="NFPA Fire Code Compliance Guide | NFPA 10, 25, 72, 96, 101"
+  description="NFPA compliance guides for fire protection contractors and facilities teams. NFPA 10 (extinguishers), NFPA 25 (sprinklers), NFPA 72 (alarms), NFPA 96 (kitchen), NFPA 101 (life safety)."
+>
+  <div class="section py-12">
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Compliance Hub</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-3">NFPA Fire Code Standards</h1>
+      <p class="text-base text-gray-500 max-w-xl">Plain-language guides to NFPA standards most relevant to commercial fire protection contractors and facilities teams.</p>
+    </div>
+
+    <div class="flex flex-col gap-6">
+      {standards.map(s => (
+        <a href={`/compliance/${s.id}/`} class="card p-6 lg:p-8 no-underline group">
+          <div class="flex flex-col lg:flex-row lg:items-start gap-6">
+            <div class="lg:w-32 flex-shrink-0">
+              <span class="text-2xl font-bold text-red-brand font-mono">{s.code}</span>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-lg font-bold text-gray-900 group-hover:text-red-brand transition-colors mb-2">{s.title}</h2>
+              <p class="text-sm text-gray-500 leading-relaxed mb-4">{s.summary}</p>
+              <div>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Key Requirements</h3>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-1.5">
+                  {s.keyReqs.map(req => (
+                    <li class="flex items-start gap-2 text-xs text-gray-600">
+                      <span class="text-red-brand mt-0.5 flex-shrink-0">▸</span>
+                      {req}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p class="text-xs text-gray-400 mt-4">Relevant for: {s.audience}</p>
+            </div>
+            <div class="lg:self-center">
+              <span class="text-sm font-medium text-red-brand group-hover:text-red-dark">Read guide &rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

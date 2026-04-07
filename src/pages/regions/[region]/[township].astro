@@ -1,0 +1,198 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { regions } from '../../../data/regions.js';
+import { products } from '../../../data/products.js';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const region of regions) {
+    for (const township of region.townships) {
+      paths.push({
+        params: { region: region.id, township: township.id },
+        props: { region, township },
+      });
+    }
+  }
+  return paths;
+}
+
+const { region, township } = Astro.props;
+const featuredProducts = products.filter(p =>
+  ['fire-extinguishers','fire-alarm-systems','sprinkler-systems','smoke-detectors-co'].includes(p.category)
+).slice(0, 4);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `Fire Safety Supply House — ${township.name}`,
+  "description": `Wholesale fire protection equipment for contractors and facilities teams in ${township.name}, ${region.stateCode}. Serving the ${region.metro} metro area.`,
+  "areaServed": {
+    "@type": "City",
+    "name": township.name,
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": region.name
+    }
+  }
+};
+---
+
+<Base
+  title={`Commercial Fire Protection Equipment in ${township.name}, ${region.stateCode} | Wholesale`}
+  description={`Wholesale fire protection equipment for contractors in ${township.name}, ${region.stateCode}. Fire extinguishers, alarm systems, sprinkler components — NFPA compliant. Serving ${region.metro} metro. Request contractor pricing.`}
+  schema={schema}
+>
+  <div class="section py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8 flex-wrap">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/regions/" class="hover:text-gray-700 no-underline">Regions</a>
+      <span>/</span>
+      <a href={`/regions/${region.id}/`} class="hover:text-gray-700 no-underline">{region.name}</a>
+      <span>/</span>
+      <span class="text-gray-700">{township.name}</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">{region.stateCode} — {region.name}</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">
+          Commercial Fire Protection Equipment in {township.name}
+        </h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">
+          Wholesale fire protection supplies for contractors, property managers, and facilities teams operating in {township.name}, {region.stateCode}. All products meet requirements enforced by the {region.fireMarshal} for the {region.name} jurisdiction.
+        </p>
+
+        <!-- Local Code Info -->
+        <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+          <h2 class="text-lg font-bold mb-3">Fire Code Authority: {township.name}</h2>
+          <div class="flex flex-col gap-2 text-sm">
+            <div class="flex flex-col sm:flex-row sm:gap-4">
+              <span class="text-gray-400 font-medium sm:w-32 flex-shrink-0">Governing Code</span>
+              <span class="text-gray-700">{region.fireCode}</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:gap-4">
+              <span class="text-gray-400 font-medium sm:w-32 flex-shrink-0">AHJ</span>
+              <span class="text-gray-700">{region.fireMarshal}</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:gap-4">
+              <span class="text-gray-400 font-medium sm:w-32 flex-shrink-0">County</span>
+              <span class="text-gray-700">{region.name}, {region.stateCode}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Compliance Points -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          Fire Safety Compliance in {township.name}
+        </h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          Commercial properties in {township.name} are subject to {region.name} fire code requirements. The following NFPA standards are most commonly enforced for commercial occupancies in this jurisdiction:
+        </p>
+        <div class="flex flex-col gap-3 mb-8">
+          {region.nfpaAmendments.map(a => (
+            <div class="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-lg">
+              <div class="w-5 h-5 bg-red-brand rounded flex-shrink-0 flex items-center justify-center mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <p class="text-sm text-gray-700 leading-relaxed">{a}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Industry Focus -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          Common Commercial Applications in {township.name}
+        </h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          Fire protection contractors serving {township.name} regularly work with the following property types, each with specific NFPA compliance requirements:
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+          {region.keyIndustries.map(ind => (
+            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
+              <span class="text-sm font-medium text-gray-700 capitalize">{ind}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Products -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">
+          Wholesale Products for {township.name} Contractors
+        </h2>
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          {featuredProducts.map(p => (
+            <div class="card flex flex-col">
+              <div class="bg-gray-50 aspect-square flex items-center justify-center p-5">
+                <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+              </div>
+              <div class="p-3 flex flex-col flex-1 gap-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-400">{p.manufacturer}</span>
+                <span class="font-mono text-xs font-medium">#{p.sku}</span>
+                <p class="text-xs text-gray-500 leading-snug flex-1 mb-2">{p.desc}</p>
+                <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc} — ${township.name}, ${region.stateCode}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-1.5 rounded hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request Quote</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Other townships in county -->
+        <h2 class="text-xl font-bold tracking-tight mb-4">Other Areas in {region.name}</h2>
+        <div class="flex flex-wrap gap-2">
+          {region.townships.filter(t => t.id !== township.id).map(t => (
+            <a href={`/regions/${region.id}/${t.id}/`} class="text-xs font-medium text-gray-600 hover:text-red-brand bg-gray-100 hover:bg-red-light px-3 py-1.5 rounded-full transition-colors no-underline">{t.name}</a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="sticky top-20 flex flex-col gap-5">
+          <div class="bg-red-light rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-2">Serving {township.name} Contractors</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">
+              Request wholesale pricing on fire protection equipment for projects in {township.name} and the {region.metro} metro area.
+            </p>
+            <button onclick={`openRFQ('','','${township.name}, ${region.stateCode} — Wholesale Quote')`} class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">Browse by Category</h3>
+            <div class="flex flex-col gap-1.5">
+              {[
+                { name: 'Fire Extinguishers', href: '/products/fire-extinguishers/', nfpa: 'NFPA 10' },
+                { name: 'Fire Alarm Systems', href: '/products/fire-alarm-systems/', nfpa: 'NFPA 72' },
+                { name: 'Sprinkler Systems', href: '/products/sprinkler-systems/', nfpa: 'NFPA 25' },
+                { name: 'Kitchen Suppression', href: '/products/kitchen-suppression/', nfpa: 'NFPA 96' },
+                { name: 'Exit & Emergency', href: '/products/exit-emergency/', nfpa: 'NFPA 101' },
+              ].map(cat => (
+                <a href={cat.href} class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0 no-underline group">
+                  <span class="text-xs font-medium text-gray-700 group-hover:text-red-brand">{cat.name}</span>
+                  <span class="text-xs text-gray-400 font-mono">{cat.nfpa}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">NFPA Compliance Guides</h3>
+            <div class="flex flex-col gap-2">
+              {[
+                { code: 'NFPA 10', href: '/compliance/nfpa-10/', title: 'Portable Extinguishers' },
+                { code: 'NFPA 25', href: '/compliance/nfpa-25/', title: 'Sprinkler ITM' },
+                { code: 'NFPA 72', href: '/compliance/nfpa-72/', title: 'Fire Alarms' },
+              ].map(s => (
+                <a href={s.href} class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors no-underline group">
+                  <span class="text-xs font-mono font-bold text-red-brand w-16 flex-shrink-0">{s.code}</span>
+                  <span class="text-xs text-gray-600 group-hover:text-gray-900">{s.title} &rarr;</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products, categories } from '../../data/products.js';
+
+export async function getStaticPaths() {
+  return categories.map(cat => ({
+    params: { category: cat.id },
+    props: { cat },
+  }));
+}
+
+const { cat } = Astro.props;
+const catProducts = products.filter(p => p.category === cat.id);
+---
+
+<Base
+  title={`Commercial ${cat.name} | Wholesale Fire Protection Equipment`}
+  description={`Wholesale ${cat.name.toLowerCase()} for commercial and industrial applications. ${catProducts.length} products available. ${cat.nfpa} compliant. Request contractor pricing.`}
+>
+  <div class="section py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/products/" class="hover:text-gray-700 no-underline">Products</a>
+      <span>/</span>
+      <span class="text-gray-700">{cat.name}</span>
+    </nav>
+
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">{cat.nfpa}</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-3">Commercial {cat.name}</h1>
+      <p class="text-base text-gray-500 max-w-xl">
+        Wholesale pricing on {catProducts.length} {cat.name.toLowerCase()} products for contractors, property managers, and facilities teams.
+        All products meet {cat.nfpa} requirements.
+      </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {catProducts.map(p => (
+        <div class="card flex flex-col">
+          <div class="bg-gray-50 aspect-square flex items-center justify-center p-6">
+            <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku} - ${p.desc}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+          </div>
+          <div class="p-4 flex flex-col flex-1 gap-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">{p.manufacturer}</span>
+            <span class="font-mono text-sm font-medium text-gray-900">#{p.sku}</span>
+            <p class="text-xs text-gray-500 leading-snug flex-1 mb-3">{p.desc}</p>
+            <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-2 rounded-md hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request a Quote</button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 bg-gray-50 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="text-lg font-bold mb-1">Need {cat.name.toLowerCase()} for a large project?</h3>
+        <p class="text-sm text-gray-500">We offer volume pricing and can match specific {cat.nfpa} requirements.</p>
+      </div>
+      <button onclick={`openRFQ('','','${cat.name} - Bulk Quote Request')`} class="btn-primary whitespace-nowrap">Request Wholesale Pricing</button>
+    </div>
+  </div>
+</Base>

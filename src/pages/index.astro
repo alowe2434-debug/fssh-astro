@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import { products, categories } from '../data/products.js';
+import { regions } from '../data/regions.js';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Fire Safety Supply House",
+  "url": "https://firesafetysupplyhouse.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://firesafetysupplyhouse.com/products/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+---
+
+<Base
+  title="Wholesale Fire Protection Equipment | Fire Safety Supply House"
+  description="Wholesale fire protection equipment for contractors, property managers, and facilities teams. 120+ SKUs: extinguishers, alarm systems, sprinklers, suppression. NFPA-compliant. Request wholesale pricing."
+  schema={schema}
+>
+  <!-- HERO -->
+  <section class="pt-16 pb-12 px-6 lg:px-10 max-w-7xl mx-auto">
+    <h1 class="text-5xl lg:text-7xl font-bold tracking-tight leading-[1.06] text-gray-900 max-w-3xl mb-5">
+      Fire Protection Equipment <span class="text-red-brand">Built for the Trade</span>
+    </h1>
+    <p class="text-lg text-gray-500 max-w-xl leading-relaxed mb-8">
+      Wholesale pricing on professional-grade fire safety products. No retail. No guesswork. Just the right equipment at the right price for your jobs.
+    </p>
+    <div class="flex gap-3 flex-wrap">
+      <button onclick="openRFQ('','','General Quote Request')" class="btn-primary">Request Wholesale Pricing</button>
+      <a href="/products/" class="btn-secondary">Browse 120 SKUs</a>
+    </div>
+    <!-- Stats -->
+    <div class="flex gap-10 mt-14 pt-10 border-t border-gray-100 flex-wrap">
+      <div><div class="text-3xl font-bold tracking-tight">120+</div><div class="text-xs text-gray-400 font-medium mt-1">SKUs in Catalog</div></div>
+      <div><div class="text-3xl font-bold tracking-tight">12</div><div class="text-xs text-gray-400 font-medium mt-1">Product Categories</div></div>
+      <div><div class="text-3xl font-bold tracking-tight">48hr</div><div class="text-xs text-gray-400 font-medium mt-1">Quote Turnaround</div></div>
+      <div><div class="text-3xl font-bold tracking-tight">50</div><div class="text-xs text-gray-400 font-medium mt-1">States Served</div></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="bg-gray-50 border-y border-gray-100 py-4 px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto flex items-center gap-6 flex-wrap">
+      <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Stocking Brands</span>
+      <div class="w-px h-4 bg-gray-200 hidden sm:block"></div>
+      {['Amerex', 'System Sensor', 'Kidde / Firex', 'Viking', 'Ansul', 'Notifier', 'Honeywell', 'Lithonia', 'Potter', '+ More'].map(b => (
+        <span class="text-sm font-medium text-gray-600">{b}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section class="section py-16">
+    <div class="flex justify-between items-end mb-8">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight mb-2">Product Categories</h2>
+        <p class="text-sm text-gray-400">120 SKUs across 12 NFPA-compliant categories</p>
+      </div>
+      <a href="/products/" class="text-sm font-medium text-red-brand hover:text-red-dark no-underline">View all &rarr;</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {categories.map(cat => {
+        const catProducts = products.filter(p => p.category === cat.id);
+        return (
+          <a href={`/products/${cat.id}/`} class="card p-5 no-underline group">
+            <div class="text-xs font-bold uppercase tracking-wider text-red-brand mb-1">{cat.nfpa}</div>
+            <h3 class="text-sm font-bold text-gray-900 mb-1 group-hover:text-red-brand transition-colors">{cat.name}</h3>
+            <p class="text-xs text-gray-400">{catProducts.length} products</p>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section pb-16">
+    <div class="flex justify-between items-end mb-8">
+      <h2 class="text-3xl font-bold tracking-tight">Featured Products</h2>
+      <a href="/products/" class="text-sm font-medium text-red-brand hover:text-red-dark no-underline">View all &rarr;</a>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {products.slice(0, 8).map(p => (
+        <div class="card flex flex-col">
+          <div class="bg-gray-50 aspect-square flex items-center justify-center p-6">
+            <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+          </div>
+          <div class="p-4 flex flex-col flex-1 gap-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">{p.manufacturer}</span>
+            <span class="font-mono text-sm font-medium text-gray-900">#{p.sku}</span>
+            <p class="text-xs text-gray-500 leading-snug flex-1 mb-3">{p.desc}</p>
+            <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-2 rounded-md hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request a Quote</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- REGIONAL COVERAGE -->
+  <section class="bg-gray-50 border-y border-gray-100 py-16">
+    <div class="section">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight mb-2">Regional Coverage</h2>
+          <p class="text-sm text-gray-400">County-specific fire code compliance guidance</p>
+        </div>
+        <a href="/regions/" class="text-sm font-medium text-red-brand hover:text-red-dark no-underline">All regions &rarr;</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {regions.map(r => (
+          <a href={`/regions/${r.id}/`} class="card p-5 no-underline group bg-white">
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">{r.state}</div>
+                <h3 class="text-sm font-bold text-gray-900 group-hover:text-red-brand transition-colors">{r.name}</h3>
+                <p class="text-xs text-gray-500 mt-0.5">{r.metro} Metro</p>
+              </div>
+              <span class="text-xs bg-red-light text-red-brand font-bold px-2 py-1 rounded">{r.townships.length} areas</span>
+            </div>
+            <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">{r.fireCode}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SECTION -->
+  <section class="section py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl font-bold tracking-tight mb-4">Why We Work by Quote</h2>
+        <p class="text-base text-gray-600 leading-relaxed mb-4">We don't post retail prices because we don't sell retail. Every quote is built around your job scope, volume, and timeline — not a price list that ignores context.</p>
+        <p class="text-base text-gray-600 leading-relaxed">If you're a contractor, property manager, or facilities team that buys fire protection equipment regularly, you should be getting better pricing than a walk-in buyer.</p>
+      </div>
+      <div class="flex flex-col gap-5">
+        {[
+          { title: 'Volume-Based Pricing', body: 'Quotes account for your actual quantities. Larger orders get better rates automatically.' },
+          { title: '48-Hour Turnaround', body: 'Most quotes returned within two business days. Urgent jobs get flagged and prioritized.' },
+          { title: 'NFPA Spec Matching', body: 'Have a project spec or AHJ requirement? Send it over and we\'ll match the right SKUs.' },
+          { title: 'Trade Accounts Welcome', body: 'Fire contractors, property managers, facilities teams, and inspectors. We know the industry.' },
+        ].map(pt => (
+          <div class="flex gap-4 items-start">
+            <div class="w-8 h-8 rounded-lg bg-red-brand flex-shrink-0 flex items-center justify-center mt-0.5">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-sm font-bold mb-1">{pt.title}</h4>
+              <p class="text-sm text-gray-500 leading-relaxed">{pt.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section pb-16">
+    <div class="bg-gray-900 rounded-2xl p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 class="text-2xl font-bold text-white mb-2">Ready to get wholesale pricing?</h2>
+        <p class="text-sm text-gray-400">Submit a quote request and we'll respond within 48 business hours.</p>
+      </div>
+      <button onclick="openRFQ('','','General Quote Request')" class="bg-red-brand text-white px-8 py-3.5 rounded-full text-sm font-bold hover:bg-red-dark transition-colors cursor-pointer border-0 whitespace-nowrap">Request Wholesale Pricing</button>
+    </div>
+  </section>
+</Base>

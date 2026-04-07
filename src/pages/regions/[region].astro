@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+import { regions } from '../../data/regions.js';
+import { products } from '../../data/products.js';
+
+export async function getStaticPaths() {
+  return regions.map(r => ({
+    params: { region: r.id },
+    props: { region: r },
+  }));
+}
+
+const { region } = Astro.props;
+const featuredProducts = products.filter(p => ['fire-extinguishers','fire-alarm-systems','sprinkler-systems'].includes(p.category)).slice(0, 6);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `Fire Safety Supply House — ${region.name}`,
+  "description": `Wholesale fire protection equipment supplier serving ${region.name}, ${region.state}. ${region.fireCode}.`,
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": region.name,
+    "containedInPlace": {
+      "@type": "State",
+      "name": region.state
+    }
+  },
+  "serviceType": "Wholesale Fire Protection Equipment Supply"
+};
+---
+
+<Base
+  title={`Commercial Fire Protection Equipment in ${region.name}, ${region.stateCode} | FSSH`}
+  description={`Wholesale fire protection equipment for contractors and facilities teams in ${region.name}. ${region.fireCode}. Request contractor pricing on extinguishers, alarms, and sprinkler components.`}
+  schema={schema}
+>
+  <div class="section py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/regions/" class="hover:text-gray-700 no-underline">Regions</a>
+      <span>/</span>
+      <span class="text-gray-700">{region.name}</span>
+    </nav>
+
+    <!-- Hero -->
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">{region.stateCode} — {region.metro} Metro</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-4">Commercial Fire Protection Equipment in {region.name}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed max-w-2xl">Wholesale fire protection supplies for contractors, property managers, and facilities teams operating in {region.name}. All products meet local fire code requirements enforced by the {region.fireMarshal}.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+
+        <!-- Local Fire Code -->
+        <div class="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+          <h2 class="text-xl font-bold tracking-tight mb-3">Local Fire Code: {region.name}</h2>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Governing Code:</strong> {region.fireCode}</p>
+          <p class="text-sm text-gray-600 leading-relaxed"><strong>Authority Having Jurisdiction:</strong> {region.fireMarshal}</p>
+        </div>
+
+        <!-- NFPA Local Amendments -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Key {region.name} Fire Code Amendments</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          {region.name} enforces the base state fire code with local amendments that affect contractors and facilities teams operating in this jurisdiction. Understanding these local requirements is critical for bid preparation and project compliance.
+        </p>
+        <div class="flex flex-col gap-3 mb-8">
+          {region.nfpaAmendments.map(amendment => (
+            <div class="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-lg">
+              <div class="w-6 h-6 bg-red-brand rounded flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <p class="text-sm text-gray-700 leading-relaxed">{amendment}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Key Industries -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Key Industries in {region.name}</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          The following industries drive the majority of commercial fire protection demand in {region.name}. Each has specific NFPA compliance requirements and recurring maintenance contracts.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+          {region.keyIndustries.map(ind => (
+            <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-center">
+              <span class="text-sm font-medium text-gray-700 capitalize">{ind}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Sub-regions -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Cities & Townships in {region.name}</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          Fire protection contractors serving {region.name} typically cover the following municipalities. While the county fire marshal sets baseline requirements, individual cities may have additional local ordinances.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+          {region.townships.map(t => (
+            <a href={`/regions/${region.id}/${t.id}/`} class="p-4 bg-white border border-gray-200 rounded-lg hover:border-red-200 hover:bg-red-light transition-all no-underline group">
+              <h3 class="text-sm font-bold text-gray-900 group-hover:text-red-brand transition-colors">{t.name}</h3>
+              <p class="text-xs text-gray-400 mt-1">{region.name}, {region.stateCode}</p>
+            </a>
+          ))}
+        </div>
+
+        <!-- Products Section -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Commonly Requested Products in {region.metro}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          {featuredProducts.map(p => (
+            <div class="card flex flex-col">
+              <div class="bg-gray-50 aspect-square flex items-center justify-center p-5">
+                <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+              </div>
+              <div class="p-3 flex flex-col flex-1 gap-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-400">{p.manufacturer}</span>
+                <span class="font-mono text-xs font-medium">#{p.sku}</span>
+                <p class="text-xs text-gray-500 leading-snug flex-1 mb-2">{p.desc}</p>
+                <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc} — ${region.name}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-1.5 rounded hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request Quote</button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="sticky top-20 flex flex-col gap-5">
+          <div class="bg-red-light rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-2">Serving {region.name} Contractors</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">Request wholesale pricing on fire protection equipment for your {region.name} projects. We supply contractors, property managers, and facilities teams across {region.metro}.</p>
+            <button onclick={`openRFQ('','','${region.name} Wholesale Quote Request')`} class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">Quick Facts: {region.name}</h3>
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-start py-2 border-b border-gray-100">
+                <span class="text-xs text-gray-500">State</span>
+                <span class="text-xs font-medium text-gray-900">{region.state}</span>
+              </div>
+              <div class="flex justify-between items-start py-2 border-b border-gray-100">
+                <span class="text-xs text-gray-500">Metro Area</span>
+                <span class="text-xs font-medium text-gray-900">{region.metro}</span>
+              </div>
+              <div class="flex justify-between items-start py-2 border-b border-gray-100">
+                <span class="text-xs text-gray-500">AHJ</span>
+                <span class="text-xs font-medium text-gray-900 text-right max-w-[60%]">{region.fireMarshal}</span>
+              </div>
+              <div class="flex justify-between items-start py-2">
+                <span class="text-xs text-gray-500">Sub-regions</span>
+                <span class="text-xs font-medium text-gray-900">{region.townships.length} cities covered</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">NFPA Standards Applied</h3>
+            <div class="flex flex-col gap-2">
+              {[
+                { code: 'NFPA 10', link: '/compliance/nfpa-10/', desc: 'Portable Extinguishers' },
+                { code: 'NFPA 25', link: '/compliance/nfpa-25/', desc: 'Sprinkler ITM' },
+                { code: 'NFPA 72', link: '/compliance/nfpa-72/', desc: 'Fire Alarm Systems' },
+              ].map(s => (
+                <a href={s.link} class="flex items-center justify-between py-2 border-b border-gray-100 last:border-0 no-underline group">
+                  <span class="text-xs font-mono font-bold text-red-brand">{s.code}</span>
+                  <span class="text-xs text-gray-500 group-hover:text-gray-700">{s.desc} &rarr;</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

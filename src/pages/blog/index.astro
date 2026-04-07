@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const posts = [
+  {
+    slug: 'commercial-fire-extinguisher-inspection-guide',
+    title: 'Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires',
+    excerpt: 'A practical breakdown of NFPA 10 inspection requirements for commercial properties — what needs to happen monthly, annually, every 6 years, and every 12 years.',
+    category: 'Compliance',
+    date: 'March 2026',
+    readTime: '8 min read',
+  },
+  {
+    slug: 'property-manager-fire-inspection-checklist',
+    title: 'The Property Manager\'s Guide to Surviving an AHJ Fire Inspection',
+    excerpt: 'What to expect when the fire marshal visits, what documentation you need, and how to avoid the most common violations that trigger re-inspections and fines.',
+    category: 'Property Management',
+    date: 'March 2026',
+    readTime: '10 min read',
+  },
+  {
+    slug: 'addressable-fire-alarm-systems-commercial-buildings',
+    title: 'Why Most Commercial Buildings Over 10,000 Sq Ft Now Require Addressable Fire Alarm Systems',
+    excerpt: 'The shift from conventional to addressable fire alarm systems isn\'t just a preference — for many building types and jurisdictions, it\'s now a code requirement.',
+    category: 'Fire Alarm',
+    date: 'February 2026',
+    readTime: '7 min read',
+  },
+];
+---
+
+<Base
+  title="Fire Safety Blog | NFPA Compliance, Equipment Guides & Industry Insights"
+  description="Fire safety blog for contractors, property managers, and facility managers. NFPA compliance guides, equipment comparisons, AHJ inspection prep, and industry insights."
+>
+  <div class="section py-12">
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Blog</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-3">Fire Safety Insights</h1>
+      <p class="text-base text-gray-500 max-w-xl">NFPA compliance guides, equipment comparisons, and practical insights for fire protection contractors, property managers, and facility teams.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map(post => (
+        <a href={`/blog/${post.slug}/`} class="card p-6 no-underline group flex flex-col">
+          <div class="text-xs font-bold uppercase tracking-wider text-red-brand mb-2">{post.category}</div>
+          <h2 class="text-lg font-bold text-gray-900 group-hover:text-red-brand transition-colors mb-3 leading-snug flex-1">{post.title}</h2>
+          <p class="text-sm text-gray-500 leading-relaxed mb-4">{post.excerpt}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-gray-400">{post.date}</span>
+            <span class="text-xs text-gray-400">{post.readTime}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

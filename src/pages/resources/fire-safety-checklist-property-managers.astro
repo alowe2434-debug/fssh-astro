@@ -1,0 +1,147 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Annual Fire Safety Compliance Checklist for Property Managers"
+  description="Free annual fire safety compliance checklist for commercial property managers. Covers NFPA 10 extinguisher inspections, NFPA 25 sprinkler ITM, NFPA 72 alarm testing, exit lighting, and documentation requirements."
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/resources/" class="hover:text-gray-700 no-underline">Resources</a>
+      <span>/</span>
+      <span class="text-gray-700">PM Compliance Checklist</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Property Managers</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Annual Fire Safety Compliance Checklist for Property Managers</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">Managing fire safety compliance across a commercial or multi-family portfolio is a recurring liability. This checklist consolidates the key annual obligations under NFPA 10, 25, 72, 96, and 101 into a single review framework.</p>
+
+        <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-5 mb-8">
+          <p class="text-sm text-yellow-800"><strong>Important:</strong> This checklist is a reference guide only. Actual inspections and testing must be performed by licensed fire protection contractors. Requirements vary by jurisdiction — always verify with your local AHJ.</p>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Section 1: Fire Extinguishers (NFPA 10)</h2>
+        <div class="flex flex-col gap-2 mb-8">
+          {[
+            'Monthly visual checks performed and logged by building personnel',
+            'Annual inspection completed by a certified fire protection technician',
+            'All extinguishers tagged with current service date',
+            'Extinguishers mounted, visible, and accessible — no obstructions',
+            'Correct extinguisher types for each hazard area (ABC, Class K, CO2)',
+            'Hydrostatic testing current (required every 12 years for stored-pressure units)',
+            '6-year internal examination documented where required',
+            'Spare extinguisher inventory for immediate replacements',
+          ].map(item => (
+            <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+              <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-red-brand flex-shrink-0" />
+              <span class="text-sm text-gray-700">{item}</span>
+            </label>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Section 2: Fire Sprinkler Systems (NFPA 25)</h2>
+        <div class="flex flex-col gap-2 mb-8">
+          {[
+            'Annual main drain test completed and documented',
+            'Quarterly waterflow alarm device tests current',
+            'All control valves verified open and in correct position',
+            'Sprinkler heads visually inspected — no loading, painting, or corrosion',
+            'Inspector\'s test valve functional — alarm activates within 90 seconds',
+            'Fire pump annual performance test completed (if applicable)',
+            '5-year internal inspection documented (if applicable)',
+            'Spare sprinkler head cabinet stocked with correct heads and wrench',
+          ].map(item => (
+            <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+              <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-red-brand flex-shrink-0" />
+              <span class="text-sm text-gray-700">{item}</span>
+            </label>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Section 3: Fire Alarm Systems (NFPA 72)</h2>
+        <div class="flex flex-col gap-2 mb-8">
+          {[
+            'Annual inspection and testing of all initiating devices (detectors, pull stations)',
+            'All notification appliances tested (horns, strobes, voice evacuation)',
+            'Central station monitoring verified — transmission test documented',
+            'Battery systems tested under load — replacement documented if needed',
+            'Control panel shows no active trouble or supervisory conditions',
+            'Duct smoke detectors tested at all AHU units (if applicable)',
+            'As-built drawings current and available for AHJ review',
+            'All deficiencies from prior inspection corrected and documented',
+          ].map(item => (
+            <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+              <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-red-brand flex-shrink-0" />
+              <span class="text-sm text-gray-700">{item}</span>
+            </label>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Section 4: Exit & Emergency Lighting (NFPA 101)</h2>
+        <div class="flex flex-col gap-2 mb-8">
+          {[
+            'Monthly 30-second functional test of all emergency lighting units',
+            'Annual 90-minute full-duration test of all battery backup units',
+            'All exit signs illuminated and legible — no burned-out lamps',
+            'Emergency lighting covers all required means of egress',
+            'Photoluminescent markings present in high-rise or required areas',
+            'Remote emergency light heads functional (if applicable)',
+            'Test results logged with dates and any failed units noted',
+          ].map(item => (
+            <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+              <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-red-brand flex-shrink-0" />
+              <span class="text-sm text-gray-700">{item}</span>
+            </label>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Section 5: Documentation & Records</h2>
+        <div class="flex flex-col gap-2 mb-8">
+          {[
+            'All inspection and testing records organized by system and date',
+            'Contractor certificates of insurance on file for all service providers',
+            'AHJ fire inspection reports retained for minimum 3 years',
+            'Deficiency correction records maintained with permit numbers where required',
+            'Tenant notification procedures documented for alarm events',
+            'Emergency contact list current — fire marshal, contractor, monitoring station',
+          ].map(item => (
+            <label class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors">
+              <input type="checkbox" class="mt-0.5 w-4 h-4 rounded border-gray-300 text-red-brand flex-shrink-0" />
+              <span class="text-sm text-gray-700">{item}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="sticky top-20 flex flex-col gap-5">
+          <div class="bg-red-light rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-2">Need Wholesale Equipment?</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">We supply fire protection equipment at wholesale pricing for property managers and their service contractors.</p>
+            <button onclick="openRFQ('','','Property Manager — Compliance Equipment')" class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">Related Compliance Guides</h3>
+            <div class="flex flex-col gap-2">
+              {[
+                { title: 'NFPA 10 Guide', href: '/compliance/nfpa-10/' },
+                { title: 'NFPA 25 Guide', href: '/compliance/nfpa-25/' },
+                { title: 'NFPA 72 Guide', href: '/compliance/nfpa-72/' },
+                { title: 'All Resources', href: '/resources/' },
+              ].map(link => (
+                <a href={link.href} class="text-xs font-medium text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100 last:border-0">{link.title} &rarr;</a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

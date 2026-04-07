@@ -1,0 +1,116 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products } from '../../data/products.js';
+
+const sprinklerProducts = products.filter(p => p.category === 'sprinkler-systems');
+---
+
+<Base
+  title="NFPA 25 Compliance Guide: Sprinkler System Inspection & Testing"
+  description="Complete NFPA 25 compliance guide for water-based fire protection systems. ITM schedules, quarterly and annual testing requirements, and wholesale sprinkler components for contractors."
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/compliance/" class="hover:text-gray-700 no-underline">Compliance</a>
+      <span>/</span>
+      <span class="text-gray-700">NFPA 25</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">NFPA 25</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">ITM of Water-Based Fire Protection Systems</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">NFPA 25 establishes the minimum requirements for the inspection, testing, and maintenance (ITM) of sprinkler systems, standpipe systems, fire pumps, private fire service mains, and water storage tanks. It is the primary compliance standard for fire sprinkler contractors performing ITM work.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">NFPA 25 ITM Schedule Overview</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Frequency</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Component</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Test/Inspection</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Weekly', 'Fire Pump', 'Automatic start test — observe for unusual vibration, noise, leakage'],
+                ['Monthly', 'Waterflow Alarm', 'Test alarm activation via inspector\'s test valve'],
+                ['Quarterly', 'All Sprinkler Heads', 'Visual inspection for damage, corrosion, painting, or loading'],
+                ['Quarterly', 'Control Valves', 'Verify open/locked position, condition, accessibility'],
+                ['Annually', 'Main Drain Test', 'Flow test to verify system supply and detect obstructions'],
+                ['Annually', 'Waterflow Devices', 'Full operational test of all waterflow alarm devices'],
+                ['Every 3 Years', 'Sprinkler Heads', 'Sample testing if heads are 50+ years old'],
+                ['Every 5 Years', 'Internal Inspection', 'Internal inspection for pipe corrosion and obstruction'],
+              ].map(([freq, comp, req]) => (
+                <tr class="even:bg-gray-50">
+                  <td class="p-3 border border-gray-200 font-medium whitespace-nowrap">{freq}</td>
+                  <td class="p-3 border border-gray-200 text-gray-700">{comp}</td>
+                  <td class="p-3 border border-gray-200 text-gray-600 text-xs">{req}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Sprinkler Head Selection & Replacement</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">When replacing sprinkler heads under NFPA 25, the replacement head must match the original specifications including temperature rating, K-factor, and response type. Substituting a faster or slower response head without engineering review is a code violation.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+          {[
+            { title: 'Standard Response (SR)', desc: 'RTI > 80 (m·s)^0.5 — Used in older systems; being phased out in new construction' },
+            { title: 'Quick Response (QR)', desc: 'RTI ≤ 50 (m·s)^0.5 — Required in light hazard occupancies per NFPA 13' },
+            { title: 'ESFR (Early Suppression Fast Response)', desc: 'High K-factor heads designed for warehouse storage applications' },
+            { title: 'Residential', desc: 'Listed for use in dwelling units; not interchangeable with commercial heads' },
+          ].map(item => (
+            <div class="p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <h4 class="text-sm font-bold mb-1">{item.title}</h4>
+              <p class="text-xs text-gray-600 leading-snug">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Property Manager Obligations Under NFPA 25</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">Building owners and property managers are responsible for ensuring ITM is performed by qualified contractors on the required schedule. AHJs (Authorities Having Jurisdiction) can require documentation of all completed ITM activities during inspections.</p>
+        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+          <h4 class="text-sm font-bold text-yellow-800 mb-2">⚠️ Common Violations Found During AHJ Inspections</h4>
+          <ul class="space-y-1">
+            {[
+              'Missing or outdated inspection tags on control valves',
+              'Waterflow alarm devices not tested on quarterly schedule',
+              'Sprinkler heads installed with paint or loading obstructing spray pattern',
+              'No documentation of main drain test results',
+              'Spare sprinkler head cabinet missing required tools or replacement heads',
+            ].map(v => <li class="text-xs text-yellow-700 flex items-start gap-2"><span>▸</span>{v}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="sticky top-20">
+          <div class="bg-red-light rounded-xl p-5 mb-6">
+            <h3 class="text-sm font-bold mb-3">Sprinkler Components & ITM Supplies</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">Wholesale pricing on sprinkler heads, waterflow switches, tamper switches, and test valves for ITM contractors.</p>
+            <button onclick="openRFQ('','','NFPA 25 Sprinkler Components')" class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+          <h3 class="text-sm font-bold mb-3">Related Products</h3>
+          <div class="flex flex-col gap-3">
+            {sprinklerProducts.slice(0, 6).map(p => (
+              <div class="flex items-center gap-3 p-2 rounded-lg border border-gray-100 hover:border-red-200 transition-colors cursor-pointer" onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`}>
+                <div class="w-10 h-10 bg-gray-50 rounded flex items-center justify-center flex-shrink-0 overflow-hidden p-1">
+                  <img src={`/images/products/${p.photo}`} alt={p.sku} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-gray-700">{p.manufacturer} {p.sku}</div>
+                  <div class="text-xs text-gray-400">{p.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="/products/sprinkler-systems/" class="block text-center text-xs font-medium text-red-brand mt-3 hover:text-red-dark no-underline">View all sprinkler products &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

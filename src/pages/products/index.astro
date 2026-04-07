@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products, categories } from '../../data/products.js';
+---
+
+<Base
+  title="Fire Protection Products | Wholesale Catalog — 120 SKUs"
+  description="Browse 120 wholesale fire protection products across 12 categories. Fire extinguishers, alarm systems, sprinkler components, kitchen suppression, and more. NFPA-compliant. Request contractor pricing."
+>
+  <div class="section py-12">
+    <div class="mb-10">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Full Catalog</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-3">Fire Protection Products</h1>
+      <p class="text-base text-gray-500 max-w-xl">120 SKUs across 12 categories — all NFPA-compliant, all available for wholesale quote requests.</p>
+    </div>
+
+    <!-- Category Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {categories.map(cat => {
+        const catProducts = products.filter(p => p.category === cat.id);
+        const sampleProduct = catProducts[0];
+        return (
+          <a href={`/products/${cat.id}/`} class="card p-6 no-underline group">
+            <div class="flex items-start gap-4">
+              {sampleProduct && (
+                <div class="w-16 h-16 bg-gray-50 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden p-2">
+                  <img src={`/images/products/${sampleProduct.photo}`} alt={cat.name} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+                </div>
+              )}
+              <div class="flex-1">
+                <div class="text-xs font-bold text-red-brand mb-1">{cat.nfpa}</div>
+                <h2 class="text-base font-bold text-gray-900 group-hover:text-red-brand transition-colors mb-1">{cat.name}</h2>
+                <p class="text-xs text-gray-400">{catProducts.length} products available</p>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- All Products Grid -->
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold tracking-tight">All Products</h2>
+      <p class="text-sm text-gray-400 mt-1">Click any product to request a quote</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      {products.map(p => (
+        <div class="card flex flex-col">
+          <div class="bg-gray-50 aspect-square flex items-center justify-center p-5">
+            <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+          </div>
+          <div class="p-3 flex flex-col flex-1 gap-1">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">{p.manufacturer}</span>
+            <span class="font-mono text-xs font-medium text-gray-900">#{p.sku}</span>
+            <p class="text-xs text-gray-500 leading-snug flex-1 mb-2">{p.desc}</p>
+            <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-1.5 rounded hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request Quote</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Base>

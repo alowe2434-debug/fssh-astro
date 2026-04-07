@@ -1,0 +1,152 @@
+---
+import Base from '../../layouts/Base.astro';
+import { products } from '../../data/products.js';
+
+const alarmProducts = products.filter(p => p.category === 'fire-alarm-systems').slice(0, 4);
+---
+
+<Base
+  title="Addressable vs. Conventional Fire Alarm Systems: Comparison Guide for FMs"
+  description="Technical comparison of addressable vs conventional fire alarm systems for facility managers. Covers cost, scalability, NFPA 72 requirements, AHJ preferences, and when to upgrade."
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/resources/" class="hover:text-gray-700 no-underline">Resources</a>
+      <span>/</span>
+      <span class="text-gray-700">Addressable vs Conventional</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Facility Managers</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Addressable vs. Conventional Fire Alarm Systems</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">When evaluating a fire alarm system upgrade or new installation, the choice between addressable and conventional architecture is the most consequential decision. This guide explains the technical differences, cost implications, and NFPA 72 requirements to help facility managers make an informed decision.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">How Each System Works</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+          <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+            <h3 class="text-base font-bold mb-3">Conventional Systems</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-3">Devices are wired in groups (zones) to the control panel. When a device triggers, the panel identifies the zone but not the specific device. The responding team must physically search the zone to find the alarm source.</p>
+            <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Best For</div>
+            <p class="text-xs text-gray-600">Small buildings under 10,000 sq ft with simple floor plans and limited AHJ requirements.</p>
+          </div>
+          <div class="bg-red-light rounded-xl p-5 border border-red-200">
+            <h3 class="text-base font-bold mb-3">Addressable Systems</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-3">Every device has a unique electronic address programmed into the panel. When a device triggers, the panel displays the exact location — floor, zone, and device — in real time. Diagnostics are continuous and automatic.</p>
+            <div class="text-xs font-bold uppercase tracking-wider text-red-brand mb-2">Best For</div>
+            <p class="text-xs text-gray-600">Buildings over 10,000 sq ft, high-rises, healthcare, and any occupancy requiring precise event location.</p>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Head-to-Head Comparison</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-900 text-white">
+                <th class="text-left p-3 font-bold">Factor</th>
+                <th class="text-left p-3 font-bold">Conventional</th>
+                <th class="text-left p-3 font-bold">Addressable</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Device Identification', 'Zone only', 'Exact device location'],
+                ['Upfront Cost', 'Lower', 'Higher (20–40% more)'],
+                ['Installation Complexity', 'Simpler wiring', 'Requires programming'],
+                ['Scalability', 'Limited — rewiring needed', 'Easily expandable on same loop'],
+                ['Diagnostics', 'Alarm/fault only', 'Real-time device status'],
+                ['Fault Tolerance', 'Zone goes offline on fault', 'Most faults don\'t disable full loop'],
+                ['AHJ Requirements', 'Accepted in most small occupancies', 'Required by many AHJs for large buildings'],
+                ['Maintenance', 'Simpler troubleshooting', 'Faster fault location'],
+                ['Life Cycle Cost', 'Higher (harder to expand)', 'Lower long-term'],
+                ['NFPA 72 Compliance', 'Compliant for eligible occupancies', 'Compliant — preferred by most AHJs'],
+              ].map(([factor, conv, addr], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <td class="p-3 border border-gray-200 font-medium">{factor}</td>
+                  <td class="p-3 border border-gray-200 text-gray-600">{conv}</td>
+                  <td class="p-3 border border-gray-200 text-gray-700 font-medium">{addr}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">When Your AHJ Will Require Addressable</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">While NFPA 72 doesn't mandate addressable systems for all occupancies, many local AHJs do. Common triggers include:</p>
+        <div class="flex flex-col gap-3 mb-8">
+          {[
+            'Buildings over 10,000 sq ft gross floor area (common in LA, Chicago, NYC)',
+            'High-rise buildings (generally defined as over 55 feet or 75 feet depending on jurisdiction)',
+            'Healthcare facilities (hospitals, nursing homes, assisted living)',
+            'Any building requiring voice evacuation under NFPA 72 Chapter 24',
+            'Buildings with phased or selective evacuation plans',
+            'Tenant improvement projects in existing addressable buildings',
+          ].map(item => (
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <span class="text-red-brand font-bold flex-shrink-0">▸</span>
+              <span class="text-sm text-gray-700">{item}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Upgrade Decision Framework for Facility Managers</h2>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">Use this framework when evaluating whether to upgrade an existing conventional system:</p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8">
+          <ol class="space-y-3">
+            {[
+              { step: '1', text: 'Check your AHJ requirements — call your local fire marshal\'s office and confirm whether addressable is required for your occupancy type and size.' },
+              { step: '2', text: 'Assess system age — conventional systems over 15–20 years old are approaching end-of-life. Upgrade cost at replacement is similar to an addressable system.' },
+              { step: '3', text: 'Evaluate your expansion plans — if your facility will grow or be reconfigured, addressable systems scale at a fraction of the cost of rewiring conventional zones.' },
+              { step: '4', text: 'Calculate life-cycle cost — addressable systems typically pay back the premium within 7–10 years through reduced service costs and fewer false alarm dispatches.' },
+              { step: '5', text: 'Get bids from licensed contractors — require them to specify the exact panel model, addressable protocol (proprietary vs open), and NFPA 72 documentation package.' },
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">{item.step}</span>
+                <span class="text-sm text-blue-800 leading-relaxed">{item.text}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <!-- Products -->
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Wholesale Fire Alarm System Components</h2>
+        <div class="grid grid-cols-2 gap-4">
+          {alarmProducts.map(p => (
+            <div class="card flex flex-col">
+              <div class="bg-gray-50 aspect-square flex items-center justify-center p-5">
+                <img src={`/images/products/${p.photo}`} alt={`${p.manufacturer} ${p.sku}`} class="w-full h-full object-contain mix-blend-multiply" loading="lazy" />
+              </div>
+              <div class="p-3 flex flex-col flex-1 gap-1">
+                <span class="text-xs font-bold uppercase text-gray-400">{p.manufacturer}</span>
+                <span class="font-mono text-xs font-medium">#{p.sku}</span>
+                <p class="text-xs text-gray-500 flex-1 mb-2">{p.desc}</p>
+                <button onclick={`openRFQ('${p.manufacturer}','${p.sku}','${p.desc}')`} class="w-full bg-red-light text-red-brand text-xs font-bold py-1.5 rounded hover:bg-red-brand hover:text-white transition-colors cursor-pointer border-0">Request Quote</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div>
+        <div class="sticky top-20 flex flex-col gap-5">
+          <div class="bg-red-light rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-2">Fire Alarm System Components</h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">Wholesale pricing on panels, detectors, pull stations, and notification appliances for contractors and facilities teams.</p>
+            <button onclick="openRFQ('','','Fire Alarm System — Wholesale Quote')" class="btn-primary w-full text-xs">Request Wholesale Pricing</button>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-xl p-5">
+            <h3 class="text-sm font-bold mb-3">Related Guides</h3>
+            <div class="flex flex-col gap-2">
+              <a href="/compliance/nfpa-72/" class="text-xs font-medium text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">NFPA 72 Compliance Guide &rarr;</a>
+              <a href="/resources/fire-safety-checklist-property-managers/" class="text-xs font-medium text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">PM Compliance Checklist &rarr;</a>
+              <a href="/products/fire-alarm-systems/" class="text-xs font-medium text-gray-600 hover:text-red-brand no-underline py-1.5">All Alarm Products &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
