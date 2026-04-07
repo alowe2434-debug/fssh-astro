@@ -1,18 +1,16 @@
 {
   "name": "fssh-astro",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/tailwind": "^6.0.2",
-    "astro": "^6.1.4",
-    "tailwindcss": "^3.4.19"
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.4",
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17"
   }
 }
