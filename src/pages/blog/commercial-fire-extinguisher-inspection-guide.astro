@@ -6,11 +6,53 @@ const extProducts = products.filter(p => p.category === 'fire-extinguishers').sl
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires",
-  "description": "A practical breakdown of NFPA 10 inspection requirements for commercial fire extinguishers.",
-  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
-  "datePublished": "2026-03-15",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Commercial Fire Extinguisher Inspection: What NFPA 10 Actually Requires",
+      "description": "A practical breakdown of NFPA 10 inspection requirements for commercial fire extinguishers.",
+      "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "datePublished": "2026-03-15",
+      "dateModified": "2026-04-09"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How often do fire extinguishers need to be inspected?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NFPA 10 requires four inspection intervals: monthly visual inspections (by building staff), annual professional inspections (by certified technician), 6-year internal examinations, and 12-year hydrostatic testing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can building staff perform fire extinguisher inspections?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, monthly visual inspections can be performed by trained building personnel. However, annual inspections, 6-year internal examinations, and 12-year hydrostatic tests must be performed by a certified fire protection technician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if a fire extinguisher fails hydrostatic testing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Units that fail hydrostatic pressure testing must be condemned and destroyed. They cannot be returned to service. The cylinder must be replaced with a new unit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the most common NFPA 10 violations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common violations include expired inspection tags, obstructed extinguisher locations, wrong extinguisher type for the hazard class, pressure gauge in the red zone, missing tamper seals, and insufficient coverage based on travel distance requirements."
+          }
+        }
+      ]
+    }
+  ]
 };
 ---
 
@@ -115,7 +157,8 @@ const schema = {
             <div class="flex flex-col gap-2">
               <a href="/compliance/nfpa-10/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">NFPA 10 Full Guide &rarr;</a>
               <a href="/compliance/nfpa-25/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">NFPA 25 Sprinkler ITM &rarr;</a>
-              <a href="/resources/fire-safety-checklist-property-managers/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5">PM Compliance Checklist &rarr;</a>
+              <a href="/resources/fire-safety-checklist-property-managers/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5 border-b border-gray-100">PM Compliance Checklist &rarr;</a>
+              <a href="/blog/fire-extinguisher-inspection-arlington-tx/" class="text-xs text-gray-600 hover:text-red-brand no-underline py-1.5">Arlington TX Inspection Guide &rarr;</a>
             </div>
           </div>
         </div>
