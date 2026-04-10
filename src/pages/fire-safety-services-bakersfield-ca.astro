@@ -1,10 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 
-const city = 'Arlington';
-const state = 'TX';
-const stateFull = 'Texas';
-const slug = 'arlington-tx';
+const city = 'Bakersfield';
+const state = 'CA';
+const stateFull = 'California';
+const slug = 'bakersfield-ca';
 
 const schema = {
   "@context": "https://schema.org",
@@ -48,7 +48,7 @@ const schema = {
           "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `Commercial buildings in ${city}, ${stateFull} must comply with the International Fire Code as adopted by the City of ${city}. This includes maintaining inspected fire extinguishers (NFPA 10), operational fire alarm systems (NFPA 72), fire sprinkler systems where required (NFPA 13/25), and commercial kitchen fire suppression systems (NFPA 96). The ${city} Fire Department Fire Prevention Division enforces these requirements through routine inspections.`
+            "text": `Commercial buildings in ${city}, ${stateFull} must comply with the California Fire Code (Title 24, Part 9), which adopts the International Fire Code with California amendments. This includes maintaining inspected fire extinguishers (NFPA 10), operational fire alarm systems with UL-listed monitoring (NFPA 72), fire sprinkler systems where required (NFPA 13/25), and commercial kitchen fire suppression systems (NFPA 96). The Bakersfield Fire Department Fire Prevention Bureau enforces these requirements through routine inspections.`
           }
         },
         {
@@ -56,7 +56,7 @@ const schema = {
           "name": `How often are fire inspections required in ${city}, ${state}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `The ${city} Fire Department conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional inspections per NFPA 10. Fire alarm systems need annual testing per NFPA 72. Fire sprinkler systems require quarterly, semi-annual, and annual inspections per NFPA 25. Commercial kitchen suppression systems need semi-annual inspections per NFPA 96.`
+            "text": `The Bakersfield Fire Department conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional inspections per NFPA 10. Fire alarm systems need annual testing per NFPA 72. Fire sprinkler systems require quarterly, semi-annual, and annual inspections per NFPA 25. Commercial kitchen suppression systems need semi-annual inspections per NFPA 96.`
           }
         },
         {
@@ -64,7 +64,7 @@ const schema = {
           "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `Fire code violations in ${city} can result in fines starting at $500 per violation per day for uncorrected issues. The fire marshal can issue stop-work orders or vacate orders for serious safety deficiencies. Property owners typically receive a 30-day correction period for first-time violations. Repeat violations or life-safety hazards face immediate enforcement action.`
+            "text": `Fire code violations in ${city} can result in substantial fines under California Health and Safety Code. The Bakersfield Fire Department can issue citations, stop-work orders, or vacate orders for serious safety deficiencies. Property owners typically receive a correction period for first-time violations. Repeat violations or life-safety hazards face immediate enforcement action and escalated penalties.`
           }
         },
         {
@@ -80,7 +80,7 @@ const schema = {
           "name": `Who enforces fire codes in ${city}, ${state}?`,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": `The ${city} Fire Department Fire Prevention Division enforces fire codes within ${city} city limits. The division handles plan reviews for new construction, routine inspections of existing commercial properties, complaint investigations, and fire code enforcement actions. The Texas State Fire Marshal's Office oversees licensing of fire protection service companies statewide.`
+            "text": `The Bakersfield Fire Department Fire Prevention Bureau enforces fire codes within the city limits. The Kern County Fire Department handles unincorporated areas of Kern County. The California State Fire Marshal (CAL FIRE OSFM) oversees licensing of fire protection service companies statewide and enforces state fire safety regulations.`
           }
         }
       ]
@@ -92,14 +92,14 @@ const services = [
   {
     title: 'Fire Extinguisher Inspection & Service',
     icon: '🧯',
-    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service performed by TDI-licensed technicians.`,
+    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service performed by California-certified technicians.`,
     nfpa: 'NFPA 10',
     keywords: `fire extinguisher inspection ${city}, fire extinguisher service ${city} ${state}, fire extinguisher recharge ${city}`
   },
   {
     title: 'Fire Alarm System Installation & Testing',
     icon: '🔔',
-    desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, pull stations, smoke detectors, horn/strobes, and monitoring connections. Full compliance with NFPA 72 and local AHJ requirements.`,
+    desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, pull stations, smoke detectors, horn/strobes, and UL-listed central station monitoring. Full compliance with NFPA 72, California Fire Code, and local AHJ requirements.`,
     nfpa: 'NFPA 72',
     keywords: `fire alarm installation ${city}, fire alarm testing ${city} ${state}, fire alarm companies ${city}`
   },
@@ -120,8 +120,8 @@ const services = [
   {
     title: 'Fire Code Compliance Consulting',
     icon: '📋',
-    desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. We help property managers, building owners, and facility teams prepare for Arlington Fire Department inspections and resolve existing violations quickly.`,
-    nfpa: 'IFC / NFPA 101',
+    desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. We help property managers, building owners, and facility teams prepare for Bakersfield Fire Department inspections and resolve existing violations quickly.`,
+    nfpa: 'California Fire Code / NFPA 101',
     keywords: `fire code compliance ${city}, fire safety inspection ${city} ${state}, fire marshal inspection ${city}`
   }
 ];
@@ -141,9 +141,9 @@ const services = [
         <span class="text-gray-700">Fire Safety Services in {city}, {state}</span>
       </nav>
       <div class="max-w-3xl">
-        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city}, {stateFull} & Tarrant County</div>
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city}, {stateFull} & Kern County</div>
         <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
-        <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and fire code compliance consulting — all performed by licensed professionals to keep your building compliant with Arlington Fire Department requirements and NFPA standards.</p>
+        <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and fire code compliance consulting — all performed by licensed professionals to keep your building compliant with Bakersfield Fire Department requirements, California Fire Code (Title 24, Part 9), and NFPA standards.</p>
         <div class="flex flex-wrap gap-3">
           <button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button>
           <a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a>
@@ -155,7 +155,7 @@ const services = [
   <!-- URGENCY BANNER -->
   <section class="bg-red-brand text-white py-4">
     <div class="section text-center">
-      <p class="text-sm font-medium">⚠️ Don't wait for a violation. The {city} Fire Department conducts routine inspections of all commercial properties. Non-compliant buildings face fines starting at $500/day per violation.</p>
+      <p class="text-sm font-medium">⚠️ Don't wait for a violation. The Bakersfield Fire Department conducts routine inspections of all commercial properties. Non-compliant buildings face substantial fines under California Health and Safety Code.</p>
     </div>
   </section>
 
@@ -164,7 +164,7 @@ const services = [
     <div class="section">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2>
-        <p class="text-base text-gray-500 max-w-2xl mx-auto">From fire extinguisher inspections to full fire alarm installations, we provide every fire safety service your {city} property needs to stay compliant.</p>
+        <p class="text-base text-gray-500 max-w-2xl mx-auto">From fire extinguisher inspections to full fire alarm installations, we provide every fire safety service your {city} property needs to stay compliant with California Fire Code requirements.</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map(s => (
@@ -188,26 +188,29 @@ const services = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of {city} adopts the International Fire Code (IFC) with local amendments. The {city} Fire Department's Fire Prevention Division is responsible for enforcing fire codes across all commercial properties within city limits. This includes plan review for new construction, routine inspections of existing buildings, and enforcement actions for violations.</p>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s continued growth — from the Entertainment District around AT&T Stadium and Globe Life Field to new mixed-use developments in Viridian and along the I-20 corridor — means new commercial properties are coming online regularly. Every one of them needs fire protection systems designed, installed, and maintained in compliance with NFPA standards.</p>
-          <p class="text-sm text-gray-600 leading-relaxed mb-4">Key NFPA standards that apply to {city} commercial properties include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a> (portable fire extinguishers), <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a> (fire alarm systems), <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a> (water-based fire protection systems), and NFPA 96 (commercial cooking operations). The specific requirements depend on your building's occupancy type, size, and hazard classification.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">{city} and Kern County enforce the California Fire Code (Title 24, Part 9), which adopts the International Fire Code with California-specific amendments. The Bakersfield Fire Department Fire Prevention Bureau is responsible for enforcing fire codes across all commercial properties within city limits. This includes plan review for new construction, routine inspections of existing buildings, and enforcement actions for violations.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Kern County's economy spans agriculture, oil and gas production, manufacturing, and warehouse distribution. New commercial properties are coming online regularly across the Highway 99 corridor, the Rosedale area, and the Panama Lane commercial corridor. Every property — from agricultural processing facilities to industrial warehouses to office parks — needs fire protection systems designed, installed, and maintained in compliance with NFPA standards and California Fire Code requirements.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Key NFPA standards that apply to {city} commercial properties include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a> (portable fire extinguishers), <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a> (fire alarm systems), <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a> (water-based fire protection systems), and NFPA 96 (commercial cooking operations). California also requires fire alarm systems to be monitored by a UL-listed central station. The specific requirements depend on your building's occupancy type, size, and hazard classification under the California Fire Code.</p>
         </div>
         <div>
           <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
-            <h3 class="text-lg font-bold mb-4">Arlington Fire Prevention Contacts</h3>
+            <h3 class="text-lg font-bold mb-4">Bakersfield Fire Prevention Contacts</h3>
             <div class="flex flex-col gap-3">
               <div>
-                <p class="text-sm font-bold text-gray-800">{city} Fire Department — Fire Prevention Division</p>
-                <p class="text-xs text-gray-600">515 W. Division Street, {city}, {state} 76011</p>
-                <p class="text-xs text-gray-600">Phone: (817) 459-5525</p>
+                <p class="text-sm font-bold text-gray-800">Bakersfield Fire Department — Fire Prevention Bureau</p>
+                <p class="text-xs text-gray-600">2101 H Street, {city}, {state} 93301</p>
+                <p class="text-xs text-gray-600">Phone: (661) 326-3911</p>
               </div>
               <div class="border-t border-gray-100 pt-3">
-                <p class="text-sm font-bold text-gray-800">Texas State Fire Marshal's Office</p>
-                <p class="text-xs text-gray-600">Licensing & Complaints: (512) 676-6000</p>
+                <p class="text-sm font-bold text-gray-800">Kern County Fire Department</p>
+                <p class="text-xs text-gray-600">5642 Victor Street, {city}, {state} 93308</p>
+                <p class="text-xs text-gray-600">Phone: (661) 391-7000</p>
+                <p class="text-xs text-gray-600">Serves unincorporated areas of Kern County</p>
               </div>
               <div class="border-t border-gray-100 pt-3">
-                <p class="text-sm font-bold text-gray-800">Tarrant County Fire Marshal</p>
-                <p class="text-xs text-gray-600">Serves unincorporated areas of Tarrant County</p>
+                <p class="text-sm font-bold text-gray-800">California State Fire Marshal</p>
+                <p class="text-xs text-gray-600">(CAL FIRE OSFM)</p>
+                <p class="text-xs text-gray-600">Phone: (916) 568-2500</p>
               </div>
             </div>
           </div>
@@ -245,7 +248,7 @@ const services = [
   <section class="py-16">
     <div class="section">
       <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
-      <p class="text-base text-gray-500 max-w-2xl mx-auto text-center mb-10">From the Entertainment District to the Great Southwest Industrial Park, we provide fire safety services for every type of commercial property in {city}.</p>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto text-center mb-10">From the Highway 99 corridor to the Panama Lane commercial district to the Bakersfield Business Park, we provide fire safety services for every type of commercial property in Kern County.</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
           'Restaurants & Food Service',
@@ -254,10 +257,10 @@ const services = [
           'Retail & Strip Centers',
           'Warehouses & Distribution',
           'Manufacturing Facilities',
-          'Multi-Family Residential',
+          'Agricultural Processing',
           'Healthcare & Medical',
           'Schools & Education',
-          'Auto Repair & Service',
+          'Oil & Gas Operations',
           'Houses of Worship',
           'Mixed-Use Developments'
         ].map(type => (
@@ -276,23 +279,23 @@ const services = [
       <div class="flex flex-col gap-4">
         <div class="bg-white rounded-xl p-5 border border-gray-200">
           <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings must comply with the International Fire Code as adopted by {city}. This includes fire extinguishers (NFPA 10), fire alarm systems (NFPA 72), sprinkler systems where required (NFPA 13/25), and kitchen suppression systems for commercial cooking (NFPA 96).</p>
+          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings must comply with the California Fire Code (Title 24, Part 9), which adopts the International Fire Code with California amendments. This includes fire extinguishers (NFPA 10), fire alarm systems with UL-listed monitoring (NFPA 72), sprinkler systems where required (NFPA 13/25), and kitchen suppression systems for commercial cooking (NFPA 96).</p>
         </div>
         <div class="bg-white rounded-xl p-5 border border-gray-200">
           <h3 class="text-sm font-bold mb-2">How often are fire inspections required in {city}?</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">The {city} Fire Department conducts annual inspections of most commercial properties. Individual fire protection systems have their own inspection frequencies: fire extinguishers monthly/annually, fire alarms annually, sprinklers quarterly+, and kitchen suppression semi-annually.</p>
+          <p class="text-sm text-gray-600 leading-relaxed">The Bakersfield Fire Department conducts annual inspections of most commercial properties. Individual fire protection systems have their own inspection frequencies: fire extinguishers monthly/annually, fire alarms annually, sprinklers quarterly+, and kitchen suppression semi-annually. Kern County Fire Department handles unincorporated areas with similar requirements.</p>
         </div>
         <div class="bg-white rounded-xl p-5 border border-gray-200">
           <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}?</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Fines start at $500 per violation per day for uncorrected issues. First-time violators typically get 30 days to correct. The fire marshal can issue stop-work or vacate orders for serious deficiencies.</p>
+          <p class="text-sm text-gray-600 leading-relaxed">Fire code violations in California can result in substantial fines under the Health and Safety Code. The Bakersfield Fire Department can issue citations, stop-work orders, or vacate orders for serious safety deficiencies. First-time violators typically receive a correction period, while repeat violations face escalated penalties.</p>
         </div>
         <div class="bg-white rounded-xl p-5 border border-gray-200">
           <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking operations producing grease-laden vapors need an automatic wet chemical fire suppression system per NFPA 96, plus Class K fire extinguishers within 30 feet of cooking equipment. Systems must be inspected semi-annually.</p>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking operations producing grease-laden vapors need an automatic wet chemical fire suppression system per NFPA 96, plus Class K fire extinguishers within 30 feet of cooking equipment. Systems must be inspected semi-annually by a licensed technician.</p>
         </div>
         <div class="bg-white rounded-xl p-5 border border-gray-200">
           <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">The {city} Fire Department Fire Prevention Division handles all fire code enforcement within city limits, including plan reviews, inspections, and enforcement actions. The Texas State Fire Marshal's Office oversees licensing of fire protection service companies.</p>
+          <p class="text-sm text-gray-600 leading-relaxed">The Bakersfield Fire Department Fire Prevention Bureau handles all fire code enforcement within city limits. The Kern County Fire Department enforces codes in unincorporated areas. The California State Fire Marshal (CAL FIRE OSFM) oversees licensing of fire protection service companies statewide and state-level fire safety regulations.</p>
         </div>
       </div>
     </div>
@@ -302,7 +305,7 @@ const services = [
   <section class="py-16">
     <div class="section text-center max-w-2xl">
       <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
-      <p class="text-base text-gray-500 mb-6">Don't wait for the {city} Fire Department to find violations. Get ahead of compliance requirements with a comprehensive fire safety assessment of your property.</p>
+      <p class="text-base text-gray-500 mb-6">Don't wait for the Bakersfield Fire Department to find violations. Get ahead of compliance requirements with a comprehensive fire safety assessment of your property.</p>
       <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
       <p class="text-xs text-gray-400 mt-3">Or email us directly: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
     </div>
@@ -313,9 +316,9 @@ const services = [
     <div class="section">
       <h3 class="text-lg font-bold mb-4">Related Resources</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <a href="/blog/fire-extinguisher-inspection-arlington-tx/" class="card p-4 no-underline group">
+        <a href="/blog/fire-alarm-installation-bakersfield-ca/" class="card p-4 no-underline group">
           <span class="text-xs font-bold text-red-brand">Blog</span>
-          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Extinguisher Inspection in {city}, TX: Complete Guide</p>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Alarm Installation in {city}, CA: Complete Guide</p>
         </a>
         <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="card p-4 no-underline group">
           <span class="text-xs font-bold text-red-brand">Compliance</span>
@@ -324,10 +327,6 @@ const services = [
         <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group">
           <span class="text-xs font-bold text-red-brand">Resources</span>
           <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p>
-        </a>
-        <a href="/fire-safety-services-bakersfield-ca/" class="card p-4 no-underline group">
-          <span class="text-xs font-bold text-red-brand">City</span>
-          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Bakersfield, CA</p>
         </a>
       </div>
     </div>
