@@ -1,0 +1,319 @@
+---
+import Base from '../layouts/Base.astro';
+
+const city = 'Tampa';
+const state = 'FL';
+const stateFull = 'Florida';
+const slug = 'tampa-fl';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": `Fire Safety Supply House — ${city}, ${state}`,
+      "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
+      "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
+      "areaServed": {
+        "@type": "City",
+        "name": city,
+        "containedInPlace": { "@type": "State", "name": stateFull }
+      },
+      "serviceType": [
+        "Fire Extinguisher Inspection",
+        "Fire Alarm Installation",
+        "Fire Sprinkler Installation",
+        "Fire Suppression System Installation",
+        "Fire Code Compliance Consulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "quotes@firesafetysupplyhouse.com"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": `Fire Safety Services in ${city}, ${state}`,
+      "provider": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "areaServed": { "@type": "City", "name": city },
+      "serviceType": "Fire Protection Services",
+      "description": `Complete fire safety services for commercial properties in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, fire suppression, and fire code compliance consulting.`
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Commercial buildings in ${city}, ${stateFull} must comply with the Florida Fire Prevention Code (7th Edition), which adopts the International Fire Code with Florida amendments. This includes maintaining inspected fire extinguishers (NFPA 10), operational fire alarm systems with UL-listed monitoring (NFPA 72), fire sprinkler systems where required (NFPA 13/25), and commercial kitchen fire suppression systems (NFPA 96). The City of Tampa Fire Rescue Fire Prevention Bureau enforces these requirements through routine inspections and plan reviews.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How often are fire inspections required in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The City of Tampa Fire Rescue conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional inspections per NFPA 10. Fire alarm systems need annual testing per NFPA 72. Fire sprinkler systems require quarterly, semi-annual, and annual inspections per NFPA 25. Commercial kitchen suppression systems need semi-annual inspections per NFPA 96. Tampa also requires fire watch provisions when systems are impaired.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Fire code violations in ${city} can result in fines under Florida Statute 633 and the Florida Fire Prevention Code. The City of Tampa Fire Rescue can issue citations, stop-work orders, or vacate orders for serious safety deficiencies. Repeat violations or life-safety hazards face immediate enforcement action. Tampa uses a progressive enforcement model — first-time violations typically receive a correction period, but critical life safety deficiencies (inoperable sprinkler systems, blocked exits, missing fire alarm monitoring) may trigger immediate action.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Do restaurants in ${city} need special fire suppression systems?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes. All commercial cooking operations in ${city} that produce grease-laden vapors must have an automatic fire suppression system (typically a wet chemical hood system) per NFPA 96. This applies to restaurants, hotel kitchens, hospital cafeterias, school kitchens, and food trucks operating within Tampa city limits. These systems must be inspected and serviced semi-annually by a Florida-licensed technician. Class K fire extinguishers are also required within 30 feet of cooking equipment.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Who enforces fire codes in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The City of Tampa Fire Rescue Fire Prevention Bureau enforces fire codes within Tampa city limits. Hillsborough County Fire Rescue handles unincorporated areas of Hillsborough County. The Florida State Fire Marshal (Division of State Fire Marshal under CFO) oversees licensing of fire protection service companies statewide and enforces the Florida Fire Prevention Code. All fire protection contractors working in Tampa must hold active State of Florida licenses.`
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const services = [
+  {
+    title: 'Fire Extinguisher Inspection & Service',
+    icon: '🧯',
+    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service performed by Florida-licensed fire protection technicians.`,
+    nfpa: 'NFPA 10',
+    keywords: `fire extinguisher inspection ${city}, fire extinguisher service ${city} ${state}, fire extinguisher recharge ${city}`
+  },
+  {
+    title: 'Fire Alarm System Installation & Testing',
+    icon: '🔔',
+    desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, pull stations, smoke detectors, horn/strobes, and UL-listed central station monitoring. Full compliance with NFPA 72, Florida Fire Prevention Code, and City of Tampa Fire Rescue requirements.`,
+    nfpa: 'NFPA 72',
+    keywords: `fire alarm installation ${city}, fire alarm testing ${city} ${state}, fire alarm companies ${city}`
+  },
+  {
+    title: 'Fire Sprinkler System Installation & Inspection',
+    icon: '💧',
+    desc: `Fire sprinkler system design, installation, and inspection for new construction and retrofit projects in ${city}. Wet, dry, pre-action, and deluge systems. Quarterly, semi-annual, and annual inspections per NFPA 25. Five-year internal pipe inspections and obstruction investigations. Tampa's warm climate makes wet pipe systems ideal for most commercial applications.`,
+    nfpa: 'NFPA 13 / NFPA 25',
+    keywords: `fire sprinkler installation ${city}, fire sprinkler inspection ${city} ${state}, sprinkler system service ${city}`
+  },
+  {
+    title: 'Commercial Kitchen Fire Suppression',
+    icon: '🍳',
+    desc: `Wet chemical fire suppression systems for commercial kitchens, restaurants, and food service operations in ${city}. Design, installation, semi-annual inspection, and recharge services. Ansul, Amerex, and Kidde system certified technicians. Required for all commercial cooking operations per NFPA 96 and enforced by Tampa Fire Rescue.`,
+    nfpa: 'NFPA 96',
+    keywords: `commercial kitchen fire suppression ${city}, restaurant fire suppression ${city} ${state}, ansul system ${city}`
+  },
+  {
+    title: 'Fire Code Compliance Consulting',
+    icon: '📋',
+    desc: `Fire code compliance audits, remediation planning, and AHJ liaison services for ${city} commercial properties. Pre-inspection preparation, violation remediation, certificate of occupancy support, and ongoing compliance management. We work directly with the City of Tampa Fire Rescue Fire Prevention Bureau on your behalf.`,
+    nfpa: 'NFPA 1 / Florida Fire Prevention Code',
+    keywords: `fire code compliance ${city}, fire safety inspection ${city} ${state}, fire marshal inspection ${city}`
+  }
+];
+---
+
+<Base
+  title={`Fire Safety Services ${city}, ${state} | Inspection, Installation & Compliance`}
+  description={`Fire safety services in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, kitchen suppression, and fire code compliance. Licensed Florida contractors.`}
+  schema={schema}
+>
+  <!-- Hero -->
+  <div class="bg-gray-50 border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Fire Safety Services</div>
+          <h1 class="text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-tight">Fire Safety Services in {city}, {stateFull}</h1>
+          <p class="text-lg text-gray-500 leading-relaxed mb-6">Licensed fire protection services for commercial properties in {city}, {state}. Fire extinguisher inspection, fire alarm installation, fire sprinkler systems, kitchen suppression, and fire code compliance consulting — all performed by Florida-licensed contractors to NFPA standards.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick={`openRFQ('','','Fire Safety Services — ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection →</button>
+            <a href="mailto:quotes@firesafetysupplyhouse.com" class="btn-secondary text-sm text-center">Contact Us</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-4">Don't Wait for a Violation</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of Tampa Fire Rescue Fire Prevention Bureau conducts routine fire inspections of all commercial properties. Non-compliant buildings face citations, fines, and potential occupancy restrictions. Tampa is the lightning capital of the US — fire protection isn't optional here.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire extinguishers must be inspected annually per NFPA 10</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire alarm systems require annual testing per NFPA 72</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Sprinkler systems need quarterly + annual inspections per NFPA 25</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Kitchen suppression requires semi-annual service per NFPA 96</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Our Services</div>
+      <h2 class="text-3xl font-bold tracking-tight mb-3">Complete Fire Protection for {city} Commercial Properties</h2>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto">Every service we provide in {city} is performed by Florida-licensed fire protection contractors to current NFPA standards and enforced by the City of Tampa Fire Rescue Fire Prevention Bureau.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(service => (
+        <div class="card p-6 flex flex-col">
+          <div class="text-3xl mb-3">{service.icon}</div>
+          <h3 class="text-lg font-bold mb-2">{service.title}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3 flex-1">{service.desc}</p>
+          <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+            <span class="text-xs font-bold text-red-brand">{service.nfpa}</span>
+            <button onclick={`openRFQ('','','${service.title} — ${city}, ${state}')`} class="text-xs font-bold text-gray-400 hover:text-red-brand transition-colors cursor-pointer bg-transparent border-0">Get Quote →</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- City-Specific Content -->
+  <div class="bg-gray-50 border-t border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Fire Code Compliance in {city}, {stateFull}</h2>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Tampa's fire code enforcement is managed by the City of Tampa Fire Rescue Fire Prevention Bureau for properties within city limits and Hillsborough County Fire Rescue for unincorporated areas. Tampa adopts the Florida Fire Prevention Code (7th Edition), which incorporates the International Fire Code with Florida-specific amendments, plus all applicable NFPA standards.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Tampa's commercial real estate market is one of the fastest-growing in the Southeast. Major development corridors include Water Street Tampa, Westshore Business District, Channelside, Ybor City, and the Westchase/Citrus Park area. The City of Tampa Fire Prevention Bureau reviews every commercial construction and renovation permit for fire protection compliance, and enforcement has intensified as development density increases.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Tampa-Specific Fire Safety Considerations</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Tampa has unique fire safety challenges that affect commercial property compliance:</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Lightning risk.</strong> Tampa is the lightning capital of the United States. Lightning strikes cause more fires per capita in the Tampa Bay area than almost any other metro area in the country. Buildings without adequate fire detection and suppression systems are at elevated risk, and Tampa Fire Rescue factors lightning exposure into their risk assessments during inspections.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Hurricane preparedness.</strong> Fire protection systems must remain operational during and after hurricanes. NFPA 25 requires fire sprinkler systems to be inspected after any significant weather event. Tampa building owners should have post-storm inspection protocols in place with their fire protection contractor, as impaired fire protection systems during post-hurricane recovery periods represent a critical vulnerability.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>High-rise development.</strong> Tampa's downtown and Water Street districts include numerous high-rise buildings (over 75 feet), which trigger enhanced fire protection requirements under the Florida Fire Prevention Code. High-rise buildings require: standpipe systems, fire pumps, emergency voice/alarm communication systems, fire command centers, and smoke control systems — all in addition to standard sprinkler and fire alarm requirements.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Port and industrial facilities.</strong> The Port of Tampa Bay is the largest port in Florida and handles significant volumes of hazardous materials. Industrial facilities near the port and along the I-4 and I-75 corridors face enhanced fire protection requirements including specialized suppression systems, hazmat-rated detection, and emergency response planning coordination with Tampa Fire Rescue.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Florida State Fire Marshal Requirements</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">All fire protection contractors working in Tampa must hold active licenses issued by the Florida Division of State Fire Marshal. Florida Statute 633 governs fire protection system contractor licensing, and the Division of State Fire Marshal conducts licensing examinations, issues certificates, and investigates complaints. Building owners should always verify contractor licensing before authorizing any fire protection work — using an unlicensed contractor is a violation that can result in fines and project shutdowns.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Florida requires specific licenses for different fire protection disciplines: Fire Protection System Contractor I (fire sprinkler systems), Fire Protection System Contractor II (pre-engineered systems and portable equipment), Fire Protection System Contractor III (fire alarm systems), Fire Protection System Contractor IV (special hazards systems), and Fire Protection System Contractor V (water mist systems). Make sure your contractor holds the correct license classification for the work being performed.</p>
+        </div>
+
+        <div>
+          <div class="sticky top-[80px] space-y-6">
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Tampa Fire Safety Contacts</div>
+              <ul class="space-y-3">
+                <li>
+                  <div class="text-xs font-bold text-gray-900">City of Tampa Fire Rescue</div>
+                  <div class="text-xs text-gray-500">Fire Prevention Bureau</div>
+                  <div class="text-xs text-gray-500">306 E. Jackson St, Tampa, FL 33602</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Hillsborough County Fire Rescue</div>
+                  <div class="text-xs text-gray-500">Fire Prevention Division</div>
+                  <div class="text-xs text-gray-500">(Unincorporated Hillsborough County)</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Florida State Fire Marshal</div>
+                  <div class="text-xs text-gray-500">Division of State Fire Marshal</div>
+                  <div class="text-xs text-gray-500">200 E. Gaines St, Tallahassee, FL 32399</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Key NFPA Standards</div>
+              <ul class="space-y-2">
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-10/" class="text-red-brand hover:underline font-bold">NFPA 10</a> — Fire Extinguishers</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 13</strong> — Sprinkler Installation</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-25/" class="text-red-brand hover:underline font-bold">NFPA 25</a> — Sprinkler Inspection</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-72/" class="text-red-brand hover:underline font-bold">NFPA 72</a> — Fire Alarms</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 96</strong> — Commercial Kitchens</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 101</strong> — Life Safety Code</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-light rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Need Help?</div>
+              <p class="text-sm text-gray-600 mb-4">Get a free fire safety compliance assessment for your {city} commercial property.</p>
+              <button onclick={`openRFQ('','','Fire Safety Assessment — ${city}, ${state}')`} class="btn-primary text-sm w-full">Request Free Assessment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="section py-16">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions: Fire Safety in {city}</h2>
+      <div class="space-y-4">
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings in {city}, {stateFull} must comply with the Florida Fire Prevention Code (7th Edition). This includes maintaining inspected fire extinguishers (NFPA 10), operational fire alarm systems with UL-listed monitoring (NFPA 72), fire sprinkler systems where required (NFPA 13/25), and commercial kitchen fire suppression systems (NFPA 96). The City of Tampa Fire Rescue Fire Prevention Bureau enforces these requirements.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">How often are fire inspections required in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The City of Tampa Fire Rescue conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual inspections (NFPA 10). Fire alarm systems need annual testing (NFPA 72). Sprinkler systems require quarterly, semi-annual, and annual inspections (NFPA 25). Kitchen suppression needs semi-annual service (NFPA 96).</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Fire code violations in {city} can result in fines under Florida Statute 633 and the Florida Fire Prevention Code. The City of Tampa Fire Rescue can issue citations, stop-work orders, or vacate orders. Tampa uses a progressive enforcement model, but critical life safety deficiencies may trigger immediate action.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking operations in {city} producing grease-laden vapors must have an automatic fire suppression system per NFPA 96. This applies to restaurants, hotel kitchens, hospital cafeterias, school kitchens, and food trucks. Systems must be inspected semi-annually by a Florida-licensed technician. Class K fire extinguishers are also required within 30 feet of cooking equipment.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The City of Tampa Fire Rescue Fire Prevention Bureau enforces fire codes within city limits. Hillsborough County Fire Rescue handles unincorporated areas. The Florida State Fire Marshal oversees contractor licensing statewide and enforces the Florida Fire Prevention Code.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="bg-gray-900 text-white">
+    <div class="section py-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}</h2>
+      <p class="text-base text-gray-400 max-w-xl mx-auto mb-6">Don't wait for a violation. Get ahead of your next Tampa Fire Rescue inspection with a comprehensive fire safety assessment from licensed Florida contractors.</p>
+      <button onclick={`openRFQ('','','Fire Safety Inspection — ${city}, ${state}')`} class="bg-white text-gray-900 px-8 py-3.5 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors cursor-pointer border-0">Request a Free Assessment →</button>
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div class="section py-12">
+    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">More Fire Safety Service Areas</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <a href="/fire-safety-services-arlington-tx/" class="text-sm text-red-brand hover:underline no-underline">Arlington, TX</a>
+      <a href="/fire-safety-services-bakersfield-ca/" class="text-sm text-red-brand hover:underline no-underline">Bakersfield, CA</a>
+      <a href="/blog/fire-sprinkler-installation-tampa-fl/" class="text-sm text-red-brand hover:underline no-underline">Tampa Sprinkler Guide</a>
+      <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="text-sm text-red-brand hover:underline no-underline">Extinguisher Inspection Guide</a>
+    </div>
+  </div>
+</Base>
