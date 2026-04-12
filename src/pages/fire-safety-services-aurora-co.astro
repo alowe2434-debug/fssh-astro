@@ -1,0 +1,342 @@
+---
+import Base from '../layouts/Base.astro';
+
+const city = 'Aurora';
+const state = 'CO';
+const stateFull = 'Colorado';
+const slug = 'aurora-co';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": `Fire Safety Supply House — ${city}, ${state}`,
+      "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
+      "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
+      "areaServed": {
+        "@type": "City",
+        "name": city,
+        "containedInPlace": { "@type": "State", "name": stateFull }
+      },
+      "serviceType": [
+        "Fire Extinguisher Inspection",
+        "Fire Alarm Installation",
+        "Fire Sprinkler Installation",
+        "Fire Suppression System Installation",
+        "Fire Code Compliance Consulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "quotes@firesafetysupplyhouse.com"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": `Fire Safety Services in ${city}, ${state}`,
+      "provider": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "areaServed": { "@type": "City", "name": city },
+      "serviceType": "Fire Protection Services",
+      "description": `Complete fire safety services for commercial properties in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, fire suppression, and fire code compliance consulting.`
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Commercial buildings in ${city}, ${stateFull} must comply with the Colorado Fire Code (based on the 2015 International Fire Code with Colorado amendments). This includes maintained fire extinguishers per NFPA 10, fire alarm systems per NFPA 72, fire sprinkler systems where required per NFPA 13 and NFPA 25, and commercial kitchen suppression systems per NFPA 96. Aurora Fire Rescue's Fire Prevention Division enforces these requirements through routine inspections and plan reviews for all commercial properties within Aurora city limits.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How often are fire safety inspections required in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Aurora Fire Rescue conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional inspections per NFPA 10. Fire alarm systems need annual testing per NFPA 72. Fire sprinkler systems require quarterly, semi-annual, and annual inspections per NFPA 25. Commercial kitchen suppression systems need semi-annual inspections per NFPA 96. Aurora Fire Rescue may also conduct unannounced inspections triggered by complaints or permit activity.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Fire code violations in ${city} are enforced under Aurora Municipal Code. Fines start at $150 per day per violation for uncorrected deficiencies after the correction period expires. Multiple violations compound quickly. Aurora Fire Rescue can also require mandatory fire watch for inoperable fire alarm or sprinkler systems — fire watch costs $500–$1,500 per day and falls entirely on the building owner. Serious life safety deficiencies may trigger stop-work orders or occupancy restrictions.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Do restaurants in ${city} need special fire suppression systems?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes. All commercial cooking operations in ${city} producing grease-laden vapors require an automatic wet chemical fire suppression system per NFPA 96. This applies to restaurants, hotel kitchens, hospital cafeterias, school kitchens, and food trucks operating within Aurora city limits. Systems must be inspected and serviced semi-annually by a Colorado-licensed technician. The kitchen suppression system must be integrated with the building fire alarm and must automatically shut off all cooking equipment upon activation. Class K fire extinguishers are also required within 30 feet of all cooking equipment.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Who enforces fire codes in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Aurora Fire Rescue's Fire Prevention Division enforces the Colorado Fire Code within Aurora city limits. The Colorado State Fire Marshal (under the Colorado Division of Fire Prevention and Control) oversees contractor licensing, investigates complaints, and enforces the state fire code. All fire protection contractors working in Aurora must hold current Colorado licenses: Colorado Fire Alarm Contractor License for alarm work, and appropriate Colorado fire protection contractor licenses for sprinkler and suppression work.`
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const services = [
+  {
+    title: 'Fire Extinguisher Inspection & Service',
+    icon: '🧯',
+    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service performed by Colorado-licensed fire protection technicians. We service all commercial property types in Aurora — from the Havana Street restaurant corridor to DIA-area warehouses and the Anschutz Medical Campus.`,
+    nfpa: 'NFPA 10',
+    keywords: `fire extinguisher inspection ${city}, fire extinguisher service ${city} ${state}, fire extinguisher recharge ${city}`
+  },
+  {
+    title: 'Fire Alarm System Installation & Testing',
+    icon: '🔔',
+    desc: `Commercial fire alarm system design, installation, permit coordination, and annual testing for ${city} businesses. Addressable and conventional systems, smoke and heat detection, pull stations, horn/strobes, and UL-listed central station monitoring. Full NFPA 72 compliance and Aurora Fire Rescue acceptance testing included. Colorado DORA-licensed fire alarm contractors with deep Denver metro experience.`,
+    nfpa: 'NFPA 72',
+    keywords: `fire alarm installation ${city}, fire alarm testing ${city} ${state}, fire alarm companies ${city}`
+  },
+  {
+    title: 'Fire Sprinkler System Installation & Inspection',
+    icon: '💧',
+    desc: `Fire sprinkler system design, installation, and inspection for new construction and retrofit projects in ${city}. Wet pipe, dry pipe, pre-action, and deluge systems for commercial, industrial, and high-rise applications. Quarterly, semi-annual, and annual inspections per NFPA 25. Five-year internal pipe inspections and obstruction investigations. We work with Aurora Fire Rescue on plan reviews and acceptance testing.`,
+    nfpa: 'NFPA 13 / NFPA 25',
+    keywords: `fire sprinkler installation ${city}, fire sprinkler inspection ${city} ${state}, sprinkler system service ${city}`
+  },
+  {
+    title: 'Commercial Kitchen Fire Suppression',
+    icon: '🍳',
+    desc: `Wet chemical fire suppression systems for commercial kitchens, restaurants, and food service operations in ${city}. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified technicians. Required for all commercial cooking operations per NFPA 96, enforced by Aurora Fire Rescue. Automatic fuel shutoff integration required — we handle the full system coordination.`,
+    nfpa: 'NFPA 96',
+    keywords: `commercial kitchen fire suppression ${city}, restaurant fire suppression ${city} ${state}, ansul system ${city}`
+  },
+  {
+    title: 'Fire Code Compliance Consulting',
+    icon: '📋',
+    desc: `Fire code compliance audits, violation remediation, pre-inspection preparation, and Aurora Fire Rescue liaison services for ${city} commercial properties. Whether you're preparing for an annual inspection, responding to a violation notice, or navigating the C/O process for a new build-out, we work directly with Aurora Fire Rescue's Fire Prevention Division on your behalf. Colorado Fire Code expertise for every property type.`,
+    nfpa: 'Colorado Fire Code / IFC',
+    keywords: `fire code compliance ${city}, fire safety inspection ${city} ${state}, fire marshal inspection ${city}`
+  }
+];
+---
+
+<Base
+  title={`Fire Safety Services ${city}, ${state} | Inspection, Installation & Compliance`}
+  description={`Fire safety services in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, kitchen suppression, and fire code compliance. Colorado-licensed contractors.`}
+  schema={schema}
+>
+  <!-- Hero -->
+  <div class="bg-gray-50 border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Fire Safety Services</div>
+          <h1 class="text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-tight">Fire Safety Services in {city}, {stateFull}</h1>
+          <p class="text-lg text-gray-500 leading-relaxed mb-6">Licensed fire protection services for commercial properties in {city}, {state}. Fire extinguisher inspection, fire alarm installation, fire sprinkler systems, kitchen suppression, and fire code compliance consulting — all performed by Colorado-licensed contractors to NFPA standards and Aurora Fire Rescue requirements.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick={`openRFQ('','','Fire Safety Services — ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection →</button>
+            <a href="mailto:quotes@firesafetysupplyhouse.com" class="btn-secondary text-sm text-center">Contact Us</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-4">Don't Wait for a Violation</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Aurora Fire Rescue's Fire Prevention Division conducts annual inspections of all commercial properties in Aurora. Violations mean fines starting at $150/day — and an inoperable fire alarm or sprinkler system triggers mandatory fire watch at up to $1,500/day. The DIA corridor, Anschutz campus, and Havana Street districts are all active enforcement zones.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire extinguishers must be inspected annually per NFPA 10</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire alarm systems require annual testing per NFPA 72</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Sprinkler systems need quarterly + annual inspections per NFPA 25</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Kitchen suppression requires semi-annual service per NFPA 96</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Our Services</div>
+      <h2 class="text-3xl font-bold tracking-tight mb-3">Complete Fire Protection for {city} Commercial Properties</h2>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto">Every service we provide in {city} is performed by Colorado-licensed fire protection contractors to current NFPA standards, with permits pulled through the Aurora Building Division and inspections coordinated with Aurora Fire Rescue.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(service => (
+        <div class="card p-6 flex flex-col">
+          <div class="text-3xl mb-3">{service.icon}</div>
+          <h3 class="text-lg font-bold mb-2">{service.title}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3 flex-1">{service.desc}</p>
+          <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+            <span class="text-xs font-bold text-red-brand">{service.nfpa}</span>
+            <button onclick={`openRFQ('','','${service.title} — ${city}, ${state}')`} class="text-xs font-bold text-gray-400 hover:text-red-brand transition-colors cursor-pointer bg-transparent border-0">Get Quote →</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- City-Specific Content -->
+  <div class="bg-gray-50 border-t border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Fire Code Compliance in {city}, {stateFull}</h2>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Aurora is Colorado's third-largest city and one of the fastest-growing commercial markets in the Rocky Mountain region. Fire code enforcement in Aurora is handled by Aurora Fire Rescue's Fire Prevention Division for all properties within city limits. Aurora adopts the Colorado Fire Code, which is based on the 2015 International Fire Code with state-specific amendments that address Colorado's unique geography, climate, and altitude.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">The Colorado Division of Fire Prevention and Control (DFPC) supports Aurora Fire Rescue in enforcement and provides the licensing framework for all fire protection contractors. The State Fire Marshal's office investigates complaints and handles licensing of fire protection service companies statewide — an important consumer protection mechanism in a market with many contractors.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Aurora's Commercial Fire Safety Landscape</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Several distinct commercial zones in Aurora have elevated fire safety requirements:</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Denver International Airport corridor.</strong> The E-470 corridor between Aurora and DIA is home to millions of square feet of warehouse, distribution, logistics, and hotel space. Large-footprint storage and fulfillment facilities in this zone require early suppression fast-response (ESFR) sprinkler systems, high-sensitivity smoke detection for high-bay spaces, and fire alarm systems capable of locating devices across massive floor plates. Aurora Fire Rescue applies enhanced scrutiny to DIA-corridor properties given the density of high-value, high-occupancy development.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>University of Colorado Anschutz Medical Campus.</strong> The Anschutz campus in Aurora is one of the largest health science campuses in the nation, encompassing University of Colorado Hospital, Children's Hospital Colorado, and dozens of research and clinical buildings. Healthcare occupancies (Group I-2) face the most stringent fire protection requirements in the code — automatic sprinkler systems throughout, addressable fire alarm systems, smoke compartment construction, and emergency voice/alarm communication. The campus expansion has generated hundreds of millions in new construction with complex fire protection requirements.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Havana Street and commercial corridors.</strong> Aurora's Havana Street district is one of the most diverse commercial corridors in the Denver metro, with restaurants, retail, professional services, and mixed-use development. Restaurant fire suppression (NFPA 96) and commercial kitchen requirements apply to the dense food service concentration in this area. Aurora Fire Rescue conducts routine commercial inspections along Havana and the other major commercial corridors on a regular cycle.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Industrial parks near I-70 and I-225.</strong> Aurora's industrial parks along the I-70 and I-225 interchange corridors include manufacturing, storage, auto service, and chemical handling facilities. Industrial occupancies with flammable liquids storage or hazardous materials above threshold quantities require specialized fire detection, explosion-proof equipment, and enhanced suppression systems. Aurora Fire Rescue works with the Colorado DFPC Hazmat program on inspections for regulated industrial properties.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Colorado-Specific Fire Safety Requirements</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Colorado imposes several requirements that go beyond the base IFC and affect Aurora commercial properties:</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Altitude adjustments for fire alarm systems.</strong> Aurora's elevation (approximately 5,500 feet) affects smoke detector sensitivity and carbon monoxide detector calibration. Smoke detectors specified at sea level may require altitude-adjusted settings or models specifically listed for high-altitude installation. Colorado fire alarm contractors are required to account for altitude in their system designs. This is a common gap when national fire alarm contractors unfamiliar with Colorado markets bid Aurora projects.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Wildland-urban interface (WUI) requirements.</strong> Parts of eastern Aurora and areas near open space corridors carry WUI designations. Commercial buildings in WUI zones face additional construction requirements including ember-resistant venting, Class A roofing materials, and in some cases exterior fire suppression provisions. Aurora Fire Rescue enforces WUI requirements during plan review for new construction in designated zones.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Carbon monoxide detection integration.</strong> Colorado requires carbon monoxide detectors in all commercial buildings with fossil-fuel burning appliances, attached garages, or occupancy use as a sleeping area. CO detectors must be integrated with the fire alarm system in buildings required to have fire alarms. This integration requirement is sometimes overlooked in tenant improvement projects that don't include a complete fire alarm system upgrade.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Aurora Fire Rescue: Key Fire Code Contacts</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">For questions about fire safety compliance, permits, and inspections in Aurora, the primary contacts are:</p>
+          <div class="bg-white rounded-xl p-5 mb-4 border border-gray-100">
+            <p class="text-sm text-gray-700 mb-2"><strong>Aurora Fire Rescue — Fire Prevention Division</strong></p>
+            <p class="text-sm text-gray-600 mb-1">15001 E. Alameda Pkwy, Aurora, CO 80012</p>
+            <p class="text-sm text-gray-600 mb-3">Phone: (303) 739-7900</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>Aurora Building Division (Permits & Plan Review)</strong></p>
+            <p class="text-sm text-gray-600 mb-1">15151 E. Alameda Pkwy, Aurora, CO 80012</p>
+            <p class="text-sm text-gray-600 mb-3">Phone: (303) 739-7420</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>Colorado Division of Fire Prevention and Control</strong></p>
+            <p class="text-sm text-gray-600 mb-1">690 Kipling St, Suite 2000, Lakewood, CO 80215</p>
+            <p class="text-sm text-gray-600">Contractor licensing: dora.colorado.gov</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="sticky top-[80px] space-y-6">
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Aurora Fire Safety Contacts</div>
+              <ul class="space-y-3">
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Aurora Fire Rescue</div>
+                  <div class="text-xs text-gray-500">Fire Prevention Division</div>
+                  <div class="text-xs text-gray-500">15001 E. Alameda Pkwy, Aurora CO</div>
+                  <div class="text-xs text-gray-500">(303) 739-7900</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Aurora Building Division</div>
+                  <div class="text-xs text-gray-500">Permits & Plan Review</div>
+                  <div class="text-xs text-gray-500">(303) 739-7420</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Colorado DFPC</div>
+                  <div class="text-xs text-gray-500">State Fire Marshal</div>
+                  <div class="text-xs text-gray-500">690 Kipling St, Lakewood CO</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Key NFPA Standards</div>
+              <ul class="space-y-2">
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-10/" class="text-red-brand hover:underline font-bold">NFPA 10</a> — Fire Extinguishers</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 13</strong> — Sprinkler Installation</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-25/" class="text-red-brand hover:underline font-bold">NFPA 25</a> — Sprinkler Inspection</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-72/" class="text-red-brand hover:underline font-bold">NFPA 72</a> — Fire Alarms</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 96</strong> — Commercial Kitchens</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 101</strong> — Life Safety Code</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-light rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Need Help?</div>
+              <p class="text-sm text-gray-600 mb-4">Get a free fire safety compliance assessment for your {city} commercial property.</p>
+              <button onclick={`openRFQ('','','Fire Safety Assessment — ${city}, ${state}')`} class="btn-primary text-sm w-full">Request Free Assessment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="section py-16">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions: Fire Safety in {city}</h2>
+      <div class="space-y-4">
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings in {city} must comply with the Colorado Fire Code (2015 IFC with Colorado amendments). This includes maintained fire extinguishers (NFPA 10), fire alarm systems where required (NFPA 72), fire sprinkler systems for most new construction (NFPA 13/25), and kitchen suppression for commercial cooking (NFPA 96). Aurora Fire Rescue's Fire Prevention Division enforces all requirements.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">How often are fire safety inspections required in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Aurora Fire Rescue conducts annual inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional service (NFPA 10). Fire alarm systems need annual testing (NFPA 72). Sprinkler systems require quarterly, semi-annual, and annual inspections (NFPA 25). Kitchen suppression needs semi-annual service (NFPA 96).</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Fines start at $150 per day per uncorrected violation under Aurora Municipal Code. An inoperable fire alarm or sprinkler system triggers mandatory fire watch at $500–$1,500/day at the building owner's expense. Critical life safety deficiencies may result in occupancy restrictions or stop-work orders.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking operations producing grease-laden vapors require an automatic wet chemical suppression system per NFPA 96. Systems must be inspected semi-annually by a Colorado-licensed technician, integrated with the building fire alarm, and include automatic fuel shutoff. Class K extinguishers are also required within 30 feet of cooking equipment.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Aurora Fire Rescue's Fire Prevention Division enforces the Colorado Fire Code within Aurora city limits. The Colorado Division of Fire Prevention and Control (DFPC) and State Fire Marshal oversee contractor licensing and statewide code adoption. All fire protection contractors in Aurora must hold current Colorado state licenses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="bg-gray-900 text-white">
+    <div class="section py-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}</h2>
+      <p class="text-base text-gray-400 max-w-xl mx-auto mb-6">Don't wait for a violation notice. Get ahead of your next Aurora Fire Rescue inspection with a comprehensive fire safety assessment from Colorado-licensed contractors.</p>
+      <button onclick={`openRFQ('','','Fire Safety Inspection — ${city}, ${state}')`} class="bg-white text-gray-900 px-8 py-3.5 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors cursor-pointer border-0">Request a Free Assessment →</button>
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div class="section py-12">
+    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">More Fire Safety Service Areas</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <a href="/fire-safety-services-arlington-tx/" class="text-sm text-red-brand hover:underline no-underline">Arlington, TX</a>
+      <a href="/fire-safety-services-bakersfield-ca/" class="text-sm text-red-brand hover:underline no-underline">Bakersfield, CA</a>
+      <a href="/fire-safety-services-tampa-fl/" class="text-sm text-red-brand hover:underline no-underline">Tampa, FL</a>
+      <a href="/blog/fire-alarm-installation-aurora-co/" class="text-sm text-red-brand hover:underline no-underline">Aurora Fire Alarm Guide</a>
+      <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="text-sm text-red-brand hover:underline no-underline">Extinguisher Inspection Guide</a>
+      <a href="/compliance/nfpa-72/" class="text-sm text-red-brand hover:underline no-underline">NFPA 72 Standard</a>
+      <a href="/compliance/nfpa-10/" class="text-sm text-red-brand hover:underline no-underline">NFPA 10 Standard</a>
+      <a href="/compliance/nfpa-25/" class="text-sm text-red-brand hover:underline no-underline">NFPA 25 Standard</a>
+    </div>
+  </div>
+</Base>
