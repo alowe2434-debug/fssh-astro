@@ -1,0 +1,349 @@
+---
+import Base from '../layouts/Base.astro';
+
+const city = 'Anaheim';
+const state = 'CA';
+const stateFull = 'California';
+const slug = 'anaheim-ca';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": `Fire Safety Supply House — ${city}, ${state}`,
+      "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
+      "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
+      "areaServed": {
+        "@type": "City",
+        "name": city,
+        "containedInPlace": { "@type": "State", "name": stateFull }
+      },
+      "serviceType": [
+        "Fire Extinguisher Inspection",
+        "Fire Alarm Installation",
+        "Fire Sprinkler Installation",
+        "Fire Suppression System Installation",
+        "Fire Code Compliance Consulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "quotes@firesafetysupplyhouse.com"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": `Fire Safety Services in ${city}, ${state}`,
+      "provider": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "areaServed": { "@type": "City", "name": city },
+      "serviceType": "Fire Protection Services",
+      "description": `Complete fire safety services for commercial properties in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, fire suppression, and fire code compliance consulting.`
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Commercial buildings in ${city} must comply with the California Fire Code (2022 CFC, based on the IFC with California amendments), enforced by Anaheim Fire & Rescue's Fire Prevention Bureau. Requirements include portable fire extinguishers per NFPA 10, automatic fire alarm systems per NFPA 72 for assembly, hotel, high-rise, and other qualifying occupancies, fire sprinkler systems per NFPA 13 for most new construction, fire sprinkler ITM per NFPA 25, and commercial kitchen suppression systems per NFPA 96 for all restaurant and food service operations. All contractors must be licensed by the California State Fire Marshal (CSFM) and hold appropriate CSLB licenses.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How often are fire safety inspections required in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Anaheim Fire & Rescue conducts annual inspections of most commercial properties, with more frequent attention to assembly occupancies and Resort District properties. Fire extinguishers require monthly visual checks and annual professional inspection (NFPA 10). Fire alarm systems require annual testing with documentation (NFPA 72). Fire sprinkler systems require quarterly, semi-annual, and annual inspections (NFPA 25). Commercial kitchen suppression requires semi-annual inspection (NFPA 96). Emergency lighting and exit signs must be tested monthly (30-second) and annually (90-minute duration test).`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Anaheim Fire & Rescue enforces violations under Anaheim Municipal Code and the California Fire Code. Administrative citations start at $250 per day per uncorrected violation. An inoperable fire alarm or sprinkler system requires immediate fire watch at the building owner's expense — typically $800–$2,000 per day for a fire watch guard covering the entire building. Serious life safety deficiencies in assembly occupancies (hotels, restaurants, venues) can trigger occupancy suspension. For Resort District properties operating during peak tourist season, enforcement is immediate and non-negotiable.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Do restaurants in ${city} need special fire suppression systems?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes. All commercial cooking operations in ${city} producing grease-laden vapors require an automatic wet chemical fire suppression system per NFPA 96. This is strictly enforced for the dense restaurant corridor along Harbor Boulevard and at all Resort District food service operations. Systems must be inspected semi-annually by a CSFM-licensed contractor, integrated with the building fire alarm system, and include automatic fuel shutoff. Class K fire extinguishers are required within 30 feet of all cooking equipment. Anaheim Fire & Rescue checks suppression system compliance during every commercial kitchen inspection.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Who enforces fire codes in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Anaheim Fire & Rescue's Fire Prevention Bureau enforces the California Fire Code within Anaheim city limits. The California State Fire Marshal (CSFM) oversees contractor licensing for all fire protection companies operating in California — including fire alarm, sprinkler, suppression, and extinguisher service contractors. All contractors working in Anaheim must hold current CSFM registrations and appropriate California Contractors State License Board (CSLB) licenses. The CSFM also approves fire protection equipment for use in California through its listing program.`
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const services = [
+  {
+    title: 'Fire Extinguisher Inspection & Service',
+    icon: '🧯',
+    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing — all performed by CSFM-licensed technicians. We service all property types in Anaheim: Resort District hotels, Harbor Boulevard restaurants, office parks, industrial facilities in east Anaheim, and multi-family residential. Annual inspection and tagging runs $15–$35 per unit in Orange County, with volume pricing for properties with 20+ extinguishers.`,
+    nfpa: 'NFPA 10',
+    keywords: `fire extinguisher inspection ${city}, fire extinguisher service ${city} ${state}, fire extinguisher recharge ${city}`
+  },
+  {
+    title: 'Fire Alarm System Installation & Testing',
+    icon: '🔔',
+    desc: `Commercial fire alarm system design, installation, permitting, and annual testing for ${city} businesses. Addressable and conventional systems, voice evacuation for assembly and high-rise occupancies, smoke and heat detection, manual pull stations, horn/strobe and speaker notification, duct detectors, and UL-listed central station monitoring. Full NFPA 72 compliance with Anaheim Fire & Rescue acceptance testing. California C-10 licensed and CSFM-registered fire alarm contractors with deep Orange County experience — including Resort District, Convention Center, and high-rise hotel work.`,
+    nfpa: 'NFPA 72',
+    keywords: `fire alarm installation ${city}, fire alarm testing ${city} ${state}, fire alarm companies ${city}`
+  },
+  {
+    title: 'Fire Sprinkler System Installation & Inspection',
+    icon: '💧',
+    desc: `Fire sprinkler system design, installation, and inspection for new construction and retrofit projects in ${city}. Wet pipe, dry pipe, pre-action, and ESFR (early suppression fast response) systems for high-bay warehouse and distribution facilities. Quarterly, semi-annual, and annual ITM per NFPA 25. Five-year obstruction investigations and internal pipe inspections. We coordinate plan reviews with Anaheim Fire & Rescue and the Anaheim Building Division. CSFM-licensed contractors with California-specific experience navigating the state fire code amendments.`,
+    nfpa: 'NFPA 13 / NFPA 25',
+    keywords: `fire sprinkler installation ${city}, fire sprinkler inspection ${city} ${state}, sprinkler system service ${city}`
+  },
+  {
+    title: 'Commercial Kitchen Fire Suppression',
+    icon: '🍳',
+    desc: `Wet chemical fire suppression systems for commercial kitchens throughout ${city} — including the high-density restaurant corridor along Harbor Boulevard, Resort District hotel kitchens and banquet facilities, stadium and arena food service operations, and east Anaheim industrial food processing. Design, installation, and semi-annual inspection per NFPA 96. Ansul, Amerex, and Kidde certified. Automatic fuel shutoff and fire alarm integration required — we handle full system coordination with your building's fire alarm contractor and Anaheim Fire & Rescue.`,
+    nfpa: 'NFPA 96',
+    keywords: `commercial kitchen fire suppression ${city}, restaurant fire suppression ${city} ${state}, ansul system ${city}`
+  },
+  {
+    title: 'Fire Code Compliance Consulting',
+    icon: '📋',
+    desc: `Fire code compliance audits, violation remediation, pre-inspection preparation, and Anaheim Fire & Rescue liaison services. Whether you're preparing for an annual fire inspection, responding to a Notice of Violation, navigating the certificate of occupancy process for a new tenant improvement, or managing compliance across multiple Resort District hotel properties — we work directly with Anaheim Fire & Rescue's Fire Prevention Bureau on your behalf. California Fire Code expertise for every occupancy type, with special focus on the assembly, hotel, and restaurant categories that define the Anaheim commercial market.`,
+    nfpa: 'California Fire Code / CFC',
+    keywords: `fire code compliance ${city}, fire safety inspection ${city} ${state}, fire marshal inspection ${city}`
+  }
+];
+---
+
+<Base
+  title={`Fire Safety Services ${city}, ${state} | Inspection, Installation & Compliance`}
+  description={`Fire safety services in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, kitchen suppression, and fire code compliance. CSFM-licensed contractors serving the Resort District and all of Orange County.`}
+  schema={schema}
+>
+  <!-- Hero -->
+  <div class="bg-gray-50 border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Fire Safety Services</div>
+          <h1 class="text-4xl lg:text-5xl font-bold tracking-tight mb-4 leading-tight">Fire Safety Services in {city}, {stateFull}</h1>
+          <p class="text-lg text-gray-500 leading-relaxed mb-6">Licensed fire protection services for commercial properties in {city}, {state}. Fire extinguisher inspection, fire alarm installation, fire sprinkler systems, commercial kitchen suppression, and fire code compliance consulting — performed by CSFM-licensed contractors to NFPA standards and Anaheim Fire & Rescue requirements. Serving the Resort District, Harbor Boulevard corridor, Convention Center area, and all of Orange County.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick={`openRFQ('','','Fire Safety Services — ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection →</button>
+            <a href="mailto:quotes@firesafetysupplyhouse.com" class="btn-secondary text-sm text-center">Contact Us</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-4">Don't Wait for a Violation</div>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Anaheim Fire & Rescue's Fire Prevention Bureau conducts annual inspections of all commercial properties — with heightened scrutiny on the Resort District's 130+ hotels, restaurants, and assembly venues. Violations mean citations starting at $250/day, and an inoperable fire alarm triggers mandatory fire watch at up to $2,000/day. In a market where a single hotel can generate $100,000+ per day in revenue, non-compliance is not a calculated risk.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire extinguishers must be inspected annually per NFPA 10</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Fire alarm systems require annual NFPA 72 testing with documentation</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Sprinkler systems need quarterly + annual inspections per NFPA 25</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-red-brand font-bold text-sm mt-0.5">→</span>
+              <p class="text-sm text-gray-600">Kitchen suppression requires semi-annual service per NFPA 96</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="section py-16">
+    <div class="text-center mb-12">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Our Services</div>
+      <h2 class="text-3xl font-bold tracking-tight mb-3">Complete Fire Protection for {city} Commercial Properties</h2>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto">Every service we provide in {city} is performed by CSFM-licensed and CSLB-licensed fire protection contractors to current NFPA standards, with permits coordinated through the City of Anaheim Building Division and inspections accepted by Anaheim Fire & Rescue.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map(service => (
+        <div class="card p-6 flex flex-col">
+          <div class="text-3xl mb-3">{service.icon}</div>
+          <h3 class="text-lg font-bold mb-2">{service.title}</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-3 flex-1">{service.desc}</p>
+          <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+            <span class="text-xs font-bold text-red-brand">{service.nfpa}</span>
+            <button onclick={`openRFQ('','','${service.title} — ${city}, ${state}')`} class="text-xs font-bold text-gray-400 hover:text-red-brand transition-colors cursor-pointer bg-transparent border-0">Get Quote →</button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- City-Specific Content -->
+  <div class="bg-gray-50 border-t border-b border-gray-100">
+    <div class="section py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Fire Code Compliance in {city}, {stateFull}</h2>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Anaheim is California's 10th-largest city and one of the most commercially distinctive markets in the state. With more than 26 million annual visitors to the Disneyland Resort, Angel Stadium, Honda Center, and the Anaheim Convention Center, Anaheim has a higher concentration of high-occupancy assembly properties than nearly any comparable city in the country. Fire code enforcement here isn't abstract — it's a daily operational reality for hotel general managers, restaurant operators, venue managers, and facility directors.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Fire code enforcement in Anaheim is handled by Anaheim Fire & Rescue's Fire Prevention Bureau. Anaheim adopts the California Fire Code (2022 edition), which is based on the International Fire Code with extensive California-specific amendments. The California State Fire Marshal (CSFM) is the state authority for contractor licensing, product approvals, and code interpretations. Every fire protection contractor working in Anaheim — regardless of specialty — must be licensed by the CSFM.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">The Anaheim Resort District: California's Highest-Stakes Commercial Zone</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">The Anaheim Resort District — the roughly two-mile radius encompassing Disneyland, Disney California Adventure, the Anaheim Convention Center, Angel Stadium, Honda Center, and approximately 130 hotels totaling around 20,000 rooms — operates under the most consistent fire safety scrutiny in Orange County.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Anaheim Fire & Rescue maintains dedicated fire prevention resources for the Resort area, and the enforcement posture is considerably more active than in standard commercial zones. Hotel inspections in the Resort District typically occur annually, and non-compliance findings are treated as high-priority. Disney's own internal fire safety team operates independently of public fire codes and applies standards that in many cases exceed the California Fire Code — but all buildings must also satisfy Anaheim Fire & Rescue's public code requirements.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">For hotel operators along Harbor Boulevard and Katella Avenue, the practical implications are significant: fire alarm systems must be fully functional and annually tested, fire suppression in hotel kitchens and banquet facilities must be semi-annually serviced, fire extinguisher coverage throughout every floor must be current, and emergency lighting and exit signs must pass their duration tests. An Anaheim Fire & Rescue inspector finding multiple deficiencies in a 300-room hotel has the authority to require immediate correction — potentially disrupting operations mid-occupancy.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Harbor Boulevard Restaurant Corridor</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Harbor Boulevard between Ball Road and Chapman Avenue hosts one of the densest restaurant concentrations in Orange County, anchored by the foot traffic generated by Disneyland Resort visitors. Every commercial kitchen in this corridor must have a wet chemical fire suppression system (NFPA 96) integrated with the building fire alarm. The integration requirement — meaning the suppression system activation signal must trigger the building fire alarm and central monitoring — is frequently out of compliance at older properties that have undergone multiple kitchen renovations without a comprehensive fire systems update.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Anaheim Fire & Rescue checks kitchen suppression compliance during commercial inspections. A kitchen suppression system that isn't integrated with the building fire alarm, or that has an expired inspection tag, is an immediate citation. For restaurants near the Resort that can't afford to close for emergency service, preventive semi-annual maintenance is the only rational approach.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">East Anaheim Industrial Corridor</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">East Anaheim, along the Orangethorpe Avenue and the State College Boulevard corridors adjacent to the 91 Freeway, hosts a significant concentration of manufacturing, auto service, chemical distribution, and logistics operations. Industrial properties with hazardous materials storage face California-specific requirements that go beyond the base IFC — including Cal/OSHA hazardous materials business plan (HMBP) requirements, fire department pre-incident plan coordination, and in some cases specialized detection systems for toxic or flammable gas monitoring.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">Large warehouse and distribution facilities in east Anaheim — particularly those with rack storage exceeding 12 feet in height — require early suppression fast response (ESFR) sprinkler systems or high-density/large-drop (HDLD) systems designed specifically for high-challenge storage. Standard sprinkler systems are not adequate for high-bay rack storage, and Anaheim Fire & Rescue enforces the NFPA 13 storage chapters during new construction plan review.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">California-Specific Fire Safety Requirements That Apply in Anaheim</h3>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">California imposes several requirements that differ from the base IFC and directly affect Anaheim commercial properties:</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>CSFM equipment approval.</strong> All fire protection equipment installed in California — fire alarm panels, detectors, sprinkler heads, suppression system components — must be listed and approved by the California State Fire Marshal in addition to UL listing. Some products that are UL listed nationally are not CSFM-approved for California use. This is a critical compliance detail that out-of-state contractors frequently overlook when working in Anaheim.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Contractor double-licensing.</strong> California requires fire alarm contractors to hold both a CSLB C-10 electrical contractor license and a CSFM fire alarm company registration. Sprinkler contractors must hold a CSLB C-16 fire protection contractor license. Suppression system contractors must hold appropriate CSFM certifications. This double-licensing requirement is frequently not met by out-of-state fire protection companies attempting to bid California work — verify all credentials before contracting.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Emergency lighting and exit signs.</strong> California Title 24 (California Energy Code) imposes specific requirements for emergency lighting fixture types and mounting that differ from the base IFC. California also requires 90-minute emergency lighting duration tests annually — with the test witnessed and documented. Many commercial properties in Anaheim are out of compliance on emergency lighting because annual duration tests are overlooked.</p>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4"><strong>Automatic fire sprinkler retrofits.</strong> California Government Code Section 13146 requires automatic fire sprinkler systems in certain existing high-rise buildings and hotel/motel occupancies on a retrofit schedule. Anaheim's older Resort-area hotels — some built in the 1970s and 1980s — have been subject to California's retrofit mandate. Verify your property's sprinkler compliance status if the building was constructed before 1987.</p>
+
+          <h3 class="text-lg font-bold mb-3 mt-6">Anaheim Fire & Rescue: Fire Prevention Bureau Contact Information</h3>
+          <div class="bg-white rounded-xl p-5 mb-4 border border-gray-100">
+            <p class="text-sm text-gray-700 mb-2"><strong>Anaheim Fire & Rescue — Fire Prevention Bureau</strong></p>
+            <p class="text-sm text-gray-600 mb-1">201 S. Anaheim Blvd., Suite 200, Anaheim, CA 92805</p>
+            <p class="text-sm text-gray-600 mb-3">Phone: (714) 765-4040</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>City of Anaheim Building Division (Permits & Plan Review)</strong></p>
+            <p class="text-sm text-gray-600 mb-1">200 S. Anaheim Blvd., 1st Floor, Anaheim, CA 92805</p>
+            <p class="text-sm text-gray-600 mb-3">Phone: (714) 765-5153</p>
+            <p class="text-sm text-gray-700 mb-2"><strong>California State Fire Marshal (CSFM)</strong></p>
+            <p class="text-sm text-gray-600 mb-1">Contractor licensing and CSFM product approval: osfm.fire.ca.gov</p>
+            <p class="text-sm text-gray-600">For fire protection contractor license verification, use the CSFM online license lookup at osfm.fire.ca.gov.</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="sticky top-[80px] space-y-6">
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Anaheim Fire Safety Contacts</div>
+              <ul class="space-y-3">
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Anaheim Fire & Rescue</div>
+                  <div class="text-xs text-gray-500">Fire Prevention Bureau</div>
+                  <div class="text-xs text-gray-500">201 S. Anaheim Blvd., Suite 200</div>
+                  <div class="text-xs text-gray-500">(714) 765-4040</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">Anaheim Building Division</div>
+                  <div class="text-xs text-gray-500">Permits & Plan Review</div>
+                  <div class="text-xs text-gray-500">(714) 765-5153</div>
+                </li>
+                <li>
+                  <div class="text-xs font-bold text-gray-900">California State Fire Marshal</div>
+                  <div class="text-xs text-gray-500">Contractor licensing</div>
+                  <div class="text-xs text-gray-500">osfm.fire.ca.gov</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Key NFPA Standards</div>
+              <ul class="space-y-2">
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-10/" class="text-red-brand hover:underline font-bold">NFPA 10</a> — Fire Extinguishers</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 13</strong> — Sprinkler Installation</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-25/" class="text-red-brand hover:underline font-bold">NFPA 25</a> — Sprinkler ITM</li>
+                <li class="text-xs text-gray-600"><a href="/compliance/nfpa-72/" class="text-red-brand hover:underline font-bold">NFPA 72</a> — Fire Alarms</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 96</strong> — Commercial Kitchens</li>
+                <li class="text-xs text-gray-600"><strong class="text-gray-900">NFPA 101</strong> — Life Safety Code</li>
+              </ul>
+            </div>
+
+            <div class="bg-red-light rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Need Help?</div>
+              <p class="text-sm text-gray-600 mb-4">Get a free fire safety compliance assessment for your {city} commercial property.</p>
+              <button onclick={`openRFQ('','','Fire Safety Assessment — ${city}, ${state}')`} class="btn-primary text-sm w-full">Request Free Assessment</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="section py-16">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions: Fire Safety in {city}</h2>
+      <div class="space-y-4">
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings in {city} must comply with the California Fire Code (2022 CFC), enforced by Anaheim Fire & Rescue. Requirements include fire extinguishers (NFPA 10), fire alarm systems for assembly, hotel, and high-rise occupancies (NFPA 72), sprinkler systems for most new construction (NFPA 13/25), and kitchen suppression for all commercial cooking (NFPA 96). All contractors must hold CSFM and CSLB licenses.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">How often are fire safety inspections required in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Anaheim Fire & Rescue conducts annual commercial inspections, with more frequent attention to Resort District and assembly properties. Fire extinguishers need monthly visual checks and annual professional service (NFPA 10). Fire alarms require annual testing with documentation (NFPA 72). Sprinklers need quarterly, semi-annual, and annual inspections (NFPA 25). Kitchen suppression requires semi-annual service (NFPA 96).</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Citations start at $250 per day per uncorrected violation under Anaheim Municipal Code. An inoperable fire alarm or sprinkler system requires immediate fire watch at $800–$2,000/day at the building owner's expense. For assembly occupancies in the Resort District, enforcement is immediate. Serious deficiencies can result in occupancy suspension — devastating for resort-area properties during peak tourist season.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking operations producing grease-laden vapors require an automatic wet chemical suppression system per NFPA 96. Systems must be semi-annually inspected, integrated with the building fire alarm, and include automatic fuel shutoff. Class K extinguishers required within 30 feet of cooking equipment. Strictly enforced for Harbor Boulevard and Resort District food service operations.</p>
+        </div>
+        <div class="border border-gray-100 rounded-lg p-5">
+          <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Anaheim Fire & Rescue's Fire Prevention Bureau enforces the California Fire Code within Anaheim. The California State Fire Marshal (CSFM) oversees all fire protection contractor licensing statewide. All contractors must hold both CSFM registrations and appropriate CSLB licenses (C-10 for fire alarm, C-16 for sprinklers). Verify credentials at cslb.ca.gov and osfm.fire.ca.gov before hiring.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="bg-gray-900 text-white">
+    <div class="section py-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}</h2>
+      <p class="text-base text-gray-400 max-w-xl mx-auto mb-6">Don't wait for a violation notice. Get ahead of your next Anaheim Fire & Rescue inspection with a comprehensive fire safety assessment from CSFM-licensed contractors who know the Orange County market.</p>
+      <button onclick={`openRFQ('','','Fire Safety Inspection — ${city}, ${state}')`} class="bg-white text-gray-900 px-8 py-3.5 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors cursor-pointer border-0">Request a Free Assessment →</button>
+    </div>
+  </div>
+
+  <!-- Internal Links -->
+  <div class="section py-12">
+    <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">More Fire Safety Resources</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <a href="/fire-safety-services-arlington-tx/" class="text-sm text-red-brand hover:underline no-underline">Arlington, TX</a>
+      <a href="/fire-safety-services-bakersfield-ca/" class="text-sm text-red-brand hover:underline no-underline">Bakersfield, CA</a>
+      <a href="/fire-safety-services-tampa-fl/" class="text-sm text-red-brand hover:underline no-underline">Tampa, FL</a>
+      <a href="/fire-safety-services-aurora-co/" class="text-sm text-red-brand hover:underline no-underline">Aurora, CO</a>
+      <a href="/blog/fire-alarm-installation-anaheim-ca/" class="text-sm text-red-brand hover:underline no-underline">Anaheim Fire Alarm Guide</a>
+      <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="text-sm text-red-brand hover:underline no-underline">Extinguisher Inspection Guide</a>
+      <a href="/compliance/nfpa-72/" class="text-sm text-red-brand hover:underline no-underline">NFPA 72 Standard</a>
+      <a href="/compliance/nfpa-10/" class="text-sm text-red-brand hover:underline no-underline">NFPA 10 Standard</a>
+    </div>
+  </div>
+</Base>
