@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+const city = 'Lexington';
+const state = 'KY';
+const stateFull = 'Kentucky';
+const slug = 'lexington-ky';
+const county = 'Fayette County';
+const fireDept = 'Lexington Fire Department';
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","name":`Fire Safety Supply House — ${city}, ${state}`,"url":`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,"areaServed":{"@type":"City","name":city,"containedInPlace":{"@type":"State","name":stateFull}},"serviceType":["Fire Extinguisher Inspection","Fire Alarm Installation","Fire Sprinkler Installation","Fire Suppression System Installation","Fire Code Compliance Consulting"],"contactPoint":{"@type":"ContactPoint","contactType":"Sales","email":"quotes@firesafetysupplyhouse.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":`What fire safety services are required for commercial buildings in ${city}, ${state}?`,"acceptedAnswer":{"@type":"Answer","text":`Commercial buildings in ${city} must comply with the Kentucky Building Code and the International Fire Code (IFC) as locally adopted and enforced by the ${fireDept}. Requirements include fire extinguisher inspection (NFPA 10), fire alarm system testing (NFPA 72), sprinkler system inspection (NFPA 25), and commercial kitchen suppression (NFPA 96). The Lexington-Fayette Urban County Government administers fire code enforcement across both the city and county under a unified metro government.`}},{"@type":"Question","name":`Who enforces fire codes in ${city}, ${state}?`,"acceptedAnswer":{"@type":"Answer","text":`The ${fireDept} enforces fire codes within the Lexington-Fayette Urban County Government jurisdiction. The Kentucky State Fire Marshal's Office (502-564-3626) licenses fire protection contractors statewide and can investigate complaints. Lexington's unified urban county government means city and county fire code authority are combined under one administration.`}}]}]};
+const services = [
+  { title: 'Fire Extinguisher Inspection & Service', icon: '🧯', desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service by Kentucky-licensed fire protection technicians.`, nfpa: 'NFPA 10', cta: `Fire Extinguisher Service - ${city}, ${state}` },
+  { title: 'Fire Alarm System Installation & Testing', icon: '🔔', desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, smoke detectors, pull stations, horn/strobes, and monitoring. Full compliance with NFPA 72 and ${fireDept} requirements.`, nfpa: 'NFPA 72', cta: `Fire Alarm Installation - ${city}, ${state}` },
+  { title: 'Fire Sprinkler System Installation & Inspection', icon: '💧', desc: `Fire sprinkler design, installation, and inspection for ${city} commercial properties. Wet, dry, pre-action, and deluge systems. Quarterly, semi-annual, and five-year inspections per NFPA 25. Experience with ${city}'s mix of historic downtown buildings and newer Fayette County developments.`, nfpa: 'NFPA 13 / NFPA 25', cta: `Fire Sprinkler Inspection - ${city}, ${state}` },
+  { title: 'Commercial Kitchen Fire Suppression', icon: '🍳', desc: `Wet chemical fire suppression for ${city} restaurants, bars, and food service operations. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified. Required for all commercial cooking per NFPA 96.`, nfpa: 'NFPA 96', cta: `Kitchen Suppression - ${city}, ${state}` },
+  { title: 'Fire Code Compliance Consulting', icon: '📋', desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. Specific expertise in the compliance requirements of ${city}'s historic downtown buildings and the University of Kentucky campus area commercial properties.`, nfpa: 'IFC / NFPA 101', cta: `Fire Code Compliance - ${city}, ${state}` },
+];
+---
+<Base title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`} description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and IFC fire code compliance. ${fireDept} violation remediation and pre-inspection consulting.`} canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`} schema={schema}>
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16"><div class="section">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8"><a href="/" class="hover:text-gray-700 no-underline">Home</a><span>/</span><span class="text-gray-700">Fire Safety Services in {city}, {state}</span></nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city} — Lexington-Fayette Urban County Government</div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and International Fire Code compliance consulting — performed by licensed professionals to keep your building compliant with {fireDept} requirements and NFPA standards.</p>
+      <div class="flex flex-wrap gap-3"><button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button><a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a></div>
+    </div>
+  </div></section>
+  <section class="bg-red-brand text-white py-4"><div class="section text-center"><p class="text-sm font-medium">⚠️ Don't wait for a violation. The {fireDept} inspects all commercial properties across {city} and {county}. Uncorrected fire code violations carry escalating daily fines and potential occupancy restrictions.</p></div></section>
+  <section class="py-16"><div class="section">
+    <div class="text-center mb-12"><h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2><p class="text-base text-gray-500 max-w-2xl mx-auto">From Downtown {city} and the University of Kentucky area to Hamburg Pavilion and the Legacy Trail corridor — we serve every commercial property type in {city}.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{services.map(s => (<div class="card p-6 flex flex-col"><div class="text-3xl mb-3">{s.icon}</div><h3 class="text-lg font-bold mb-2">{s.title}</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">{s.desc}</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">{s.nfpa}</span><button onclick={`openRFQ('','','${s.cta}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>))}</div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of {city} and {county} operate under the Lexington-Fayette Urban County Government — a consolidated city-county government that administers fire code enforcement across the entire metro area through the {fireDept}. The city enforces the International Fire Code (IFC) with Kentucky amendments across a commercial landscape that spans the historic downtown core, the University of Kentucky and Transylvania University campus corridors, the Hamburg Pavilion retail district, and significant horse industry and agricultural commercial operations unique to the Bluegrass region.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s growing restaurant and entertainment district — centered on Short Street, Jefferson Street, and the Distillery District — creates a high concentration of NFPA 96 kitchen suppression obligations. The University of Kentucky's adjacent commercial zone and student housing corridor add institutional and high-density residential fire protection requirements to the compliance landscape. Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+    </div>
+    <div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+        <h3 class="text-lg font-bold mb-4">{city} Fire Prevention Contacts</h3>
+        <div class="flex flex-col gap-3">
+          <div><p class="text-sm font-bold text-gray-800">{fireDept} — Fire Prevention</p><p class="text-xs text-gray-600">219 E. Third Street, {city}, {state} 40507</p><p class="text-xs text-gray-600">Phone: (859) 231-5700</p></div>
+          <div class="border-t border-gray-100 pt-3"><p class="text-sm font-bold text-gray-800">Kentucky State Fire Marshal's Office</p><p class="text-xs text-gray-600">Licensing & Enforcement: (502) 564-3626</p></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200">
+        <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (visual)</span><span class="text-xs font-bold text-red-brand">Monthly</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (professional)</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Alarm Systems</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Sprinkler Systems</span><span class="text-xs font-bold text-red-brand">Quarterly+</span></div>
+          <div class="flex justify-between items-center py-2"><span class="text-sm text-gray-700">Kitchen Suppression</span><span class="text-xs font-bold text-red-brand">Semi-Annual</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div></section>
+  <section class="py-16"><div class="section">
+    <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">{['Restaurants & Bars','Hotels & Hospitality','Office Buildings','Retail & Strip Centers','Warehouses & Distribution','Horse Industry Facilities','Multi-Family Residential','Healthcare & Medical','Universities & Education','Auto Dealerships','Houses of Worship','Mixed-Use Developments'].map(type => (<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">{type}</span></div>))}</div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="flex flex-col gap-4">
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3><p class="text-sm text-gray-600 leading-relaxed">{city} enforces the International Fire Code (IFC) with Kentucky amendments through the Lexington-Fayette Urban County Government. Requirements include fire extinguishers (NFPA 10), fire alarms (NFPA 72), sprinklers (NFPA 13/25), and kitchen suppression (NFPA 96).</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">How often are fire inspections required in {city}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {fireDept} conducts annual commercial property inspections. Fire extinguishers: monthly visual checks and annual professional inspection. Fire alarms: annual testing. Sprinklers: quarterly, semi-annual, and annual inspections. Kitchen suppression: semi-annual per NFPA 96.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3><p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires a wet chemical suppression system per NFPA 96, plus a Class K extinguisher within 30 feet of cooking equipment. Systems must be inspected semi-annually by a Kentucky-licensed technician.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {fireDept} enforces fire codes across the Lexington-Fayette Urban County Government jurisdiction. The Kentucky State Fire Marshal's Office licenses fire protection contractors statewide at (502) 564-3626.</p></div>
+    </div>
+  </div></section>
+  <section class="py-16"><div class="section text-center max-w-2xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
+    <p class="text-base text-gray-500 mb-6">Don't wait for the {fireDept} to find violations. Get ahead of fire code requirements with a comprehensive fire safety assessment of your {city} property.</p>
+    <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
+    <p class="text-xs text-gray-400 mt-3">Or email us directly: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+  </div></section>
+  <section class="bg-gray-50 py-12"><div class="section">
+    <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="/compliance/nfpa-10/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 10 Fire Extinguisher Requirements</p></a>
+      <a href="/compliance/nfpa-72/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p></a>
+      <a href="/fire-safety-services-cincinnati-oh/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Cincinnati, OH</p></a>
+      <a href="/fire-safety-services-st-paul-mn/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in St. Paul, MN</p></a>
+      <a href="/fire-safety-services-plano-tx/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Plano, TX</p></a>
+      <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Resources</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p></a>
+    </div>
+  </div></section>
+</Base>

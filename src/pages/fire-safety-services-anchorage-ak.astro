@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+const city = 'Anchorage';
+const state = 'AK';
+const stateFull = 'Alaska';
+const slug = 'anchorage-ak';
+const county = 'Municipality of Anchorage';
+const fireDept = 'Anchorage Fire Department';
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","name":`Fire Safety Supply House — ${city}, ${state}`,"url":`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,"areaServed":{"@type":"City","name":city,"containedInPlace":{"@type":"State","name":stateFull}},"serviceType":["Fire Extinguisher Inspection","Fire Alarm Installation","Fire Sprinkler Installation","Fire Suppression System Installation","Fire Code Compliance Consulting"],"contactPoint":{"@type":"ContactPoint","contactType":"Sales","email":"quotes@firesafetysupplyhouse.com"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":`What fire safety services are required for commercial buildings in ${city}, ${state}?`,"acceptedAnswer":{"@type":"Answer","text":`Commercial buildings in ${city} must comply with the International Fire Code (IFC) and International Building Code (IBC) as adopted by the ${county} with local amendments. Requirements include fire extinguisher inspection (NFPA 10), fire alarm system testing (NFPA 72), sprinkler system inspection (NFPA 25), and commercial kitchen suppression (NFPA 96). ${city}'s extreme climate creates unique fire protection challenges — heating equipment fires and cold-weather system failures are significant concerns that the ${fireDept} Fire Prevention Division actively addresses.`}},{"@type":"Question","name":`Who enforces fire codes in ${city}, ${state}?`,"acceptedAnswer":{"@type":"Answer","text":`The ${fireDept} Fire Prevention Division enforces fire codes within the ${county}. The Alaska State Fire Marshal's Office (907-465-5470) licenses fire protection contractors statewide and oversees statewide fire code compliance.`}}]}]};
+const services = [
+  { title: 'Fire Extinguisher Inspection & Service', icon: '🧯', desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. Cold-weather rated equipment available for ${city}'s extreme climate conditions.`, nfpa: 'NFPA 10', cta: `Fire Extinguisher Service - ${city}, ${state}` },
+  { title: 'Fire Alarm System Installation & Testing', icon: '🔔', desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems. Cold-environment components rated for ${city}'s temperature extremes. Full compliance with NFPA 72 and ${fireDept} requirements.`, nfpa: 'NFPA 72', cta: `Fire Alarm Installation - ${city}, ${state}` },
+  { title: 'Fire Sprinkler System Installation & Inspection', icon: '💧', desc: `Fire sprinkler design, installation, and inspection for ${city} commercial properties. Anti-freeze and dry pipe systems for ${city}'s sub-zero conditions. Quarterly, semi-annual, and five-year inspections per NFPA 25. Cold-weather sprinkler expertise essential in ${stateFull}.`, nfpa: 'NFPA 13 / NFPA 25', cta: `Fire Sprinkler Inspection - ${city}, ${state}` },
+  { title: 'Commercial Kitchen Fire Suppression', icon: '🍳', desc: `Wet chemical fire suppression for ${city} restaurants and food service operations. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified. Required for all commercial cooking per NFPA 96.`, nfpa: 'NFPA 96', cta: `Kitchen Suppression - ${city}, ${state}` },
+  { title: 'Fire Code Compliance Consulting', icon: '📋', desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. Specific expertise in the unique compliance challenges of ${stateFull}'s climate — heating equipment fire risks, cold-weather system failures, and remote supply chain considerations for fire protection equipment.`, nfpa: 'IFC / NFPA 101', cta: `Fire Code Compliance - ${city}, ${state}` },
+];
+---
+<Base title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`} description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, cold-weather sprinkler systems, kitchen suppression, and IFC fire code compliance. ${fireDept} violation remediation.`} canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`} schema={schema}>
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16"><div class="section">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8"><a href="/" class="hover:text-gray-700 no-underline">Home</a><span>/</span><span class="text-gray-700">Fire Safety Services in {city}, {state}</span></nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city} — {county}</div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, cold-weather sprinkler systems, kitchen suppression, and International Fire Code compliance — performed by licensed professionals with specific expertise in {stateFull}'s extreme climate conditions and their impact on fire protection systems.</p>
+      <div class="flex flex-wrap gap-3"><button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button><a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a></div>
+    </div>
+  </div></section>
+  <section class="bg-red-brand text-white py-4"><div class="section text-center"><p class="text-sm font-medium">⚠️ Don't wait for a violation. The {fireDept} inspects all commercial properties in {city}. In {stateFull}'s climate, fire protection system failures carry heightened life-safety risks — frozen pipes, heating equipment fires, and delayed emergency response all increase fire consequences.</p></div></section>
+  <section class="py-16"><div class="section">
+    <div class="text-center mb-12"><h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2><p class="text-base text-gray-500 max-w-2xl mx-auto">From Downtown {city} and Midtown to South Anchorage, Eagle River, and the commercial corridors along the Glenn Highway — we serve every commercial property type in the {county}.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{services.map(s => (<div class="card p-6 flex flex-col"><div class="text-3xl mb-3">{s.icon}</div><h3 class="text-lg font-bold mb-2">{s.title}</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">{s.desc}</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">{s.nfpa}</span><button onclick={`openRFQ('','','${s.cta}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>))}</div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">The {county} adopts the International Fire Code (IFC) and International Building Code (IBC) with local amendments, enforced by the {fireDept} Fire Prevention Division. As {stateFull}'s largest city and its economic and commercial hub, {city} oversees a wide range of commercial property types — downtown offices and hospitality, Midtown retail and medical, South {city} industrial and warehouse operations, and the commercial strips along the Glenn and Seward Highways.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s extreme sub-zero winters create fire protection challenges that are largely absent in the lower 48. Wet pipe sprinkler systems risk freezing in unheated spaces, requiring anti-freeze systems or dry pipe alternatives. Heating equipment — the leading cause of commercial fires in cold climates — must be properly maintained and inspected. Fire alarm systems exposed to temperature extremes require cold-rated components. The {fireDept} is well aware of these climate-specific risks and factors them into inspection priorities.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+    </div>
+    <div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+        <h3 class="text-lg font-bold mb-4">{city} Fire Prevention Contacts</h3>
+        <div class="flex flex-col gap-3">
+          <div><p class="text-sm font-bold text-gray-800">{fireDept} — Fire Prevention Division</p><p class="text-xs text-gray-600">1025 E. 8th Avenue, {city}, {state} 99501</p><p class="text-xs text-gray-600">Phone: (907) 267-4900</p></div>
+          <div class="border-t border-gray-100 pt-3"><p class="text-sm font-bold text-gray-800">Alaska State Fire Marshal's Office</p><p class="text-xs text-gray-600">Licensing & Enforcement: (907) 465-5470</p></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200">
+        <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (visual)</span><span class="text-xs font-bold text-red-brand">Monthly</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (professional)</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Alarm Systems</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Sprinkler Systems</span><span class="text-xs font-bold text-red-brand">Quarterly+</span></div>
+          <div class="flex justify-between items-center py-2"><span class="text-sm text-gray-700">Kitchen Suppression</span><span class="text-xs font-bold text-red-brand">Semi-Annual</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div></section>
+  <section class="py-16"><div class="section">
+    <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">{['Restaurants & Food Service','Hotels & Hospitality','Office Buildings','Retail & Shopping Centers','Warehouses & Distribution','Industrial Facilities','Multi-Family Residential','Healthcare & Medical','Schools & Education','Aviation & Airport Facilities','Houses of Worship','Government & Military'].map(type => (<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">{type}</span></div>))}</div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="flex flex-col gap-4">
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {county} enforces the IFC with local amendments. Requirements include fire extinguishers (NFPA 10), fire alarms (NFPA 72), sprinklers (NFPA 13/25), and kitchen suppression (NFPA 96). {city}'s climate adds critical requirements around cold-weather system design — anti-freeze or dry pipe systems for unheated spaces, cold-rated alarm components, and heating equipment maintenance.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Do I need a dry pipe or anti-freeze sprinkler system in {city}?</h3><p class="text-sm text-gray-600 leading-relaxed">Wet pipe sprinkler systems will freeze in unheated spaces during {city}'s winters — this includes attics, parking garages, loading docks, and any area that drops below 40°F. These areas require dry pipe sprinkler systems, anti-freeze systems, or electric heat tracing to maintain operability. A licensed fire protection engineer should specify the correct system type for each space in your building.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3><p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires a wet chemical suppression system per NFPA 96, plus a Class K extinguisher within 30 feet of cooking equipment. Systems must be inspected semi-annually. {city}'s restaurant scene — concentrated in Downtown, Midtown, and along the Dimond Center corridor — generates a high volume of kitchen suppression compliance obligations.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {fireDept} Fire Prevention Division enforces fire codes within the {county}. The Alaska State Fire Marshal's Office licenses fire protection contractors statewide at (907) 465-5470.</p></div>
+    </div>
+  </div></section>
+  <section class="py-16"><div class="section text-center max-w-2xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
+    <p class="text-base text-gray-500 mb-6">Don't wait for the {fireDept} to find violations. In {stateFull}'s climate, fire protection system failures carry serious consequences. Get ahead of compliance requirements today.</p>
+    <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
+    <p class="text-xs text-gray-400 mt-3">Or email us: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+  </div></section>
+  <section class="bg-gray-50 py-12"><div class="section">
+    <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="/compliance/nfpa-25/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 25 Sprinkler Inspection Requirements</p></a>
+      <a href="/compliance/nfpa-72/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p></a>
+      <a href="/fire-safety-services-lexington-ky/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Lexington, KY</p></a>
+      <a href="/fire-safety-services-stockton-ca/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Stockton, CA</p></a>
+      <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Resources</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p></a>
+      <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Blog</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Commercial Fire Extinguisher Inspection Guide</p></a>
+    </div>
+  </div></section>
+</Base>

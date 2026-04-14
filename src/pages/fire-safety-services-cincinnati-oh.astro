@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+const city = 'Cincinnati';
+const state = 'OH';
+const stateFull = 'Ohio';
+const slug = 'cincinnati-oh';
+const county = 'Hamilton County';
+const fireDept = 'Cincinnati Fire Department';
+---
+<Base title={`Fire Safety Services in $Cincinnati, $OH — Inspection, Installation & Compliance`} description={`Fire safety services for $Cincinnati, $OH commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and Ohio Fire Code compliance. $Cincinnati Fire Department violation remediation and pre-inspection consulting.`} canonical={`https://firesafetysupplyhouse.com/fire-safety-services-$cincinnati-oh/`}>
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16"><div class="section">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8"><a href="/" class="hover:text-gray-700 no-underline">Home</a><span>/</span><span class="text-gray-700">Fire Safety Services in Cincinnati, OH</span></nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving Cincinnati, Ohio & Hamilton County</div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in Cincinnati, OH</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in Cincinnati, Ohio. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and Ohio Fire Code compliance consulting — performed by licensed professionals to keep your building compliant with Cincinnati Fire Department requirements and NFPA standards.</p>
+      <div class="flex flex-wrap gap-3"><button onclick={`openRFQ('','','Fire Safety Services - $Cincinnati, $OH')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button><a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a></div>
+    </div>
+  </div></section>
+  <section class="bg-red-brand text-white py-4"><div class="section text-center"><p class="text-sm font-medium">⚠️ Don't wait for a violation. The Cincinnati Fire Department conducts routine inspections of all commercial properties. Uncorrected Ohio Fire Code violations carry escalating daily fines and potential occupancy restrictions.</p></div></section>
+  <section class="py-16"><div class="section">
+    <div class="text-center mb-12"><h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for Cincinnati Businesses</h2><p class="text-base text-gray-500 max-w-2xl mx-auto">We provide every fire safety service your Cincinnati commercial property needs to stay compliant with Cincinnati Fire Department requirements and NFPA standards.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🧯</div><h3 class="text-lg font-bold mb-2">Fire Extinguisher Inspection &amp; Service</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">NFPA 10 compliant fire extinguisher inspections for Cincinnati commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service by licensed fire protection technicians.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 10</span><button onclick={`openRFQ('','','Fire Extinguisher Service - $Cincinnati, $OH')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🔔</div><h3 class="text-lg font-bold mb-2">Fire Alarm System Installation &amp; Testing</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Complete fire alarm system design, installation, and annual testing for Cincinnati commercial buildings. Addressable and conventional systems, smoke detectors, pull stations, horn/strobes, and monitoring. Full compliance with NFPA 72 and Cincinnati Fire Department requirements.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 72</span><button onclick={`openRFQ('','','Fire Alarm Installation - $Cincinnati, $OH')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">💧</div><h3 class="text-lg font-bold mb-2">Fire Sprinkler System Installation &amp; Inspection</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Fire sprinkler design, installation, and inspection for Cincinnati commercial properties. Wet, dry, pre-action, and deluge systems. Quarterly, semi-annual, and five-year inspections per NFPA 25. Ohio enforces the IFC with state amendments through the Ohio State Fire Marshal.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 13 / NFPA 25</span><button onclick={`openRFQ('','','Fire Sprinkler Inspection - $Cincinnati, $OH')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🍳</div><h3 class="text-lg font-bold mb-2">Commercial Kitchen Fire Suppression</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Wet chemical fire suppression for Cincinnati restaurants and food service operations. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified. Required for all commercial cooking per NFPA 96.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 96</span><button onclick={`openRFQ('','','Kitchen Suppression - $Cincinnati, $OH')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">📋</div><h3 class="text-lg font-bold mb-2">Fire Code Compliance Consulting</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Fire code compliance audits, violation remediation, and pre-inspection consulting for Cincinnati commercial properties. We help property managers resolve Cincinnati Fire Department violations and prepare for routine inspections.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">IFC / NFPA 101</span><button onclick={`openRFQ('','','Fire Code Compliance - $Cincinnati, $OH')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+    </div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Cincinnati Fire Code Requirements</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of Cincinnati enforces the Ohio Fire Code (which adopts the IFC with Ohio amendments) through the Cincinnati Fire Department Fire Prevention Bureau. As Ohio's third-largest city and the economic hub of the Greater Cincinnati tri-state metro area spanning Ohio, Kentucky, and Indiana, Cincinnati oversees a diverse commercial landscape — the historic Over-the-Rhine entertainment district, Downtown CBD office towers, the Newport and Covington corridor across the river, and significant industrial operations along the Mill Creek Valley.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">Cincinnati's historic building stock presents significant fire protection compliance challenges. Over-the-Rhine's 19th-century Italianate commercial buildings, Mt. Adams hillside structures, and the Pendleton arts district's converted warehouses all require fire system upgrades when occupancy changes occur. Ohio's fire code enforcement has become more aggressive in recent years following several high-profile building fires, making pre-inspection compliance consulting increasingly valuable for older property owners.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+    </div>
+    <div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+        <h3 class="text-lg font-bold mb-4">Cincinnati Fire Prevention Contacts</h3>
+        <div class="flex flex-col gap-3">
+          <div><p class="text-sm font-bold text-gray-800">Cincinnati Fire Department — Fire Prevention</p><p class="text-xs text-gray-600">909 W. 8th Street, Cincinnati, OH 45203</p><p class="text-xs text-gray-600">Phone: (513) 352-3999</p></div>
+          <div class="border-t border-gray-100 pt-3"><p class="text-sm font-bold text-gray-800">Ohio State Fire Marshal's Office</p><p class="text-xs text-gray-600">Licensing & Enforcement: (614) 752-7126</p></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200">
+        <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (visual)</span><span class="text-xs font-bold text-red-brand">Monthly</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (professional)</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Alarm Systems</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Sprinkler Systems</span><span class="text-xs font-bold text-red-brand">Quarterly+</span></div>
+          <div class="flex justify-between items-center py-2"><span class="text-sm text-gray-700">Kitchen Suppression</span><span class="text-xs font-bold text-red-brand">Semi-Annual</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div></section>
+  <section class="py-16"><div class="section">
+    <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in Cincinnati</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4"><div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Restaurants & Bars</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Hotels & Event Venues</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Office Buildings</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Retail & Strip Centers</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Historic Buildings & Conversions</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Manufacturing Facilities</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Multi-Family Residential</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Healthcare & Medical</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Universities & Education</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Entertainment Venues</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Houses of Worship</span></div>
+<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">Mixed-Use Developments</span></div></div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="flex flex-col gap-4">
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in Cincinnati, OH?</h3><p class="text-sm text-gray-600 leading-relaxed">Cincinnati enforces the Ohio Fire Code / International Fire Code (IFC). Requirements include fire extinguishers (NFPA 10), fire alarms (NFPA 72), sprinklers (NFPA 13/25), and kitchen suppression for commercial cooking (NFPA 96). Ohio enforces the IFC with state amendments through the Ohio State Fire Marshal.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">How often are fire inspections required in Cincinnati?</h3><p class="text-sm text-gray-600 leading-relaxed">The Cincinnati Fire Department conducts annual commercial property inspections. Fire extinguishers: monthly visual checks and annual professional inspection. Fire alarms: annual testing. Sprinklers: quarterly, semi-annual, and annual inspections. Kitchen suppression: semi-annual per NFPA 96.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">My building is a historic Over-the-Rhine structure. What fire protection is required?</h3><p class="text-sm text-gray-600 leading-relaxed">Cincinnati's historic OTR buildings — many dating to the 1800s — trigger fire code compliance requirements when occupancy changes from residential to commercial or assembly. Ohio's fire code and NFPA 101 require fire alarms, sprinklers in many converted occupancies, and egress lighting. Historic designation does not exempt buildings from fire safety requirements. Consult a licensed fire protection engineer before finalizing any renovation or change-of-use plans.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Do restaurants in Cincinnati need special fire suppression systems?</h3><p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires a wet chemical suppression system per NFPA 96, plus a Class K extinguisher within 30 feet of cooking equipment. Systems must be inspected semi-annually by a licensed technician.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Who enforces fire codes in Cincinnati, OH?</h3><p class="text-sm text-gray-600 leading-relaxed">The Cincinnati Fire Department enforces fire codes within Cincinnati city limits. The Ohio State Fire Marshal's Office licenses fire protection contractors statewide at (614) 752-7126.</p></div>
+    </div>
+  </div></section>
+  <section class="py-16"><div class="section text-center max-w-2xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in Cincinnati, OH</h2>
+    <p class="text-base text-gray-500 mb-6">Don't wait for the Cincinnati Fire Department to find violations. Get ahead of fire code requirements with a comprehensive fire safety assessment of your Cincinnati property.</p>
+    <button onclick={`openRFQ('','','Fire Safety Inspection - $Cincinnati, $OH')`} class="btn-primary text-sm">Get a Free Quote</button>
+    <p class="text-xs text-gray-400 mt-3">Or email us: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+  </div></section>
+  <section class="bg-gray-50 py-12"><div class="section">
+    <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="/compliance/nfpa-10/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 10 Fire Extinguisher Requirements</p></a>
+      <a href="/compliance/nfpa-72/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p></a>
+      <a href="/fire-safety-services-lexington-ky/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Lexington, KY</p></a>
+      <a href="/fire-safety-services-pittsburgh-pa/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Pittsburgh, PA</p></a>
+      <a href="/fire-safety-services-st-louis-mo/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in St. Louis, MO</p></a>
+      <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Resources</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p></a>
+    </div>
+  </div></section>
+</Base>

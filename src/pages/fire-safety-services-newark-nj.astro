@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+const city = 'Newark';
+const state = 'NJ';
+const stateFull = 'New Jersey';
+const slug = 'newark-nj';
+const county = 'Essex County';
+const fireDept = 'Newark Fire Department';
+---
+<Base title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`} description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and New Jersey Uniform Fire Code compliance. ${fireDept} violation remediation and pre-inspection consulting.`} canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`}>
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16"><div class="section">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8"><a href="/" class="hover:text-gray-700 no-underline">Home</a><span>/</span><span class="text-gray-700">Fire Safety Services in {city}, {state}</span></nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city}, {stateFull} & {county}</div>
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and New Jersey Uniform Fire Code (NJUFC) compliance — performed by licensed professionals to keep your building compliant with {fireDept} requirements and NFPA standards.</p>
+      <div class="flex flex-wrap gap-3"><button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button><a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a></div>
+    </div>
+  </div></section>
+  <section class="bg-red-brand text-white py-4"><div class="section text-center"><p class="text-sm font-medium">⚠️ Don't wait for a violation. The {fireDept} and New Jersey Division of Fire Safety enforce the NJUFC across all commercial properties. Uncorrected violations carry escalating daily fines under New Jersey law.</p></div></section>
+  <section class="py-16"><div class="section">
+    <div class="text-center mb-12"><h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2><p class="text-base text-gray-500 max-w-2xl mx-auto">From the Ironbound restaurant district to Downtown Newark, the Brick City commercial corridors, and the Port Newark-Elizabeth Marine Terminal — we serve every commercial property type in {city}.</p></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🧯</div><h3 class="text-lg font-bold mb-2">Fire Extinguisher Inspection & Service</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">NFPA 10 and NJUFC compliant fire extinguisher inspections for {city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service by New Jersey licensed fire protection technicians.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 10 / NJUFC</span><button onclick={`openRFQ('','','Fire Extinguisher Service - ${city}, ${state}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🔔</div><h3 class="text-lg font-bold mb-2">Fire Alarm System Installation & Testing</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Complete fire alarm system design, installation, and annual testing for {city} commercial buildings. Addressable and conventional systems. Full compliance with NFPA 72 and the New Jersey Uniform Fire Code requirements enforced by the {fireDept}.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 72 / NJUFC</span><button onclick={`openRFQ('','','Fire Alarm Installation - ${city}, ${state}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">💧</div><h3 class="text-lg font-bold mb-2">Fire Sprinkler System Installation & Inspection</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Fire sprinkler design, installation, and inspection for {city} commercial properties. New Jersey mandates automatic sprinklers in most new commercial construction statewide. Quarterly, semi-annual, and five-year inspections per NFPA 25.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 13 / NFPA 25</span><button onclick={`openRFQ('','','Fire Sprinkler Inspection - ${city}, ${state}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">🍳</div><h3 class="text-lg font-bold mb-2">Commercial Kitchen Fire Suppression</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">Wet chemical fire suppression for {city} restaurants and food service operations. {city}'s Ironbound district alone has hundreds of commercial kitchens requiring semi-annual NFPA 96 inspections. Design, installation, inspection, and recharge by certified technicians.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NFPA 96 / NJUFC</span><button onclick={`openRFQ('','','Kitchen Suppression - ${city}, ${state}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+      <div class="card p-6 flex flex-col"><div class="text-3xl mb-3">📋</div><h3 class="text-lg font-bold mb-2">Fire Code Compliance Consulting</h3><p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">NJUFC compliance audits, violation remediation, and pre-inspection consulting for {city} commercial properties. New Jersey's Uniform Fire Code has unique requirements distinct from the IFC — we help property managers navigate both the {fireDept} and NJ Division of Fire Safety compliance requirements.</p><div class="flex items-center justify-between"><span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">NJUFC / NFPA 101</span><button onclick={`openRFQ('','','Fire Code Compliance - ${city}, ${state}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button></div></div>
+    </div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section"><div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div>
+      <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">New Jersey is unique among states in that it enforces its own statewide Uniform Fire Code (NJUFC) — separate from the IFC adopted by most states — through a combination of local fire inspection bureaus and the NJ Division of Fire Safety. The {fireDept} enforces the NJUFC within {city} city limits, while the NJ Division of Fire Safety (609-633-6132) oversees licensing of fire protection contractors and can conduct compliance investigations statewide.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s commercial landscape spans the Ironbound's dense restaurant and food service district (one of the highest concentrations of commercial kitchens in New Jersey), Downtown Newark's office and hotel corridor, the Broad Street commercial district, and significant warehouse and industrial operations adjacent to Port Newark-Elizabeth. New Jersey mandates automatic fire sprinkler systems in most new commercial construction, and the NJUFC requires regular inspection and testing of all fire protection systems.</p>
+      <p class="text-sm text-gray-600 leading-relaxed mb-4">Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+    </div>
+    <div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+        <h3 class="text-lg font-bold mb-4">{city} Fire Prevention Contacts</h3>
+        <div class="flex flex-col gap-3">
+          <div><p class="text-sm font-bold text-gray-800">{fireDept} — Fire Prevention Bureau</p><p class="text-xs text-gray-600">900 Broad Street, {city}, {state} 07102</p><p class="text-xs text-gray-600">Phone: (973) 733-6230</p></div>
+          <div class="border-t border-gray-100 pt-3"><p class="text-sm font-bold text-gray-800">NJ Division of Fire Safety (State Fire Marshal)</p><p class="text-xs text-gray-600">Licensing & Enforcement: (609) 633-6132</p><p class="text-xs text-gray-600">nj.gov/dca/dfs</p></div>
+          <div class="border-t border-gray-100 pt-3"><p class="text-sm font-bold text-gray-800">{county} Fire Marshal</p><p class="text-xs text-gray-600">Serves unincorporated {county} areas</p></div>
+        </div>
+      </div>
+      <div class="bg-white rounded-xl p-6 border border-gray-200">
+        <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (visual)</span><span class="text-xs font-bold text-red-brand">Monthly</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Extinguishers (professional)</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Alarm Systems</span><span class="text-xs font-bold text-red-brand">Annual</span></div>
+          <div class="flex justify-between items-center py-2 border-b border-gray-100"><span class="text-sm text-gray-700">Fire Sprinkler Systems</span><span class="text-xs font-bold text-red-brand">Quarterly+</span></div>
+          <div class="flex justify-between items-center py-2"><span class="text-sm text-gray-700">Kitchen Suppression</span><span class="text-xs font-bold text-red-brand">Semi-Annual</span></div>
+        </div>
+      </div>
+    </div>
+  </div></div></section>
+  <section class="py-16"><div class="section">
+    <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">{['Restaurants & Ironbound Dining','Hotels & Airport Properties','Office Buildings','Retail & Commercial','Warehouses & Logistics','Port & Industrial Facilities','Multi-Family Residential','Healthcare & Medical','Schools & Universities','Entertainment Venues','Houses of Worship','Mixed-Use Developments'].map(type => (<div class="bg-gray-50 rounded-lg p-4 text-center"><span class="text-sm font-medium text-gray-700">{type}</span></div>))}</div>
+  </div></section>
+  <section class="bg-gray-50 py-16"><div class="section max-w-3xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+    <div class="flex flex-col gap-4">
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">What makes New Jersey's fire code different from other states?</h3><p class="text-sm text-gray-600 leading-relaxed">New Jersey enforces its own statewide Uniform Fire Code (NJUFC) — separate from the International Fire Code (IFC) used by most states. The NJUFC has unique inspection requirements, licensing requirements for fire protection contractors, and enforcement structures that differ from neighboring states. The NJ Division of Fire Safety (609-633-6132) oversees contractor licensing and can conduct statewide compliance investigations independent of local fire departments.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">How often are fire inspections required in {city}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {fireDept} conducts annual inspections of commercial properties under the NJUFC. Fire extinguishers: monthly visual and annual professional inspection. Fire alarms: annual testing. Sprinklers: quarterly, semi-annual, and annual inspections. Kitchen suppression: semi-annual per NFPA 96.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Do Ironbound restaurants in {city} need special fire suppression?</h3><p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires a wet chemical suppression system per NFPA 96 and the NJUFC, plus a Class K extinguisher within 30 feet of cooking equipment. The Ironbound district's density of Portuguese, Spanish, and Brazilian restaurants makes this one of the most active kitchen suppression compliance zones in New Jersey. Semi-annual inspection by a NJ-licensed technician is required.</p></div>
+      <div class="bg-white rounded-xl p-5 border border-gray-200"><h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3><p class="text-sm text-gray-600 leading-relaxed">The {fireDept} enforces the NJUFC within {city} city limits. The NJ Division of Fire Safety (609-633-6132) licenses fire protection contractors statewide, conducts compliance investigations, and can enforce the NJUFC independently of local fire departments — a dual enforcement structure unique to New Jersey.</p></div>
+    </div>
+  </div></section>
+  <section class="py-16"><div class="section text-center max-w-2xl">
+    <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
+    <p class="text-base text-gray-500 mb-6">Don't wait for the {fireDept} to find violations. Get ahead of NJUFC requirements with a comprehensive fire safety assessment of your {city} property.</p>
+    <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
+    <p class="text-xs text-gray-400 mt-3">Or email us: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+  </div></section>
+  <section class="bg-gray-50 py-12"><div class="section">
+    <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="/compliance/nfpa-10/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 10 Fire Extinguisher Requirements</p></a>
+      <a href="/compliance/nfpa-72/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Compliance</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p></a>
+      <a href="/fire-safety-services-buffalo-ny/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Buffalo, NY</p></a>
+      <a href="/fire-safety-services-pittsburgh-pa/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Pittsburgh, PA</p></a>
+      <a href="/fire-safety-services-greensboro-nc/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">City</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Greensboro, NC</p></a>
+      <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group"><span class="text-xs font-bold text-red-brand">Resources</span><p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p></a>
+    </div>
+  </div></section>
+</Base>
