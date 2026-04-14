@@ -1,0 +1,343 @@
+---
+import Base from '../layouts/Base.astro';
+
+const city = 'Riverside';
+const state = 'CA';
+const stateFull = 'California';
+const slug = 'riverside-ca';
+const county = 'Riverside County';
+const fireDept = 'Riverside Fire Department';
+const fireCode = 'California Fire Code (Title 19 CCR)';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": `Fire Safety Supply House — ${city}, ${state}`,
+      "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
+      "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
+      "areaServed": {
+        "@type": "City",
+        "name": city,
+        "containedInPlace": { "@type": "State", "name": stateFull }
+      },
+      "serviceType": [
+        "Fire Extinguisher Inspection",
+        "Fire Alarm Installation",
+        "Fire Sprinkler Installation",
+        "Fire Suppression System Installation",
+        "Fire Code Compliance Consulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "quotes@firesafetysupplyhouse.com"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": `Fire Safety Services in ${city}, ${state}`,
+      "provider": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "areaServed": { "@type": "City", "name": city },
+      "serviceType": "Fire Protection Services",
+      "description": `Complete fire safety services for commercial properties in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, fire suppression, and California Fire Code compliance consulting.`
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Commercial buildings in ${city} must comply with the California Fire Code (Title 19 CCR) as enforced by the ${fireDept}. Requirements include fire extinguisher inspection (NFPA 10), fire alarm system testing (NFPA 72), sprinkler system inspection (NFPA 25), and commercial kitchen suppression (NFPA 96). California mandates automatic fire sprinklers in most new commercial construction statewide.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How often are fire inspections required in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The ${fireDept} conducts annual fire inspections of most commercial properties. Fire extinguishers require monthly visual checks and annual professional inspections per NFPA 10. Fire alarm systems require annual testing per NFPA 72. Sprinkler systems require quarterly, semi-annual, and annual inspections per NFPA 25. Kitchen suppression systems require semi-annual service per NFPA 96.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `California Fire Code violations in ${city} carry administrative fines with per-day escalation for uncorrected deficiencies. The ${fireDept} issues notices of violation with correction deadlines. Serious life-safety hazards can result in immediate occupancy restrictions. ${city}'s proximity to wildland-urban interface areas also makes fire code enforcement a higher-priority concern for local authorities.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Do restaurants in ${city} need special fire suppression systems?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes. All commercial cooking operations in ${city} producing grease-laden vapors must have an automatic wet chemical suppression system per NFPA 96 and the California Fire Code. Systems must be inspected and serviced semi-annually by a California-licensed technician. Class K fire extinguishers are required within 30 feet of cooking equipment.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Who enforces fire codes in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The ${fireDept} enforces fire codes within ${city} city limits. The California State Fire Marshal's Office licenses fire protection contractors statewide and oversees Title 19 CCR compliance. The Riverside County Fire Department serves unincorporated county areas surrounding ${city}.`
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const services = [
+  {
+    title: 'Fire Extinguisher Inspection & Service',
+    icon: '🧯',
+    desc: `NFPA 10 and California Title 19 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All work by California-licensed fire protection technicians.`,
+    nfpa: 'NFPA 10 / Title 19',
+    cta: `Fire Extinguisher Service - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Alarm System Installation & Testing',
+    icon: '🔔',
+    desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, smoke detectors, pull stations, horn/strobes, and central station monitoring. Full compliance with NFPA 72 and ${fireDept} requirements.`,
+    nfpa: 'NFPA 72',
+    cta: `Fire Alarm Installation - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Sprinkler System Installation & Inspection',
+    icon: '💧',
+    desc: `Fire sprinkler design, installation, and inspection for new construction and retrofit projects in ${city}. Wet, dry, pre-action, and deluge systems. Quarterly, semi-annual, and five-year inspections per NFPA 25. California mandates sprinklers in most new commercial construction.`,
+    nfpa: 'NFPA 13 / NFPA 25',
+    cta: `Fire Sprinkler Inspection - ${city}, ${state}`
+  },
+  {
+    title: 'Commercial Kitchen Fire Suppression',
+    icon: '🍳',
+    desc: `Wet chemical fire suppression systems for ${city} restaurants and commercial kitchens. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified. Required for all commercial cooking operations per NFPA 96 and the California Fire Code.`,
+    nfpa: 'NFPA 96',
+    cta: `Kitchen Suppression - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Code Compliance Consulting',
+    icon: '📋',
+    desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. We help property owners resolve ${fireDept} violations and prepare for routine California Fire Code inspections — including wildland-urban interface requirements specific to ${county}.`,
+    nfpa: 'CFC / NFPA 101',
+    cta: `Fire Code Compliance - ${city}, ${state}`
+  }
+];
+---
+
+<Base
+  title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`}
+  description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and California Fire Code compliance. ${fireDept} violation remediation and pre-inspection consulting.`}
+  canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`}
+  schema={schema}
+>
+
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16">
+    <div class="section">
+      <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+        <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+        <span>/</span>
+        <span class="text-gray-700">Fire Safety Services in {city}, {state}</span>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city}, {stateFull} & {county}</div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and California Fire Code compliance consulting — performed by licensed professionals to keep your building in compliance with {fireDept} requirements and NFPA standards.</p>
+        <div class="flex flex-wrap gap-3">
+          <button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button>
+          <a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-red-brand text-white py-4">
+    <div class="section text-center">
+      <p class="text-sm font-medium">⚠️ Don't wait for a violation. The {fireDept} conducts routine inspections of all commercial properties. California Fire Code violations carry per-day fines for uncorrected deficiencies.</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2>
+        <p class="text-base text-gray-500 max-w-2xl mx-auto">From Downtown {city} to the University Avenue corridor and the Jurupa Valley industrial district, we serve every commercial property type in {city}.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <div class="card p-6 flex flex-col">
+            <div class="text-3xl mb-3">{s.icon}</div>
+            <h3 class="text-lg font-bold mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">{s.desc}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">{s.nfpa}</span>
+              <button onclick={`openRFQ('','','${s.cta}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="section">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of {city} enforces the California Fire Code (Title 19 CCR) through the {fireDept}. As the seat of {county} and the Inland Empire's largest city, {city} oversees a broad commercial landscape spanning the historic downtown Mission Inn district, the University Avenue commercial corridor, Tyler Mall area retail, and significant industrial and warehouse facilities along the I-215 and SR-60 corridors.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s location near wildland-urban interface zones adds a layer of fire risk awareness that makes code compliance particularly important. The {fireDept} actively enforces fire code requirements across all commercial occupancies, with particular attention to storage facilities, restaurants, and multi-tenant commercial properties that generate the highest fire risk.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">California mandates automatic sprinkler systems in most new commercial construction statewide. Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+        </div>
+        <div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+            <h3 class="text-lg font-bold mb-4">{city} Fire Prevention Contacts</h3>
+            <div class="flex flex-col gap-3">
+              <div>
+                <p class="text-sm font-bold text-gray-800">{fireDept} — Fire Prevention</p>
+                <p class="text-xs text-gray-600">3775 Shelby Street, {city}, {state} 92501</p>
+                <p class="text-xs text-gray-600">Phone: (951) 826-5321</p>
+              </div>
+              <div class="border-t border-gray-100 pt-3">
+                <p class="text-sm font-bold text-gray-800">California State Fire Marshal's Office</p>
+                <p class="text-xs text-gray-600">Licensing & Enforcement: (916) 445-8200</p>
+                <p class="text-xs text-gray-600">osfm.fire.ca.gov</p>
+              </div>
+              <div class="border-t border-gray-100 pt-3">
+                <p class="text-sm font-bold text-gray-800">{county} Fire Department</p>
+                <p class="text-xs text-gray-600">Serves unincorporated county areas</p>
+                <p class="text-xs text-gray-600">Phone: (951) 940-6900</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Extinguishers (visual)</span>
+                <span class="text-xs font-bold text-red-brand">Monthly</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Extinguishers (professional)</span>
+                <span class="text-xs font-bold text-red-brand">Annual</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Alarm Systems</span>
+                <span class="text-xs font-bold text-red-brand">Annual</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Sprinkler Systems</span>
+                <span class="text-xs font-bold text-red-brand">Quarterly+</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-sm text-gray-700">Kitchen Suppression</span>
+                <span class="text-xs font-bold text-red-brand">Semi-Annual</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section">
+      <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto text-center mb-10">From the historic downtown Mission Inn corridor to Inland Empire warehouses and University Avenue restaurants, we cover every property type in {city}.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          'Restaurants & Food Service',
+          'Hotels & Hospitality',
+          'Office Buildings',
+          'Retail & Strip Centers',
+          'Warehouses & Logistics',
+          'Manufacturing Facilities',
+          'Multi-Family Residential',
+          'Healthcare & Medical',
+          'Schools & Universities',
+          'Auto Dealerships & Service',
+          'Houses of Worship',
+          'Mixed-Use Developments'
+        ].map(type => (
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <span class="text-sm font-medium text-gray-700">{type}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="section max-w-3xl">
+      <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-4">
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Commercial buildings must comply with the California Fire Code (Title 19 CCR). This includes fire extinguishers (NFPA 10), fire alarm systems (NFPA 72), sprinkler systems (NFPA 13/25), and kitchen suppression for commercial cooking (NFPA 96). California mandates sprinklers in most new commercial construction statewide.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">How often are fire inspections required in {city}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The {fireDept} conducts annual inspections of most commercial properties. Fire extinguishers: monthly visual checks, annual professional inspection. Fire alarms: annual testing. Sprinklers: quarterly, semi-annual, and annual inspections. Kitchen suppression: semi-annual per NFPA 96.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">California Fire Code violations carry administrative fines with per-day escalation for uncorrected deficiencies. Serious life-safety violations can result in immediate occupancy restrictions. The {fireDept} issues notices with correction deadlines — missing deadlines significantly increases penalty exposure.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires an automatic wet chemical suppression system per NFPA 96, plus a Class K extinguisher within 30 feet of cooking equipment. Systems must be inspected semi-annually by a California-licensed technician.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The {fireDept} enforces the California Fire Code within {city} city limits. The California State Fire Marshal's Office licenses fire protection contractors statewide at (916) 445-8200. The {county} Fire Department serves unincorporated county areas but not {city} proper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section text-center max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
+      <p class="text-base text-gray-500 mb-6">Don't wait for the {fireDept} to find violations. Get ahead of California Fire Code requirements with a comprehensive fire safety assessment of your {city} property.</p>
+      <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
+      <p class="text-xs text-gray-400 mt-3">Or email us directly: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-12">
+    <div class="section">
+      <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="/compliance/nfpa-25/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Compliance</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 25 Sprinkler Inspection Requirements</p>
+        </a>
+        <a href="/compliance/nfpa-72/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Compliance</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p>
+        </a>
+        <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Resources</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p>
+        </a>
+        <a href="/fire-safety-services-santa-ana-ca/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">City</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Santa Ana, CA</p>
+        </a>
+        <a href="/fire-safety-services-anaheim-ca/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">City</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Anaheim, CA</p>
+        </a>
+        <a href="/fire-safety-services-bakersfield-ca/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">City</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Bakersfield, CA</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>

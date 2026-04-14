@@ -1,0 +1,342 @@
+---
+import Base from '../layouts/Base.astro';
+
+const city = 'Pittsburgh';
+const state = 'PA';
+const stateFull = 'Pennsylvania';
+const slug = 'pittsburgh-pa';
+const county = 'Allegheny County';
+const fireDept = 'Pittsburgh Bureau of Fire';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": `Fire Safety Supply House — ${city}, ${state}`,
+      "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
+      "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
+      "areaServed": {
+        "@type": "City",
+        "name": city,
+        "containedInPlace": { "@type": "State", "name": stateFull }
+      },
+      "serviceType": [
+        "Fire Extinguisher Inspection",
+        "Fire Alarm Installation",
+        "Fire Sprinkler Installation",
+        "Fire Suppression System Installation",
+        "Fire Code Compliance Consulting"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "quotes@firesafetysupplyhouse.com"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": `Fire Safety Services in ${city}, ${state}`,
+      "provider": { "@type": "Organization", "name": "Fire Safety Supply House" },
+      "areaServed": { "@type": "City", "name": city },
+      "serviceType": "Fire Protection Services",
+      "description": `Complete fire safety services for commercial properties in ${city}, ${stateFull}: fire extinguisher inspection, fire alarm installation, fire sprinkler systems, fire suppression, and IFC fire code compliance consulting.`
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": `What fire safety services are required for commercial buildings in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Commercial buildings in ${city} must comply with the International Fire Code (IFC) as adopted by the City of ${city}, enforced by the ${fireDept} through its Fire Prevention Division. Requirements include fire extinguisher inspection (NFPA 10), fire alarm system testing (NFPA 72), fire sprinkler inspection (NFPA 25), and commercial kitchen suppression (NFPA 96). Pennsylvania additionally requires sprinkler systems in new educational and institutional occupancies under state law.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `How often are fire inspections required in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The ${fireDept} Fire Prevention Division conducts annual inspections of commercial properties. Pennsylvania's fire code requires monthly visual checks and annual professional inspections of fire extinguishers (NFPA 10), annual testing of fire alarm systems (NFPA 72), quarterly and annual sprinkler inspections (NFPA 25), and semi-annual kitchen suppression service (NFPA 96). High-occupancy and assembly occupancies may face more frequent inspection cycles.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `What are the penalties for fire code violations in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Fire code violations in ${city} can result in fines and mandatory correction orders from the ${fireDept}. Under Pennsylvania law, uncorrected violations can escalate to summary offenses with per-day fines. Serious life-safety deficiencies can result in immediate occupancy restrictions or building closures. ${city} has a large stock of older commercial buildings where violations involving inadequate or deteriorated fire protection systems are common.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Do restaurants in ${city} need special fire suppression systems?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `Yes. All commercial cooking operations in ${city} producing grease-laden vapors must have an automatic wet chemical fire suppression system per NFPA 96. ${city}'s dense restaurant scene — from the Strip District to South Side, Lawrenceville, and the Oakland neighborhood near the universities — means a high concentration of commercial kitchens requiring semi-annual suppression inspection. Class K extinguishers are also required within 30 feet of cooking equipment.`
+          }
+        },
+        {
+          "@type": "Question",
+          "name": `Who enforces fire codes in ${city}, ${state}?`,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": `The ${fireDept} Fire Prevention Division enforces fire codes within ${city} city limits. The Pennsylvania State Fire Commissioner's Office (717-783-8330) oversees statewide fire code compliance and licenses fire protection contractors. The ${county} Department of Emergency Services handles fire code in unincorporated county areas surrounding ${city}.`
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const services = [
+  {
+    title: 'Fire Extinguisher Inspection & Service',
+    icon: '🧯',
+    desc: `NFPA 10 compliant fire extinguisher inspections for ${city} commercial properties. Monthly visual checks, annual professional inspections, 6-year internal examinations, and 12-year hydrostatic testing. All service performed by Pennsylvania-licensed fire protection technicians.`,
+    nfpa: 'NFPA 10',
+    cta: `Fire Extinguisher Service - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Alarm System Installation & Testing',
+    icon: '🔔',
+    desc: `Complete fire alarm system design, installation, and annual testing for ${city} commercial buildings. Addressable and conventional systems, smoke detectors, pull stations, horn/strobes, and central station monitoring. Full compliance with NFPA 72 and ${fireDept} requirements.`,
+    nfpa: 'NFPA 72',
+    cta: `Fire Alarm Installation - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Sprinkler System Installation & Inspection',
+    icon: '💧',
+    desc: `Fire sprinkler design, installation, and inspection for new construction and retrofit projects in ${city}. Wet, dry, pre-action, and deluge systems. Quarterly, semi-annual, and five-year inspections per NFPA 25. Extensive experience with ${city}'s older commercial building stock and historic conversions.`,
+    nfpa: 'NFPA 13 / NFPA 25',
+    cta: `Fire Sprinkler Inspection - ${city}, ${state}`
+  },
+  {
+    title: 'Commercial Kitchen Fire Suppression',
+    icon: '🍳',
+    desc: `Wet chemical fire suppression systems for ${city} restaurants, bars, and food service operations. Design, installation, semi-annual inspection, and recharge. Ansul, Amerex, and Kidde certified technicians. Required for all commercial cooking operations per NFPA 96.`,
+    nfpa: 'NFPA 96',
+    cta: `Kitchen Suppression - ${city}, ${state}`
+  },
+  {
+    title: 'Fire Code Compliance Consulting',
+    icon: '📋',
+    desc: `Fire code compliance audits, violation remediation, and pre-inspection consulting for ${city} commercial properties. Specific expertise in the compliance challenges of ${city}'s historic building stock — from Strip District warehouses to Oakland institutional buildings and South Side rowhouse commercial conversions.`,
+    nfpa: 'IFC / NFPA 101',
+    cta: `Fire Code Compliance - ${city}, ${state}`
+  }
+];
+---
+
+<Base
+  title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`}
+  description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and IFC fire code compliance. ${fireDept} violation remediation and pre-inspection consulting.`}
+  canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`}
+  schema={schema}
+>
+
+  <section class="bg-gradient-to-b from-gray-50 to-white py-16">
+    <div class="section">
+      <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+        <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+        <span>/</span>
+        <span class="text-gray-700">Fire Safety Services in {city}, {state}</span>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-3">Serving {city}, {stateFull} & {county}</div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-5 leading-tight">Fire Safety Services in {city}, {state}</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-6">Complete fire protection services for commercial properties in {city}, {stateFull}. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and International Fire Code compliance consulting — performed by licensed professionals to keep your building in compliance with {fireDept} requirements and NFPA standards.</p>
+        <div class="flex flex-wrap gap-3">
+          <button onclick={`openRFQ('','','Fire Safety Services - ${city}, ${state}')`} class="btn-primary text-sm">Schedule a Fire Safety Inspection</button>
+          <a href="mailto:quotes@firesafetysupplyhouse.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors no-underline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-red-brand text-white py-4">
+    <div class="section text-center">
+      <p class="text-sm font-medium">⚠️ Don't wait for a violation. The {fireDept} conducts routine inspections of all commercial properties in {city}. Uncorrected fire code violations carry escalating daily fines and potential occupancy restrictions.</p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold tracking-tight mb-3">Fire Protection Services for {city} Businesses</h2>
+        <p class="text-base text-gray-500 max-w-2xl mx-auto">From the Strip District and Downtown to Lawrenceville, South Side, Shadyside, and Oakland — we provide every fire safety service your {city} commercial property needs.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(s => (
+          <div class="card p-6 flex flex-col">
+            <div class="text-3xl mb-3">{s.icon}</div>
+            <h3 class="text-lg font-bold mb-2">{s.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-3">{s.desc}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-red-brand bg-red-light px-2 py-1 rounded">{s.nfpa}</span>
+              <button onclick={`openRFQ('','','${s.cta}')`} class="text-xs font-bold text-red-brand hover:underline bg-transparent border-0 cursor-pointer">Get Quote →</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="section">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">{city} Fire Code Requirements</h2>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">The City of {city} adopts the International Fire Code (IFC) with local amendments, enforced by the {fireDept} Fire Prevention Division. {city}'s commercial landscape spans a wide range of building types and eras — from early-20th-century brick warehouses in the Strip District and South Side to post-war office towers in Downtown and newer mixed-use developments in East Liberty and Lawrenceville.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">One of the most significant compliance challenges in {city} is the city's large stock of older commercial buildings. Pre-war structures — common throughout {city}'s historic neighborhoods — were built before modern fire protection codes and frequently have fire systems that are decades past their service life. Warehouse conversions, rowhouse commercial spaces, and adaptive reuse projects across {city}'s neighborhoods trigger compliance obligations when occupancy changes occur.</p>
+          <p class="text-sm text-gray-600 leading-relaxed mb-4">{city}'s thriving restaurant and nightlife scene — concentrated in the Strip District, South Side, Lawrenceville, Shadyside, and Oakland — creates a high concentration of NFPA 96 kitchen suppression compliance obligations. Key standards include <a href="/compliance/nfpa-10/" class="text-red-brand hover:underline">NFPA 10</a>, <a href="/compliance/nfpa-72/" class="text-red-brand hover:underline">NFPA 72</a>, and <a href="/compliance/nfpa-25/" class="text-red-brand hover:underline">NFPA 25</a>.</p>
+        </div>
+        <div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200 mb-6">
+            <h3 class="text-lg font-bold mb-4">{city} Fire Prevention Contacts</h3>
+            <div class="flex flex-col gap-3">
+              <div>
+                <p class="text-sm font-bold text-gray-800">{fireDept} — Fire Prevention Division</p>
+                <p class="text-xs text-gray-600">200 Ross Street, {city}, {state} 15219</p>
+                <p class="text-xs text-gray-600">Phone: (412) 255-2621</p>
+              </div>
+              <div class="border-t border-gray-100 pt-3">
+                <p class="text-sm font-bold text-gray-800">Pennsylvania State Fire Commissioner's Office</p>
+                <p class="text-xs text-gray-600">Licensing & Enforcement: (717) 783-8330</p>
+                <p class="text-xs text-gray-600">dgs.pa.gov/fire</p>
+              </div>
+              <div class="border-t border-gray-100 pt-3">
+                <p class="text-sm font-bold text-gray-800">{county} Department of Emergency Services</p>
+                <p class="text-xs text-gray-600">Serves unincorporated {county} areas</p>
+                <p class="text-xs text-gray-600">Phone: (412) 473-2550</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold mb-4">Inspection Frequency Requirements</h3>
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Extinguishers (visual)</span>
+                <span class="text-xs font-bold text-red-brand">Monthly</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Extinguishers (professional)</span>
+                <span class="text-xs font-bold text-red-brand">Annual</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Alarm Systems</span>
+                <span class="text-xs font-bold text-red-brand">Annual</span>
+              </div>
+              <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                <span class="text-sm text-gray-700">Fire Sprinkler Systems</span>
+                <span class="text-xs font-bold text-red-brand">Quarterly+</span>
+              </div>
+              <div class="flex justify-between items-center py-2">
+                <span class="text-sm text-gray-700">Kitchen Suppression</span>
+                <span class="text-xs font-bold text-red-brand">Semi-Annual</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section">
+      <h2 class="text-3xl font-bold tracking-tight mb-3 text-center">Commercial Properties We Serve in {city}</h2>
+      <p class="text-base text-gray-500 max-w-2xl mx-auto text-center mb-10">From Strip District food halls to Oakland university buildings and South Side entertainment venues, we serve every commercial property type in {city}.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          'Restaurants & Bars',
+          'Hotels & Event Venues',
+          'Office Buildings',
+          'Retail & Strip Centers',
+          'Warehouses & Loft Conversions',
+          'Universities & Institutions',
+          'Multi-Family Residential',
+          'Healthcare & Medical Centers',
+          'Historic & Adaptive Reuse',
+          'Sports & Entertainment',
+          'Houses of Worship',
+          'Manufacturing Facilities'
+        ].map(type => (
+          <div class="bg-gray-50 rounded-lg p-4 text-center">
+            <span class="text-sm font-medium text-gray-700">{type}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-16">
+    <div class="section max-w-3xl">
+      <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="flex flex-col gap-4">
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">What fire safety services are required for commercial buildings in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">{city} enforces the International Fire Code (IFC). Requirements include fire extinguishers (NFPA 10), fire alarm systems (NFPA 72), sprinkler systems (NFPA 13/25), and kitchen suppression for commercial cooking (NFPA 96). Pennsylvania additionally requires sprinklers in new educational and institutional occupancies under state law.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">My building is a historic conversion in {city}. What fire protection is required?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">{city}'s historic warehouse and commercial conversions — common throughout the Strip District, South Side, Lawrenceville, and Downtown — trigger fire code compliance requirements when occupancy changes. The IFC and NFPA 101 require fire alarms, sprinklers in many converted occupancies, and egress lighting. Work with a licensed fire protection engineer before finalizing renovation plans.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">What are the penalties for fire code violations in {city}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Fire code violations in {city} result in written notices of violation with mandatory correction periods. Uncorrected violations face escalating fines under Pennsylvania law. Serious life-safety deficiencies can result in immediate occupancy restrictions. The {fireDept} can also refer repeat violators to the Pennsylvania State Fire Commissioner.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">Do restaurants in {city} need special fire suppression systems?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Yes. All commercial cooking producing grease-laden vapors requires an automatic wet chemical suppression system per NFPA 96, plus a Class K extinguisher within 30 feet of cooking equipment. Semi-annual inspection by a licensed technician is required. {city}'s dense restaurant scene makes this one of the most common compliance obligations the {fireDept} enforces.</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border border-gray-200">
+          <h3 class="text-sm font-bold mb-2">Who enforces fire codes in {city}, {state}?</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">The {fireDept} Fire Prevention Division enforces fire codes within {city} city limits. The Pennsylvania State Fire Commissioner's Office licenses fire protection contractors at (717) 783-8330. The {county} Department of Emergency Services serves unincorporated county areas surrounding {city}.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section text-center max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight mb-4">Schedule Your Fire Safety Inspection in {city}, {state}</h2>
+      <p class="text-base text-gray-500 mb-6">Don't wait for the {fireDept} to find violations. Get ahead of fire code requirements with a comprehensive fire safety assessment of your {city} property.</p>
+      <button onclick={`openRFQ('','','Fire Safety Inspection - ${city}, ${state}')`} class="btn-primary text-sm">Get a Free Quote</button>
+      <p class="text-xs text-gray-400 mt-3">Or email us directly: <a href="mailto:quotes@firesafetysupplyhouse.com" class="text-red-brand hover:underline">quotes@firesafetysupplyhouse.com</a></p>
+    </div>
+  </section>
+
+  <section class="bg-gray-50 py-12">
+    <div class="section">
+      <h3 class="text-lg font-bold mb-4">Related Resources</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="/compliance/nfpa-10/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Compliance</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 10 Fire Extinguisher Requirements</p>
+        </a>
+        <a href="/compliance/nfpa-72/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Compliance</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">NFPA 72 Fire Alarm System Standards</p>
+        </a>
+        <a href="/resources/fire-safety-checklist-property-managers/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Resources</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Checklist for Property Managers</p>
+        </a>
+        <a href="/fire-safety-services-st-louis-mo/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">City</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in St. Louis, MO</p>
+        </a>
+        <a href="/fire-safety-services-corpus-christi-tx/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">City</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Fire Safety Services in Corpus Christi, TX</p>
+        </a>
+        <a href="/blog/commercial-fire-extinguisher-inspection-guide/" class="card p-4 no-underline group">
+          <span class="text-xs font-bold text-red-brand">Blog</span>
+          <p class="text-sm font-bold group-hover:text-red-brand transition-colors">Commercial Fire Extinguisher Inspection Guide</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Base>
