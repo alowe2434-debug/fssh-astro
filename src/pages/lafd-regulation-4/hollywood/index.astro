@@ -1,0 +1,377 @@
+---
+import Base from '../../../layouts/Base.astro';
+
+const N8N_WEBHOOK = 'https://shiro770.app.n8n.cloud/webhook/fssh-reg4-lead';
+const NEIGHBORHOOD = 'Hollywood';
+const SLUG = 'hollywood';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`,
+      "url": `https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`,
+      "name": `LAFD Regulation 4 Compliance — ${NEIGHBORHOOD}`,
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://firesafetysupplyhouse.com/"},
+          {"@type": "ListItem", "position": 2, "name": "LAFD Regulation 4", "item": "https://firesafetysupplyhouse.com/lafd-regulation-4/"},
+          {"@type": "ListItem", "position": 3, "name": NEIGHBORHOOD, "item": `https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`}
+        ]
+      }
+    }
+  ]
+};
+
+const buildingTypes = [
+  { type: 'Entertainment Venue / Theater', systems: 'Fire alarm, sprinkler, emergency egress, occupancy sensors', nfpa: ['NFPA 72','NFPA 25','NFPA 101'], freq: 'Alarm: Annual · Sprinkler: 5 Years · Egress: Annual' },
+  { type: 'Hotel / Boutique Hotel', systems: 'Fire alarm, sprinkler, kitchen suppression', nfpa: ['NFPA 72','NFPA 25','NFPA 96'], freq: 'Alarm: Annual · Sprinkler: 5 Years · Kitchen: Semi-annual' },
+  { type: 'Restaurant / Bar / Nightclub', systems: 'Kitchen suppression, fire alarm, extinguishers', nfpa: ['NFPA 96','NFPA 10','NFPA 72'], freq: 'Suppression: Semi-annual · Alarm: Annual' },
+  { type: 'Historic Commercial Building', systems: 'Fire alarm, sprinkler retrofit, extinguishers', nfpa: ['NFPA 72','NFPA 25','NFPA 10'], freq: 'Alarm: Annual · Sprinkler: 5 Years' },
+  { type: 'Mixed-Use / Creative Office', systems: 'Fire alarm, sprinkler systems', nfpa: ['NFPA 72','NFPA 25'], freq: 'Alarm: Annual · Sprinkler: 5 Years' },
+  { type: 'Film Production / Studio Space', systems: 'Sprinkler, fire alarm, special hazard suppression', nfpa: ['NFPA 25','NFPA 72','NFPA 2001'], freq: 'Alarm: Annual · Sprinkler: 5 Years' },
+];
+
+const nearbyHoods = [
+  { slug: 'downtown-los-angeles', name: 'Downtown Los Angeles', type: 'High-rise · Hotel · Office' },
+  { slug: 'koreatown', name: 'Koreatown', type: 'Dense commercial · Restaurants' },
+  { slug: 'mid-wilshire', name: 'Mid-Wilshire', type: 'Office · Retail · Cultural' },
+  { slug: 'westwood', name: 'Westwood', type: 'Medical · University' },
+];
+
+const deficiencies = [
+  'Aged fire alarm panels in pre-1980 entertainment venues — addressable systems required but not yet retrofitted in many historic Hollywood Boulevard properties',
+  'Kitchen suppression systems in bars and restaurants along Sunset Strip without semi-annual service records — high-turnover tenants often let compliance lapse between operators',
+  'Emergency egress lighting failures in historic theater buildings — NFPA 101 violations frequently cited by LAFD in assembly occupancies exceeding 300 occupants',
+  'Sprinkler heads in hotel guest rooms exceeding manufacturer service life — older Hollywood Roosevelt-era hospitality buildings with original suppression infrastructure',
+  'Missing or expired portable extinguisher inspection tags in nightclub and bar common areas — particularly in basement-level venues with limited visibility',
+  'Smoke management system failures in large assembly occupancies — required annual testing frequently deferred by operators unaware of Reg 4 scope',
+];
+---
+
+<Base
+  title={`LAFD Regulation 4 Compliance — Hollywood | Fire Safety Supply House`}
+  description={`LAFD Regulation 4 fire system compliance for Hollywood buildings. Entertainment venues, hotels, restaurants, and historic commercial properties — fire alarm and suppression testing requirements, equipment supply, and LAFD-certified tester referrals.`}
+  canonical={`https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`}
+  schema={schema}
+>
+<style>
+  .hood-hero { background: #1a2744; }
+  .alert-strip { background: #fdf2f0; border-top: 3px solid #c0392b; border-bottom: 1px solid #fbd5d0; }
+  .sform { background: #1a2744; border-radius: 12px; overflow: hidden; }
+  .fi { width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:10px 12px; font-size:13.5px; color:#fff; font-family:inherit; outline:none; margin-bottom:10px; }
+  .fi::placeholder { color:rgba(255,255,255,0.3); }
+  .qfr { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
+  .qfr:last-child { border-bottom:none; }
+  .npill { display:inline-block; background:#1a2744; color:#fff; font-size:10.5px; font-weight:600; padding:2px 7px; border-radius:3px; margin:2px 2px 0 0; }
+  .pimg { background:#fff; height:110px; display:flex; align-items:center; justify-content:center; padding:12px; border-bottom:1px solid #e2e6ec; overflow:hidden; }
+  .pimg img { max-height:100%; max-width:100%; object-fit:contain; transition:transform 0.2s; }
+  .pcard:hover .pimg img { transform:scale(1.04); }
+</style>
+
+  <div class="bg-gray-50 border-b border-gray-200">
+    <div class="section py-2.5">
+      <nav class="flex items-center gap-1.5 text-xs text-gray-400">
+        <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+        <span>/</span>
+        <a href="/lafd-regulation-4/" class="hover:text-gray-700 no-underline">LAFD Regulation 4</a>
+        <span>/</span>
+        <span class="text-gray-700 font-medium">{NEIGHBORHOOD}</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="hood-hero py-14">
+    <div class="section">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+        <div class="lg:col-span-2">
+          <div class="inline-flex items-center gap-2 bg-red-brand/20 border border-red-brand/40 text-red-300 text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded mb-5">
+            <span class="w-1.5 h-1.5 rounded-full bg-red-brand inline-block"></span>
+            Hollywood — Los Angeles City Limits — LAFD Jurisdiction
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            LAFD Regulation 4 Compliance in Hollywood
+          </h1>
+          <p class="text-lg text-blue-200 max-w-2xl leading-relaxed mb-6">
+            Hollywood's mix of historic entertainment venues, high-turnover restaurants, and boutique hotels creates one of the most complex Regulation 4 compliance landscapes in Los Angeles. Assembly occupancies, kitchen suppression systems, and pre-war building stock all require separate certified tester categories.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">Entertainment Venue Specialists</span>
+            <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">Kitchen Suppression — Semi-Annual</span>
+            <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">7-Day Compliance Engine Filing</span>
+            <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">48hr Equipment Fulfillment</span>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center">
+            <div class="text-3xl font-bold text-white mb-1">300+</div>
+            <div class="text-xs text-blue-300">Restaurants and bars on Hollywood Blvd and Sunset Strip requiring Reg 4 compliance</div>
+          </div>
+          <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center">
+            <div class="text-3xl font-bold text-white mb-1">2x/yr</div>
+            <div class="text-xs text-blue-300">Kitchen suppression inspection frequency — NFPA 96 requirement</div>
+          </div>
+          <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center">
+            <div class="text-3xl font-bold text-white mb-1">30</div>
+            <div class="text-xs text-blue-300">Days to correct deficiencies and retest after inspection</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-strip px-6 py-4">
+    <div class="section flex items-start gap-3">
+      <span class="text-red-brand text-lg mt-0.5 flex-shrink-0">⚠</span>
+      <p class="text-sm text-red-900 leading-relaxed">
+        <strong class="text-red-brand">Hollywood Compliance Notice:</strong> Hollywood falls entirely within Los Angeles City limits under LAFD jurisdiction. Assembly occupancies, restaurants, hotels, and commercial buildings are subject to <strong>LAFD Chief's Regulation 4</strong>. Results must be filed via thecomplianceengine.com within <strong>7 days</strong>. Kitchen suppression systems require <strong>semi-annual inspection</strong> — not annual.
+      </p>
+    </div>
+  </div>
+
+  <div class="section py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+      <div class="lg:col-span-2 space-y-14">
+
+        <div>
+          <div class="tag text-red-brand mb-2">Context</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Regulation 4 in Hollywood</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">Hollywood's commercial corridor — Hollywood Boulevard, Sunset Strip, and Cahuenga — contains one of the highest concentrations of assembly occupancies in Los Angeles. Theaters, clubs, live music venues, and restaurant/bar hybrids all trigger NFPA 101 assembly occupancy requirements on top of standard Reg 4 obligations.</p>
+          <p class="text-gray-600 leading-relaxed mb-6">The neighborhood's building stock spans a century of construction — 1920s movie palaces, 1950s commercial strips, 1980s mid-rises, and newer mixed-use developments. Each era brought different fire protection standards, and the LAFD's enforcement of Reg 4 in Hollywood reflects this complexity: inspectors routinely flag aging alarm panels, lapsed kitchen suppression records, and egress lighting failures in historic venues.</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">AHJ</div>
+              <div class="text-sm font-semibold text-gray-800">Los Angeles Fire Department</div>
+              <div class="text-xs text-gray-500 mt-0.5">All of Hollywood is LAFD jurisdiction</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Key Risk</div>
+              <div class="text-sm font-semibold text-gray-800">Assembly Occupancy + Kitchen</div>
+              <div class="text-xs text-gray-500 mt-0.5">Dual compliance obligation common</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Filing Platform</div>
+              <div class="text-sm font-semibold text-gray-800">thecomplianceengine.com</div>
+              <div class="text-xs text-gray-500 mt-0.5">7-day electronic submission required</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Equipment Lead Time</div>
+              <div class="text-sm font-semibold text-red-brand">48 Hours</div>
+              <div class="text-xs text-gray-500 mt-0.5">FSSH fulfillment for Hollywood addresses</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="tag text-red-brand mb-2">By Building Type</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Hollywood Building Types &amp; Requirements</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">Assembly occupancies and F&amp;B venues carry the most complex Reg 4 obligations in Hollywood.</p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-[#1a2744] text-white">
+                  <th class="text-left px-4 py-3 text-xs font-semibold tracking-wider">Building Type</th>
+                  <th class="text-left px-4 py-3 text-xs font-semibold tracking-wider hidden md:table-cell">NFPA Standards</th>
+                  <th class="text-left px-4 py-3 text-xs font-semibold tracking-wider">Frequency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {buildingTypes.map((bt, i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-4 py-3 border-b border-gray-100 font-semibold text-[#1a2744] align-top text-sm">{bt.type}</td>
+                    <td class="px-4 py-3 border-b border-gray-100 align-top hidden md:table-cell">
+                      {bt.nfpa.map(n => <span class="npill">{n}</span>)}
+                    </td>
+                    <td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600 align-top leading-relaxed">{bt.freq}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="tag text-red-brand mb-2">What Gets Flagged</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Most Common Reg 4 Deficiencies in Hollywood</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">High tenant turnover and aging building stock make Hollywood one of the most active LAFD enforcement areas under Regulation 4.</p>
+          <div class="flex flex-col gap-3">
+            {deficiencies.map(d => (
+              <div class="flex items-start gap-3 bg-red-light border border-red-200 border-l-4 border-l-red-brand rounded-r-lg px-4 py-3 text-sm text-red-900">
+                <span class="text-red-brand flex-shrink-0 mt-0.5">⚠</span>
+                {d}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="tag text-red-brand mb-2">Equipment Supply</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Equipment for Hollywood Reg 4 Compliance</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">Wholesale pricing. 48-hour fulfillment for Hollywood addresses. All products meet applicable NFPA standards.</p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { img: '/images/products/notifier-nfs2-3030.png', name: 'Fire Alarm Systems', desc: 'Notifier, Honeywell — addressable panels for commercial and assembly occupancies' },
+              { img: '/images/products/ansul-r102.png', name: 'Kitchen Suppression', desc: 'Ansul R-102, Amerex — NFPA 96 restaurant and bar systems' },
+              { img: '/images/products/ss-2151.png', name: 'Smoke & CO Detectors', desc: 'System Sensor, Notifier — addressable and conventional' },
+              { img: '/images/products/amerex-b402.png', name: 'Fire Extinguishers', desc: 'Amerex, Kidde — NFPA 10 compliant, all classes' },
+              { img: '/images/products/viking-vk102.png', name: 'Sprinkler Systems', desc: 'Viking, Victaulic — NFPA 25 heads, valves, fittings' },
+              { img: '/images/products/ss-spsr.png', name: 'Emergency Egress Lighting', desc: 'NFPA 101 exit signs and emergency units for assembly occupancies' },
+            ].map(prod => (
+              <div class="pcard card">
+                <div class="pimg">
+                  <img src={prod.img} alt={prod.name} loading="lazy" />
+                </div>
+                <div class="p-4">
+                  <div class="text-sm font-semibold text-gray-800 mb-1">{prod.name}</div>
+                  <div class="text-xs text-gray-400 mb-3 leading-snug">{prod.desc}</div>
+                  <button onclick={`openRFQ('','','${prod.name} — Hollywood Reg 4')`} class="w-full bg-red-brand text-white text-xs font-bold py-2.5 rounded-lg hover:bg-red-dark transition-colors cursor-pointer border-0">Request Quote</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="tag text-red-brand mb-2">FAQ</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-6">Hollywood — Regulation 4 FAQs</h2>
+          <div class="divide-y divide-gray-100">
+            {[
+              { q: 'Does my Hollywood restaurant need semi-annual fire suppression inspection?', a: 'Yes. Any commercial kitchen with a hood-and-duct suppression system — whether ANSUL, Amerex, or equivalent — requires semi-annual inspection under NFPA 96. This is separate from the annual fire alarm inspection required under Reg 4. Both must be filed through thecomplianceengine.com within 7 days of each inspection.' },
+              { q: 'My venue holds live events. Does assembly occupancy change my Reg 4 obligations?', a: 'Assembly occupancies above 50 persons trigger NFPA 101 Life Safety Code requirements in addition to standard Reg 4 obligations. This includes emergency egress lighting, exit signage, occupant load compliance, and emergency power systems — each requiring separate annual testing by LAFD-certified professionals.' },
+              { q: 'We took over a space from a previous restaurant tenant. Are we responsible for prior compliance gaps?', a: "Yes. Under LAFD's interpretation, compliance responsibility follows the building — not the prior tenant. When you assume a lease, you inherit the Reg 4 compliance calendar. Get a compliance status report from the building owner before signing and confirm all overdue inspections are scheduled." },
+              { q: 'Our building is a 1930s-era structure on Hollywood Boulevard. Are we exempt from sprinkler retrofits?', a: 'Historic building status does not exempt properties from Regulation 4. While the City of Los Angeles does have provisions for historic preservation, LAFD fire safety obligations remain in force. Sprinkler retrofit requirements depend on occupancy type, building area, and use changes. Consult with an LAFD-certified fire protection engineer for your specific property.' },
+              { q: 'How quickly can deficiency equipment be sourced after a Hollywood inspection?', a: 'FSSH maintains stock of common replacement components — alarm panels, suppression agents, extinguishers, detectors, and egress units — with 48-hour fulfillment for Hollywood addresses. The 30-day correction window after an inspection requires immediate action on equipment procurement.' },
+            ].map(faq => (
+              <details class="group py-4">
+                <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+                  <span class="text-sm font-semibold text-gray-800 group-open:text-red-brand transition-colors">{faq.q}</span>
+                  <span class="w-6 h-6 flex-shrink-0 bg-gray-100 group-open:bg-red-brand rounded-full flex items-center justify-center text-gray-600 group-open:text-white text-base leading-none transition-all">+</span>
+                </summary>
+                <p class="text-sm text-gray-600 leading-relaxed mt-3 pb-1">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="tag text-red-brand mb-2">Other Neighborhoods</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Other Los Angeles City Neighborhoods</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {nearbyHoods.map(hood => (
+              <a href={`/lafd-regulation-4/${hood.slug}/`} class="flex items-center justify-between border border-gray-200 rounded-xl p-4 hover:border-[#1a2744] hover:bg-gray-50 no-underline transition-all">
+                <div>
+                  <div class="text-sm font-semibold text-[#1a2744]">{hood.name}</div>
+                  <div class="text-xs text-gray-400 mt-0.5">{hood.type}</div>
+                </div>
+                <span class="text-gray-300 ml-3">→</span>
+              </a>
+            ))}
+            <a href="/lafd-regulation-4/" class="flex items-center border border-gray-200 rounded-xl p-4 hover:border-red-brand hover:bg-red-light no-underline transition-all">
+              <span class="text-sm font-semibold text-red-brand">View All LA City Neighborhoods</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="space-y-5 lg:sticky lg:top-20">
+        <div class="sform">
+          <div class="bg-white/10 border-b border-white/10 px-5 py-3.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-300">Free Hollywood Compliance Assessment</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-blue-200 mb-4 leading-relaxed">Building in Hollywood? We'll review your Reg 4 status and connect you with an LAFD-certified tester.</p>
+            <input id="hw-name" type="text" class="fi" placeholder="Your name" />
+            <input id="hw-address" type="text" class="fi" placeholder="Building address (Hollywood)" />
+            <select id="hw-type" class="fi">
+              <option value="">Building type...</option>
+              <option>Entertainment Venue / Theater</option>
+              <option>Hotel / Boutique Hotel</option>
+              <option>Restaurant / Bar / Nightclub</option>
+              <option>Historic Commercial Building</option>
+              <option>Mixed-Use / Creative Office</option>
+              <option>Film Production / Studio Space</option>
+            </select>
+            <input id="hw-floors" type="text" class="fi" placeholder="Number of floors" />
+            <select id="hw-inspection" class="fi">
+              <option value="">Last inspection...</option>
+              <option>Within the last year</option>
+              <option>1-2 years ago</option>
+              <option>2+ years ago</option>
+              <option>Never / Unknown</option>
+            </select>
+            <input id="hw-email" type="email" class="fi" placeholder="Email address" />
+            <input id="hw-phone" type="tel" class="fi" placeholder="Phone number" />
+            <button id="hw-submit" class="w-full bg-red-brand text-white py-3.5 rounded-lg text-sm font-bold hover:bg-red-dark transition-colors cursor-pointer border-0">Get Free Assessment</button>
+            <div id="hw-success" style="display:none" class="text-center text-green-300 text-sm font-medium mt-3">✓ Received — we'll be in touch within one business day.</div>
+            <p class="text-xs text-center mt-3" style="color:rgba(147,197,253,0.4)">Response within one business day.</p>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Hollywood Quick Facts</span>
+          </div>
+          <div class="p-4">
+            <div class="qfr"><span class="text-gray-400 font-medium">Jurisdiction</span><span class="text-gray-800 font-semibold">LA City (LAFD)</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Fire Alarms</span><span class="text-gray-800 font-semibold">Annual</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Kitchen Suppression</span><span class="font-bold text-red-brand">Semi-Annual</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Sprinklers</span><span class="font-bold text-red-brand">5 Years</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Repair/Retest</span><span class="font-bold text-red-brand">30 days</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Filing Deadline</span><span class="text-gray-800 font-semibold">7 days</span></div>
+            <div class="qfr"><span class="text-gray-400 font-medium">Equipment Lead Time</span><span class="text-gray-800 font-semibold">48 hours</span></div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">LAFD Reg 4 Unit</span>
+          </div>
+          <div class="p-4 space-y-2">
+            <p class="text-xs text-gray-600 leading-relaxed">Bureau of Fire Prevention and Public Safety, Chief's Regulation No. 4 Unit<br/>200 North Main Street, Room 1750<br/>Los Angeles, CA 90012</p>
+            <a href="tel:+12139783560" class="block text-sm font-bold text-red-brand no-underline hover:text-red-dark">(213) 978-3560</a>
+            <a href="mailto:LafdReg4@lacity.org" class="block text-xs text-red-brand no-underline hover:text-red-dark">LafdReg4@lacity.org</a>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">NFPA Standards</span>
+          </div>
+          <div class="p-4 flex flex-wrap gap-1.5">
+            {['NFPA 10','NFPA 25','NFPA 72','NFPA 96','NFPA 101','NFPA 2001','Title 19 CCR'].map(tag => (
+              <span class="npill">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ N8N_WEBHOOK, NEIGHBORHOOD }}>
+    document.getElementById('hw-submit').addEventListener('click', async function() {
+      const btn = this;
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+      const payload = {
+        neighborhood: NEIGHBORHOOD,
+        name: document.getElementById('hw-name').value,
+        address: document.getElementById('hw-address').value,
+        buildingType: document.getElementById('hw-type').value,
+        floors: document.getElementById('hw-floors').value,
+        lastInspection: document.getElementById('hw-inspection').value,
+        email: document.getElementById('hw-email').value,
+        phone: document.getElementById('hw-phone').value,
+        source: 'FSSH Reg 4 — Hollywood',
+      };
+      try {
+        await fetch(N8N_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      } catch(e) {}
+      document.getElementById('hw-success').style.display = 'block';
+      btn.style.display = 'none';
+    });
+  </script>
+
+</Base>

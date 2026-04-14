@@ -1,0 +1,108 @@
+---
+import Base from '../../../layouts/Base.astro';
+const N8N_WEBHOOK = 'https://shiro770.app.n8n.cloud/webhook/fssh-reg4-lead';
+const NEIGHBORHOOD = 'Boyle Heights';
+const SLUG = 'boyle-heights';
+const schema = {"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":`https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`,"url":`https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`,"name":`LAFD Regulation 4 Compliance — ${NEIGHBORHOOD}`,"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://firesafetysupplyhouse.com/"},{"@type":"ListItem","position":2,"name":"LAFD Regulation 4","item":"https://firesafetysupplyhouse.com/lafd-regulation-4/"},{"@type":"ListItem","position":3,"name":NEIGHBORHOOD,"item":`https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`}]}}]};
+const buildingTypes = [
+  { type: 'Restaurant / Taqueria / Food Service', systems: 'Kitchen suppression, fire alarm, extinguishers', nfpa: ['NFPA 96','NFPA 10','NFPA 72'], freq: 'Suppression: Semi-annual · Alarm: Annual' },
+  { type: 'Light Manufacturing / Warehouse', systems: 'Sprinkler, fire alarm, extinguishers', nfpa: ['NFPA 25','NFPA 72','NFPA 10'], freq: 'Alarm: Annual · Sprinkler: 5 Years' },
+  { type: 'Automotive / Auto Body Shop', systems: 'Fire alarm, Class B extinguishers, paint booth suppression', nfpa: ['NFPA 10','NFPA 72','NFPA 33'], freq: 'Alarm: Annual · Extinguisher: Annual · Booth: Annual' },
+  { type: 'Retail Strip / Commercial', systems: 'Fire alarm, extinguishers', nfpa: ['NFPA 72','NFPA 10'], freq: 'Alarm: Annual · Extinguisher: Annual' },
+  { type: 'Bakery / Commercial Kitchen', systems: 'Kitchen suppression, fire alarm, extinguishers', nfpa: ['NFPA 96','NFPA 10','NFPA 72'], freq: 'Suppression: Semi-annual · Alarm: Annual' },
+  { type: 'Medical / Community Clinic', systems: 'Fire alarm, sprinkler, extinguishers', nfpa: ['NFPA 72','NFPA 25','NFPA 10'], freq: 'Alarm: Annual · Sprinkler: 5 Years' },
+];
+const nearbyHoods = [
+  { slug: 'downtown-los-angeles', name: 'Downtown Los Angeles', type: 'High-rise · Hotel · Office' },
+  { slug: 'arts-district', name: 'Arts District', type: 'Warehouses · Converted commercial' },
+  { slug: 'chinatown', name: 'Chinatown', type: 'Commercial · Restaurants' },
+  { slug: 'mid-wilshire', name: 'Mid-Wilshire', type: 'Office · Retail · Cultural' },
+];
+const deficiencies = [
+  'Expired kitchen suppression inspection records in restaurants and taquerias along Cesar Chavez Avenue — high turnover of F&B operators creates compliance gaps when new tenants assume prior compliance status',
+  'Paint booth fire suppression deficiencies in auto body shops — automotive spray booths require dedicated annual suppression inspection under NFPA 33 that many Boyle Heights operators are unaware falls under Reg 4',
+  'Missing or expired portable extinguisher inspection tags in light manufacturing facilities — annual NFPA 10 extinguisher inspection frequently deferred in small industrial spaces',
+  'Outdated fire alarm panels in 1930s–1950s commercial strip buildings — conventional systems with obsolete components near end-of-service life without replacement planning',
+  'Sprinkler system testing overdue in warehouse and manufacturing spaces — NFPA 25 five-year cycle missed in multiple Soto Street and 1st Street industrial buildings',
+  'Missing Class K extinguisher coverage in commercial kitchens — many Boyle Heights restaurant kitchens have ABC extinguishers without the required Class K unit at the cooking surface',
+];
+const faqs = [
+  { q: 'Does Regulation 4 apply to my small restaurant on Cesar Chavez Avenue?', a: 'Yes. If your restaurant has a commercial kitchen with a cooking hood and suppression system, you are required to have that system inspected semi-annually by an LAFD-certified tester under NFPA 96 and Reg 4. Your fire alarm also requires annual inspection. Both results must be filed through thecomplianceengine.com within 7 days of each inspection.' },
+  { q: 'I own an auto body shop in Boyle Heights. What fire compliance does Reg 4 require?', a: 'Automotive spray booths with flammable coatings require dedicated fire suppression inspection annually under NFPA 33. You also need annual extinguisher inspection (NFPA 10) with Class B extinguishers rated for flammable liquid fires. If your building has a fire alarm, that also requires annual Reg 4 testing and TCE filing.' },
+  { q: 'My building is 1920s construction. Do I need to install a sprinkler system?', a: "The need for a new sprinkler system depends on your occupancy type and whether any changes of use have occurred. Regulation 4 testing obligations apply to existing systems — but California building code and LA ordinances may require system additions based on use changes. Consult a licensed fire protection engineer for your specific building." },
+  { q: 'We recently opened a panadería (bakery) with commercial ovens. What do we need?', a: 'Commercial baking operations with cooking hoods trigger NFPA 96 kitchen suppression requirements — semi-annual inspection by an LAFD-certified tester. You also need annual fire alarm inspection and annual extinguisher inspection including an appropriate Class K extinguisher in the kitchen area. File all results through thecomplianceengine.com within 7 days.' },
+];
+---
+<Base title="LAFD Regulation 4 Compliance — Boyle Heights | Fire Safety Supply House" description="LAFD Regulation 4 fire system compliance for Boyle Heights buildings. Restaurants, taquerias, light manufacturing, auto shops, and commercial strips along Cesar Chavez and 1st Street — fire alarm and suppression testing, equipment supply, and LAFD-certified tester referrals." canonical={`https://firesafetysupplyhouse.com/lafd-regulation-4/${SLUG}/`} schema={schema}>
+<style>
+  .hood-hero { background: #1a2744; }
+  .alert-strip { background: #fdf2f0; border-top: 3px solid #c0392b; border-bottom: 1px solid #fbd5d0; }
+  .sform { background: #1a2744; border-radius: 12px; overflow: hidden; }
+  .fi { width:100%; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:6px; padding:10px 12px; font-size:13.5px; color:#fff; font-family:inherit; outline:none; margin-bottom:10px; }
+  .fi::placeholder { color:rgba(255,255,255,0.3); }
+  .qfr { display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
+  .qfr:last-child { border-bottom:none; }
+  .npill { display:inline-block; background:#1a2744; color:#fff; font-size:10.5px; font-weight:600; padding:2px 7px; border-radius:3px; margin:2px 2px 0 0; }
+</style>
+  <div class="bg-gray-50 border-b border-gray-200"><div class="section py-2.5"><nav class="flex items-center gap-1.5 text-xs text-gray-400"><a href="/" class="hover:text-gray-700 no-underline">Home</a><span>/</span><a href="/lafd-regulation-4/" class="hover:text-gray-700 no-underline">LAFD Regulation 4</a><span>/</span><span class="text-gray-700 font-medium">{NEIGHBORHOOD}</span></nav></div></div>
+  <div class="hood-hero py-14"><div class="section"><div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center"><div class="lg:col-span-2">
+    <div class="inline-flex items-center gap-2 bg-red-brand/20 border border-red-brand/40 text-red-300 text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded mb-5"><span class="w-1.5 h-1.5 rounded-full bg-red-brand inline-block"></span>{NEIGHBORHOOD} — Los Angeles City Limits — LAFD Jurisdiction</div>
+    <h1 class="text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4">LAFD Regulation 4 Compliance in {NEIGHBORHOOD}</h1>
+    <p class="text-lg text-blue-200 max-w-2xl leading-relaxed mb-6">Boyle Heights sits directly east of Downtown LA — a neighborhood of early-20th-century commercial strips, light manufacturing corridors, warehouse facilities, and automotive businesses that fall squarely within LAFD Regulation 4 jurisdiction. The Cesar Chavez Avenue corridor, 1st Street commercial district, and Soto Street industrial blocks all contain commercial buildings subject to mandatory fire system testing.</p>
+    <div class="flex flex-wrap gap-2"><span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">Restaurant & Kitchen Compliance</span><span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">Auto Body Shop Suppression</span><span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">7-Day Compliance Engine Filing</span><span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">48hr Equipment Fulfillment</span></div>
+  </div><div class="flex flex-col gap-2">
+    <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-white mb-1">1920s</div><div class="text-xs text-blue-300">Typical construction era for Boyle Heights commercial buildings — original fire systems require aggressive maintenance</div></div>
+    <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-white mb-1">2x/yr</div><div class="text-xs text-blue-300">Kitchen suppression inspection frequency for every restaurant, taqueria, and bakery with a commercial hood</div></div>
+    <div class="bg-white/10 border border-white/10 rounded-xl p-4 text-center"><div class="text-3xl font-bold text-white mb-1">30</div><div class="text-xs text-blue-300">Days to correct deficiencies and retest after inspection</div></div>
+  </div></div></div></div>
+  <div class="alert-strip px-6 py-4"><div class="section flex items-start gap-3"><span class="text-red-brand text-lg mt-0.5 flex-shrink-0">⚠</span><p class="text-sm text-red-900 leading-relaxed"><strong class="text-red-brand">Boyle Heights Compliance Notice:</strong> Boyle Heights falls entirely within Los Angeles City limits under LAFD jurisdiction. Commercial buildings on Cesar Chavez Avenue, 1st Street, and Soto Street are subject to mandatory Regulation 4 fire system testing regardless of business size. Results must be filed within <strong>7 days</strong> via thecomplianceengine.com. Defects corrected within <strong>30 days</strong>.</p></div></div>
+  <div class="section py-14"><div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start"><div class="lg:col-span-2 space-y-14">
+    <div><div class="tag text-red-brand mb-2">Context</div><h2 class="text-3xl font-bold tracking-tight mb-4">Regulation 4 in {NEIGHBORHOOD}</h2>
+    <p class="text-gray-600 leading-relaxed mb-4">Boyle Heights's commercial corridors — centered on Cesar Chavez Avenue, 1st Street, and Soto Street — contain a mix of restaurants, taquerias, light manufacturing, and automotive businesses that all carry Regulation 4 obligations. The neighborhood's building stock spans from 1910s–1940s commercial construction through post-war industrial development, with fire systems that in many cases have never been systematically maintained under modern NFPA standards.</p>
+    <p class="text-gray-600 leading-relaxed mb-6">The compliance gap in Boyle Heights is predominantly awareness. Many small business owners and property managers are not aware that LAFD Regulation 4 applies to their buildings, or they confuse it with standard state fire marshal requirements. This creates deferred maintenance cycles that draw enforcement action when LAFD conducts targeted sweeps of commercial corridors.</p>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4"><div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">AHJ</div><div class="text-sm font-semibold text-gray-800">Los Angeles Fire Department</div><div class="text-xs text-gray-500 mt-0.5">All of Boyle Heights is LAFD jurisdiction</div></div>
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4"><div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Key Risk</div><div class="text-sm font-semibold text-gray-800">Compliance Awareness Gap</div><div class="text-xs text-gray-500 mt-0.5">Small owners often unaware of Reg 4</div></div>
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4"><div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Filing Platform</div><div class="text-sm font-semibold text-gray-800">thecomplianceengine.com</div><div class="text-xs text-gray-500 mt-0.5">7-day electronic submission required</div></div>
+      <div class="bg-gray-50 border border-gray-200 rounded-xl p-4"><div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1">Equipment Lead Time</div><div class="text-sm font-semibold text-red-brand">48 Hours</div><div class="text-xs text-gray-500 mt-0.5">FSSH fulfillment for Boyle Heights</div></div>
+    </div></div>
+    <div><div class="tag text-red-brand mb-2">By Building Type</div><h2 class="text-3xl font-bold tracking-tight mb-4">{NEIGHBORHOOD} Building Types &amp; Requirements</h2>
+    <div class="overflow-x-auto rounded-xl border border-gray-200"><table class="w-full text-sm border-collapse"><thead><tr class="bg-[#1a2744] text-white"><th class="text-left px-4 py-3 text-xs font-semibold tracking-wider">Building Type</th><th class="text-left px-4 py-3 text-xs font-semibold tracking-wider hidden md:table-cell">NFPA Standards</th><th class="text-left px-4 py-3 text-xs font-semibold tracking-wider">Frequency</th></tr></thead><tbody>
+      {buildingTypes.map((bt, i) => (<tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}><td class="px-4 py-3 border-b border-gray-100 font-semibold text-[#1a2744] align-top text-sm">{bt.type}</td><td class="px-4 py-3 border-b border-gray-100 align-top hidden md:table-cell">{bt.nfpa.map(n => <span class="npill">{n}</span>)}</td><td class="px-4 py-3 border-b border-gray-100 text-xs text-gray-600 align-top leading-relaxed">{bt.freq}</td></tr>))}
+    </tbody></table></div></div>
+    <div><div class="tag text-red-brand mb-2">What Gets Flagged</div><h2 class="text-3xl font-bold tracking-tight mb-4">Most Common Reg 4 Deficiencies in {NEIGHBORHOOD}</h2>
+    <div class="flex flex-col gap-3">{deficiencies.map(d => (<div class="flex items-start gap-3 bg-red-light border border-red-200 border-l-4 border-l-red-brand rounded-r-lg px-4 py-3 text-sm text-red-900"><span class="text-red-brand flex-shrink-0 mt-0.5">⚠</span>{d}</div>))}</div></div>
+    <div><div class="tag text-red-brand mb-2">FAQ</div><h2 class="text-3xl font-bold tracking-tight mb-6">{NEIGHBORHOOD} — Regulation 4 FAQs</h2>
+    <div class="divide-y divide-gray-100">{faqs.map(faq => (<details class="group py-4"><summary class="flex items-center justify-between gap-4 cursor-pointer list-none"><span class="text-sm font-semibold text-gray-800 group-open:text-red-brand transition-colors">{faq.q}</span><span class="w-6 h-6 flex-shrink-0 bg-gray-100 group-open:bg-red-brand rounded-full flex items-center justify-center text-gray-600 group-open:text-white text-base leading-none transition-all">+</span></summary><p class="text-sm text-gray-600 leading-relaxed mt-3 pb-1">{faq.a}</p></details>))}</div></div>
+    <div><div class="tag text-red-brand mb-2">Other Neighborhoods</div><h2 class="text-3xl font-bold tracking-tight mb-4">Other Los Angeles City Neighborhoods</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">{nearbyHoods.map(hood => (<a href={`/lafd-regulation-4/${hood.slug}/`} class="flex items-center justify-between border border-gray-200 rounded-xl p-4 hover:border-[#1a2744] hover:bg-gray-50 no-underline transition-all"><div><div class="text-sm font-semibold text-[#1a2744]">{hood.name}</div><div class="text-xs text-gray-400 mt-0.5">{hood.type}</div></div><span class="text-gray-300 ml-3">→</span></a>))}<a href="/lafd-regulation-4/" class="flex items-center border border-gray-200 rounded-xl p-4 hover:border-red-brand hover:bg-red-light no-underline transition-all"><span class="text-sm font-semibold text-red-brand">View All LA City Neighborhoods</span></a></div></div>
+  </div>
+  <div class="space-y-5 lg:sticky lg:top-20">
+    <div class="sform"><div class="bg-white/10 border-b border-white/10 px-5 py-3.5"><span class="text-xs font-bold uppercase tracking-wider text-blue-300">Free {NEIGHBORHOOD} Compliance Assessment</span></div>
+    <div class="p-5"><p class="text-xs text-blue-200 mb-4 leading-relaxed">Building in {NEIGHBORHOOD}? We'll review your Reg 4 status and connect you with an LAFD-certified tester.</p>
+      <input id="bh-name" type="text" class="fi" placeholder="Your name" />
+      <input id="bh-address" type="text" class="fi" placeholder="Building address" />
+      <select id="bh-type" class="fi"><option value="">Building type...</option><option>Restaurant / Taqueria / Food Service</option><option>Light Manufacturing / Warehouse</option><option>Automotive / Auto Body Shop</option><option>Retail Strip / Commercial</option><option>Bakery / Commercial Kitchen</option><option>Medical / Community Clinic</option></select>
+      <input id="bh-floors" type="text" class="fi" placeholder="Number of floors" />
+      <select id="bh-inspection" class="fi"><option value="">Last inspection...</option><option>Within the last year</option><option>1-2 years ago</option><option>2+ years ago</option><option>Never / Unknown</option></select>
+      <input id="bh-email" type="email" class="fi" placeholder="Email address" />
+      <input id="bh-phone" type="tel" class="fi" placeholder="Phone number" />
+      <button id="bh-submit" class="w-full bg-red-brand text-white py-3.5 rounded-lg text-sm font-bold hover:bg-red-dark transition-colors cursor-pointer border-0">Get Free Assessment</button>
+      <div id="bh-success" style="display:none" class="text-center text-green-300 text-sm font-medium mt-3">✓ Received — we'll be in touch within one business day.</div>
+      <p class="text-xs text-center mt-3" style="color:rgba(147,197,253,0.4)">Response within one business day.</p>
+    </div></div>
+    <div class="border border-gray-200 rounded-xl overflow-hidden"><div class="bg-gray-50 border-b border-gray-200 px-4 py-3"><span class="text-xs font-bold uppercase tracking-wider text-gray-400">{NEIGHBORHOOD} Quick Facts</span></div>
+    <div class="p-4"><div class="qfr"><span class="text-gray-400 font-medium">Jurisdiction</span><span class="text-gray-800 font-semibold">LA City (LAFD)</span></div><div class="qfr"><span class="text-gray-400 font-medium">Fire Alarms</span><span class="text-gray-800 font-semibold">Annual</span></div><div class="qfr"><span class="text-gray-400 font-medium">Kitchen Suppression</span><span class="font-bold text-red-brand">Semi-Annual</span></div><div class="qfr"><span class="text-gray-400 font-medium">Sprinklers</span><span class="font-bold text-red-brand">5 Years</span></div><div class="qfr"><span class="text-gray-400 font-medium">Extinguishers</span><span class="text-gray-800 font-semibold">Annual</span></div><div class="qfr"><span class="text-gray-400 font-medium">Repair/Retest</span><span class="font-bold text-red-brand">30 days</span></div><div class="qfr"><span class="text-gray-400 font-medium">Filing Deadline</span><span class="text-gray-800 font-semibold">7 days</span></div><div class="qfr"><span class="text-gray-400 font-medium">Equipment Lead Time</span><span class="text-gray-800 font-semibold">48 hours</span></div></div></div>
+    <div class="border border-gray-200 rounded-xl overflow-hidden"><div class="bg-gray-50 border-b border-gray-200 px-4 py-3"><span class="text-xs font-bold uppercase tracking-wider text-gray-400">LAFD Reg 4 Unit</span></div>
+    <div class="p-4 space-y-2"><p class="text-xs text-gray-600 leading-relaxed">Bureau of Fire Prevention and Public Safety<br/>200 North Main Street, Room 1750<br/>Los Angeles, CA 90012</p><a href="tel:+12139783560" class="block text-sm font-bold text-red-brand no-underline">(213) 978-3560</a><a href="mailto:LafdReg4@lacity.org" class="block text-xs text-red-brand no-underline">LafdReg4@lacity.org</a></div></div>
+    <div class="border border-gray-200 rounded-xl overflow-hidden"><div class="bg-gray-50 border-b border-gray-200 px-4 py-3"><span class="text-xs font-bold uppercase tracking-wider text-gray-400">NFPA Standards</span></div><div class="p-4 flex flex-wrap gap-1.5">{['NFPA 10','NFPA 25','NFPA 33','NFPA 72','NFPA 96','NFPA 101','Title 19 CCR'].map(tag => (<span class="npill">{tag}</span>))}</div></div>
+  </div></div></div>
+  <script define:vars={{ N8N_WEBHOOK, NEIGHBORHOOD }}>
+    document.getElementById('bh-submit').addEventListener('click', async function() {
+      const btn = this; btn.textContent = 'Submitting...'; btn.disabled = true;
+      const payload = { neighborhood: NEIGHBORHOOD, name: document.getElementById('bh-name').value, address: document.getElementById('bh-address').value, buildingType: document.getElementById('bh-type').value, floors: document.getElementById('bh-floors').value, lastInspection: document.getElementById('bh-inspection').value, email: document.getElementById('bh-email').value, phone: document.getElementById('bh-phone').value, source: 'FSSH Reg 4 — Boyle Heights' };
+      try { await fetch(N8N_WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); } catch(e) {}
+      document.getElementById('bh-success').style.display = 'block'; btn.style.display = 'none';
+    });
+  </script>
+</Base>

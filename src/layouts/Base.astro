@@ -259,7 +259,24 @@ const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
       modal.style.display = 'none';
       document.body.style.overflow = '';
     }
-    function submitRFQ() {
+    async function submitRFQ() {
+      const product = document.getElementById('rfqProduct').textContent;
+      const nameEl = document.querySelector('#rfqForm input[type="text"]');
+      const emailEl = document.querySelector('#rfqForm input[type="email"]');
+      const payload = {
+        neighborhood: 'General',
+        name: nameEl ? nameEl.value : '',
+        email: emailEl ? emailEl.value : '',
+        source: 'RFQ Modal',
+        product: product || 'General Quote Request',
+      };
+      try {
+        await fetch('https://shiro770.app.n8n.cloud/webhook/fssh-reg4-lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch(e) {}
       document.getElementById('rfqForm').style.display = 'none';
       document.getElementById('rfqSuccess').classList.remove('hidden');
     }
