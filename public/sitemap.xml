@@ -1,7 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ===== HOMEPAGE ===== -->
   <url><loc>https://firesafetysupplyhouse.com/</loc><lastmod>2026-04-08</lastmod><priority>1.0</priority></url>
+
+  <!-- ===== HUB PAGES ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/blog/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/compliance/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/products/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/regions/</loc><lastmod>2026-04-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/resources/</loc><lastmod>2026-04-08</lastmod><priority>0.8</priority></url>
+
+  <!-- ===== CITY SERVICE PAGES (50) ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-anaheim-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-anchorage-ak/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-arlington-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-atlanta-ga/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-aurora-co/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-austin-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-bakersfield-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-buffalo-ny/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-chandler-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-chicago-il/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-chula-vista-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-cincinnati-oh/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-corpus-christi-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-dallas-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-durham-nc/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-garland-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-gilbert-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-glendale-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-greensboro-nc/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-henderson-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-houston-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-irvine-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-laredo-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-lexington-ky/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-lincoln-ne/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-long-beach-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-los-angeles-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-lubbock-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-madison-wi/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-mesa-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-new-york-ny/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-newark-nj/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-north-las-vegas-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-orlando-fl/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-phoenix-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-pittsburgh-pa/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-plano-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-reno-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-riverside-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-sacramento-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-san-antonio-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-san-diego-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-san-jose-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-santa-ana-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-scottsdale-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-st-louis-mo/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-st-paul-mn/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-stockton-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-tampa-fl/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/fire-safety-services-tucson-az/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+
+  <!-- ===== LAFD REGULATION 4 NEIGHBORHOOD PAGES (10) ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/arts-district/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/boyle-heights/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/century-city/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/chinatown/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/downtown-los-angeles/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/hollywood/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/koreatown/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/mid-wilshire/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/playa-vista/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/lafd-regulation-4/westwood/</loc><lastmod>2026-04-13</lastmod><priority>0.8</priority></url>
+
+  <!-- ===== COMPLIANCE PAGES ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-10/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-25/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-72/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+
+  <!-- ===== BLOG POSTS (55) ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/blog/commercial-fire-extinguisher-inspection-guide/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/commercial-kitchen-fire-suppression-los-angeles/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-alarm-installation-anaheim-ca/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-alarm-installation-aurora-co/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-alarm-installation-bakersfield-ca/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-alarm-installation-chicago-il/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-alarm-installation-cost-dallas-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-anchorage-ak/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-arlington-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-atlanta-ga/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-buffalo-ny/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-chula-vista-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-cincinnati-oh/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-corpus-christi-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-garland-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-gilbert-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-glendale-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-greensboro-nc/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-henderson-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-houston-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-laredo-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-lexington-ky/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-lincoln-ne/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-long-beach-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-lubbock-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-madison-wi/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-mesa-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-north-las-vegas-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-orlando-fl/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-phoenix-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-pittsburgh-pa/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-requirements-california/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-riverside-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-sacramento-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-san-antonio-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-san-jose-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-santa-ana-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-st-louis-mo/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-stockton-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-extinguisher-inspection-tucson-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-sprinkler-inspection-requirements-california/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/fire-sprinkler-installation-tampa-fl/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-austin-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-chandler-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-durham-nc/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-irvine-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-los-angeles/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-new-york-ny/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-newark-nj/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-plano-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-reno-nv/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-san-diego-ca/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-scottsdale-az/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/restaurant-fire-safety-requirements-st-paul-mn/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/blog/warehouse-fire-code-compliance-houston-tx/</loc><lastmod>2026-04-13</lastmod><priority>0.7</priority></url>
+
+  <!-- ===== RESOURCES ===== -->
+  <url><loc>https://firesafetysupplyhouse.com/resources/fire-safety-checklist-property-managers/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/resources/addressable-vs-conventional-alarm-guide/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
+
+  <!-- ===== PRODUCT PAGES ===== -->
   <url><loc>https://firesafetysupplyhouse.com/products/fire-extinguishers/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/products/cabinets-accessories/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/products/smoke-detectors-co/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
@@ -14,11 +155,8 @@
   <url><loc>https://firesafetysupplyhouse.com/products/signage-compliance/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/products/inspection-testing/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/products/ppe-safety/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/compliance/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-10/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-25/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/compliance/nfpa-72/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/</loc><lastmod>2026-04-08</lastmod><priority>0.9</priority></url>
+
+  <!-- ===== REGION PAGES ===== -->
   <url><loc>https://firesafetysupplyhouse.com/regions/los-angeles-county/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/los-angeles-county/city-of-los-angeles/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/los-angeles-county/long-beach/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
@@ -28,48 +166,12 @@
   <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/chicago/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/evanston/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/cicero/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/schaumburg/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/oak-park/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
+  <url><loc>https://firesafetysupplyhouse.com/regions/cook-county-chicago/aurora/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/houston/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/pasadena/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/baytown/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/sugar-land/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/harris-county-houston/pearland/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/miami/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/miami-beach/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/hialeah/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/coral-gables/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/miami-dade-county/doral/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/phoenix/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/scottsdale/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/tempe/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/mesa/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
   <url><loc>https://firesafetysupplyhouse.com/regions/maricopa-county-phoenix/chandler/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/</loc><lastmod>2026-04-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/seattle/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/bellevue/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/renton/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/kent/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/regions/king-county-seattle/redmond/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/resources/</loc><lastmod>2026-04-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/resources/fire-safety-checklist-property-managers/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/resources/addressable-vs-conventional-alarm-guide/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/blog/</loc><lastmod>2026-04-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://firesafetysupplyhouse.com/blog/commercial-fire-extinguisher-inspection-guide/</loc><lastmod>2026-04-08</lastmod><priority>0.6</priority></url>
-  <url>
-    <loc>https://firesafetysupplyhouse.com/lafd-regulation-4/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://firesafetysupplyhouse.com/lafd-regulation-4/downtown-los-angeles/</loc>
-    <lastmod>2026-04-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
 </urlset>
