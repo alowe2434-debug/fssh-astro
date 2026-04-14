@@ -1,0 +1,462 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://firesafetysupplyhouse.com/lafd-regulation-4/",
+      "url": "https://firesafetysupplyhouse.com/lafd-regulation-4/",
+      "name": "LAFD Regulation 4 Compliance — Los Angeles City Buildings",
+      "description": "LAFD Chief's Regulation 4 compliance resources, equipment supply, and certified tester referrals for commercial buildings in Los Angeles City limits.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://firesafetysupplyhouse.com/"},
+          {"@type": "ListItem", "position": 2, "name": "LAFD Regulation 4", "item": "https://firesafetysupplyhouse.com/lafd-regulation-4/"}
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is LAFD Regulation 4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LAFD Chief's Regulation 4 is a City of Los Angeles fire safety mandate requiring property owners to have fire protection systems in commercial buildings tested by LAFD-certified professionals. It applies within Los Angeles City limits only, not LA County."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often is Regulation 4 testing required?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fire alarm systems, smoke management, elevators, emergency generators, fire doors, and fire pumps require annual testing. Automatic sprinkler systems and standpipe systems (Class I–III) require testing every 5 years. Pre-action, Deluge, and Dry Pipe systems are tested annually."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if deficiencies are found during inspection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per LAFD requirements, if defects are found, corrections must commence immediately and be completed within 30 days of the initial test date. The system must then be retested to confirm full operability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is The Compliance Engine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Compliance Engine (thecomplianceengine.com) is the LAFD-mandated electronic reporting platform for Regulation 4 test result submission. Your certified tester must file results within 7 days of the inspection."
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const neighborhoods = [
+  { slug: 'downtown-los-angeles', name: 'Downtown Los Angeles (DTLA)', tags: ['High-rises', 'Hotels', 'Office'] },
+  { slug: 'hollywood', name: 'Hollywood', tags: ['Entertainment', 'Commercial'] },
+  { slug: 'koreatown', name: 'Koreatown', tags: ['Dense commercial', 'Restaurants'] },
+  { slug: 'century-city', name: 'Century City', tags: ['Office towers', 'Medical'] },
+  { slug: 'mid-wilshire', name: 'Mid-Wilshire / Miracle Mile', tags: ['Office', 'Retail', 'Cultural'] },
+  { slug: 'arts-district', name: 'Arts District', tags: ['Warehouses', 'Converted commercial'] },
+  { slug: 'boyle-heights', name: 'Boyle Heights', tags: ['Industrial', 'Small commercial'] },
+  { slug: 'westwood', name: 'Westwood / UCLA Area', tags: ['Medical', 'University'] },
+  { slug: 'chinatown', name: 'Chinatown / Little Tokyo', tags: ['Commercial', 'Restaurants'] },
+  { slug: 'playa-vista', name: 'Playa Vista', tags: ['Tech campus', 'Office'] },
+];
+
+const freqTable = [
+  { system: 'Basic Fire Warning Systems', freq: 'Annual', is5yr: false },
+  { system: 'Complex Fire Warning Systems', freq: 'Annual', is5yr: false },
+  { system: 'Central Station Signaling Systems', freq: 'Annual', is5yr: false },
+  { system: 'Smoke Management Systems', freq: 'Annual', is5yr: false },
+  { system: 'Elevators, Automatic', freq: 'Annual', is5yr: false },
+  { system: 'Emergency Generator & Lighting Systems (All Occupancies)', freq: 'Annual', is5yr: false },
+  { system: 'Fire Doors: All Types / All Occupancies', freq: 'Annual', is5yr: false },
+  { system: 'Fire Escapes', freq: 'Annual', is5yr: false },
+  { system: 'Fire Pumps', freq: 'Annual', is5yr: false },
+  { system: 'Pressure Reducing Valves (PRVs) — Partial Flow', freq: 'Annual', is5yr: false },
+  { system: 'Automatic Fire Sprinkler Systems', freq: '5 Years', is5yr: true },
+  { system: 'Class I Standpipe Systems', freq: '5 Years', is5yr: true },
+  { system: 'Class II Standpipe Systems', freq: '5 Years', is5yr: true },
+  { system: 'Class III Standpipe Systems', freq: '5 Years', is5yr: true },
+  { system: 'Combined & Class H Standpipe Systems', freq: '5 Years', is5yr: true },
+  { system: 'Pressure Reducing Valves (PRVs) — Full Flow', freq: '5 Years', is5yr: true },
+];
+---
+
+<Base
+  title="LAFD Regulation 4 Compliance — Los Angeles City Buildings | Fire Safety Supply House"
+  description="LAFD Chief's Regulation 4 requires annual fire system testing for commercial buildings within Los Angeles City limits. Equipment supply, compliance resources, and LAFD-certified tester referrals for property managers and facilities teams."
+  canonical="https://firesafetysupplyhouse.com/lafd-regulation-4/"
+  schema={schema}
+>
+
+<style>
+  .reg4-hero { background: #1a2744; }
+  .alert-strip { background: #fdf2f0; border-top: 3px solid #c0392b; border-bottom: 1px solid #fbd5d0; }
+  .sidebar-form { background: #1a2744; border-radius: 12px; overflow: hidden; }
+  .form-input-dark {
+    width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px; padding: 10px 12px; font-size: 13.5px; color: #fff;
+    font-family: inherit; outline: none; margin-bottom: 10px;
+  }
+  .form-input-dark::placeholder { color: rgba(255,255,255,0.3); }
+  .form-input-dark:focus { border-color: rgba(255,255,255,0.4); }
+  .qf-row { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid #f0f0f0; font-size: 13px; }
+  .qf-row:last-child { border-bottom: none; }
+  .nfpa-pill { display: inline-block; background: #1a2744; color: #fff; font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin: 2px 2px 0 0; }
+  .hood-card { display: flex; align-items: center; justify-content: space-between; border: 1px solid #e2e6ec; border-radius: 10px; padding: 14px 16px; transition: all 0.15s; text-decoration: none; color: inherit; }
+  .hood-card:hover { border-color: #1a2744; background: #f8f9fb; }
+  .tag-sm { background: #f0f2f5; color: #5a6474; font-size: 10.5px; font-weight: 500; padding: 2px 7px; border-radius: 3px; }
+  .prod-img-wrap { background: #fff; height: 120px; display: flex; align-items: center; justify-content: center; padding: 14px; border-bottom: 1px solid #e2e6ec; overflow: hidden; }
+  .prod-img-wrap img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform 0.2s; }
+  .prod-card:hover .prod-img-wrap img { transform: scale(1.04); }
+  .freq-row-5yr td { color: #c0392b; font-weight: 700; }
+</style>
+
+  <!-- BREADCRUMB -->
+  <div class="bg-gray-50 border-b border-gray-200">
+    <div class="section py-2.5">
+      <nav class="flex items-center gap-1.5 text-xs text-gray-400">
+        <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+        <span>/</span>
+        <span class="text-gray-700 font-medium">LAFD Regulation 4</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="reg4-hero py-14">
+    <div class="section">
+      <div class="inline-flex items-center gap-2 bg-red-brand/20 border border-red-brand/40 text-red-300 text-xs font-bold tracking-widest uppercase px-3 py-1.5 rounded mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-red-brand inline-block animate-pulse"></span>
+        Los Angeles City — Mandatory Compliance
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-4 max-w-3xl">
+        LAFD Regulation 4 Compliance for Los Angeles City Buildings
+      </h1>
+      <p class="text-lg text-blue-200 max-w-2xl leading-relaxed mb-8">
+        LAFD Chief's Regulation 4 requires property owners and facilities managers to have fire protection systems in Los Angeles City buildings tested by LAFD-certified professionals. Non-compliance means fines, operational shutdowns, and liability exposure.
+      </p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">City of Los Angeles — Not LA County</span>
+        <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">Annual &amp; 5-Year Testing Cycles</span>
+        <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">7-Day Compliance Engine Filing</span>
+        <span class="bg-white/10 border border-white/15 text-blue-100 text-xs font-medium px-3 py-1.5 rounded">LAFD-Certified Testers Only</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALERT BAR -->
+  <div class="alert-strip px-6 py-4">
+    <div class="section">
+      <div class="flex items-start gap-3">
+        <span class="text-red-brand text-lg mt-0.5 flex-shrink-0">⚠</span>
+        <p class="text-sm text-red-900 leading-relaxed">
+          <strong class="text-red-brand">Compliance Window:</strong> Test results must be submitted through <strong>thecomplianceengine.com</strong> within <strong>7 days</strong> of inspection. If defects are found, corrections must be completed and the system retested within <strong>30 days</strong>. California Title 19 applies statewide — Regulation 4 is an additional, stricter layer enforced only within Los Angeles City limits.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="section py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+      <!-- CONTENT COL -->
+      <div class="lg:col-span-2 space-y-14">
+
+        <!-- WHAT IS REG 4 -->
+        <div>
+          <div class="tag text-red-brand mb-2">The Mandate</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">What Is LAFD Regulation 4?</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            LAFD Chief's Regulation 4 — commonly called Reg 4 — is a City of Los Angeles fire safety mandate separate from California's statewide Title 19 regulations. It requires property owners, facility managers, and contractors to ensure fire protection systems in <strong>high-hazard or essential services buildings within LA City limits</strong> are tested regularly by LAFD-certified professionals.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            The critical distinction: Reg 4 applies to buildings inside <strong>Los Angeles City limits only</strong> — not the broader LA County. If your building is served by the LAFD (not a county fire station), Reg 4 applies.
+          </p>
+
+          <!-- Req cards grid -->
+          <div class="grid grid-cols-2 gap-3 mb-8">
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Governing Authority</div>
+              <div class="text-sm font-semibold text-gray-800 leading-snug">Los Angeles Fire Department (LAFD)</div>
+              <div class="text-xs text-gray-500 mt-1">City of Los Angeles only — not LA County</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Who Can Test</div>
+              <div class="text-sm font-semibold text-gray-800 leading-snug">LAFD-Certified Professionals Only</div>
+              <div class="text-xs text-gray-500 mt-1">20+ distinct tester categories. CA contractor license alone not sufficient.</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Filing Deadline</div>
+              <div class="text-sm font-semibold text-gray-800 leading-snug">7 Days Post-Inspection</div>
+              <div class="text-xs text-gray-500 mt-1">Electronic submission via thecomplianceengine.com</div>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-1.5">Repair &amp; Retest Window</div>
+              <div class="text-sm font-semibold text-gray-800 leading-snug">30 Days from Initial Test</div>
+              <div class="text-xs text-gray-500 mt-1">Defects must be corrected and system retested within 30 days</div>
+            </div>
+          </div>
+
+          <!-- Testing Frequency Table -->
+          <h3 class="text-xl font-bold tracking-tight mb-2">Required Testing Frequencies by System Type</h3>
+          <p class="text-sm text-gray-500 mb-4">Not all systems test annually. Sprinkler and standpipe systems follow a 5-year cycle. Buildings typically have both annual and 5-year obligations running simultaneously.</p>
+          <div class="overflow-x-auto rounded-xl border border-gray-200">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-[#1a2744] text-white">
+                  <th class="text-left px-4 py-3 text-xs font-semibold tracking-wider">Fire Protection System</th>
+                  <th class="text-center px-4 py-3 text-xs font-semibold tracking-wider whitespace-nowrap">Frequency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {freqTable.map((row, i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class={`px-4 py-3 border-b border-gray-100 ${row.is5yr ? 'font-semibold text-gray-800' : 'text-gray-600'}`}>{row.system}</td>
+                    <td class={`px-4 py-3 border-b border-gray-100 text-center font-bold ${row.is5yr ? 'text-red-brand' : 'text-[#1a2744]'}`}>{row.freq}</td>
+                  </tr>
+                ))}
+                <tr class="bg-gray-50">
+                  <td colspan="2" class="px-4 py-3 text-xs text-gray-500 italic"><strong>Note:</strong> Pre-action, Deluge, and Dry Pipe sprinkler systems are tested annually, even though standard automatic sprinklers follow the 5-year cycle.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CONSEQUENCES -->
+        <div>
+          <div class="tag text-red-brand mb-2">Non-Compliance</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Consequences of Non-Compliance</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">Regulation 4 is legally mandatory. The LAFD treats non-compliance seriously, and penalties extend beyond monetary fines.</p>
+          <div class="flex flex-col gap-3">
+            {['Monetary fines issued by the LAFD for non-compliant or overdue fire system testing',
+              'Forced operational shutdowns until compliance is achieved and documented',
+              'Increased liability exposure in the event of a fire or life-safety incident on the property',
+              'Late filing penalties for missing the 7-day Compliance Engine submission window',
+              'Potential impact on property insurance coverage and renewals'].map(penalty => (
+              <div class="flex items-start gap-3 bg-red-light border border-red-200 border-l-4 border-l-red-brand rounded-r-lg px-4 py-3 text-sm text-red-900">
+                <span class="text-red-brand flex-shrink-0 mt-0.5">⚠</span>
+                {penalty}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- TESTER CATEGORIES -->
+        <div>
+          <div class="tag text-red-brand mb-2">Certified Testers</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">LAFD Reg 4 Certified Tester Categories</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">The LAFD maintains a separate certified tester list for each system type. A complex commercial building may require multiple certified testers from different categories — each a distinct LAFD certification.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { label: 'Fire Alarm Systems', items: ['Basic Fire Alarm Systems Only Testers', 'Complex Fire Alarm & Supervising Station Alarm Systems Testers', 'Supervising Station Alarm Testers'] },
+              { label: 'Sprinkler & Standpipe Systems', items: ['Automatic Sprinkler Testers', 'Class I Standpipe Testers', 'Class II Standpipe Testers', 'Class III Standpipe Testers', 'Combined Standpipe & Automatic Sprinkler System Testers'] },
+              { label: 'High-Rise & Life Safety', items: ['Smoke Evacuation (909/905) Testers', 'Mechanical Smoke Proof Enclosures Testers', 'Pressurized Stairshaft Testers', 'Highrise Life/Safety Consultant List', 'Fire Escape Assemblies Testers'] },
+              { label: 'Mechanical & Electrical', items: ['Automatic Elevator (Phase I & II) Testers', 'Elevator Witness Only Testers', 'Emergency Generator & Battery Systems Testers', 'Stored Electrical Energy Systems Only Testers', 'Fire Pumps Testers'] },
+              { label: 'Specialty Systems', items: ['Automatic Closing Fire Assemblies Testers', 'Gas Detection Tests', 'Healthcare Facility Instructor Consultant List'] },
+            ].map(cat => (
+              <div class="bg-gray-50 border border-gray-200 rounded-xl p-5">
+                <div class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">{cat.label}</div>
+                <ul class="space-y-1.5">
+                  {cat.items.map(item => (
+                    <li class="text-sm text-gray-700 flex items-start gap-2">
+                      <span class="text-red-brand mt-0.5 flex-shrink-0 text-xs">▸</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+            <div class="bg-red-light border border-red-200 rounded-xl p-5">
+              <div class="text-xs font-bold uppercase tracking-wider text-red-brand mb-2">LAFD Direct Contact</div>
+              <p class="text-xs text-gray-700 leading-relaxed mb-3">Bureau of Fire Prevention &amp; Public Safety, Chief's Regulation No. 4 Unit<br/>200 North Main Street, Room 1750, Los Angeles, CA 90012</p>
+              <a href="tel:+12139783560" class="block text-sm font-bold text-red-brand no-underline mb-1 hover:text-red-dark">(213) 978-3560</a>
+              <a href="mailto:LafdReg4@lacity.org" class="block text-xs text-red-brand no-underline hover:text-red-dark">LafdReg4@lacity.org</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEIGHBORHOODS -->
+        <div>
+          <div class="tag text-red-brand mb-2">Coverage</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Los Angeles City Neighborhoods</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">We serve commercial property owners and facilities managers across all LA City neighborhoods subject to LAFD Regulation 4. Each neighborhood page includes local context, common deficiency patterns, and direct compliance assessment access.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {neighborhoods.map(hood => (
+              <a href={`/lafd-regulation-4/${hood.slug}/`} class="hood-card">
+                <div>
+                  <div class="text-sm font-semibold text-[#1a2744] mb-1.5">{hood.name}</div>
+                  <div class="flex gap-1 flex-wrap">
+                    {hood.tags.map(tag => <span class="tag-sm">{tag}</span>)}
+                  </div>
+                </div>
+                <span class="text-gray-400 text-sm ml-3 flex-shrink-0">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div>
+          <div class="tag text-red-brand mb-2">Equipment Supply</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Fire Protection Equipment for Reg 4 Compliance</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">All equipment meets NFPA standards applicable in Los Angeles City. Wholesale pricing for property managers, facilities teams, and fire protection contractors. 48-hour fulfillment for most LA City addresses.</p>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {[
+              { img: '/images/products/notifier-nfs2-3030.png', name: 'Fire Alarm Systems', desc: 'NFPA 72 compliant panels and notification devices', link: '/products/fire-alarm-systems/' },
+              { img: '/images/products/viking-vk102.png', name: 'Sprinkler Systems', desc: 'NFPA 25 compliant heads, valves, and fittings', link: '/products/sprinkler-systems/' },
+              { img: '/images/products/ansul-r102.png', name: 'Kitchen Suppression', desc: 'NFPA 96 restaurant and commercial kitchen systems', link: '/products/kitchen-suppression/' },
+              { img: '/images/products/ss-2151.png', name: 'Smoke Detectors & CO', desc: 'System Sensor, Notifier, Honeywell — commercial grade', link: '/products/smoke-detectors-co/' },
+              { img: '/images/products/amerex-b402.png', name: 'Fire Extinguishers', desc: 'Amerex, Kidde — NFPA 10 compliant, annual tags', link: '/products/fire-extinguishers/' },
+              { img: '/images/products/ss-spsr.png', name: 'Exit & Emergency Lighting', desc: 'NFPA 101 compliant exit signs and egress lighting', link: '/products/exit-emergency/' },
+            ].map(prod => (
+              <div class="prod-card card">
+                <div class="prod-img-wrap">
+                  <img src={prod.img} alt={prod.name} loading="lazy" />
+                </div>
+                <div class="p-4">
+                  <div class="text-sm font-semibold text-gray-800 mb-1">{prod.name}</div>
+                  <div class="text-xs text-gray-400 mb-3 leading-snug">{prod.desc}</div>
+                  <button onclick={`openRFQ('','','${prod.name} — Reg 4 Compliance')`} class="w-full bg-red-brand text-white text-xs font-bold py-2.5 rounded-lg hover:bg-red-dark transition-colors cursor-pointer border-0">
+                    Request Quote
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div>
+          <div class="tag text-red-brand mb-2">FAQ</div>
+          <h2 class="text-3xl font-bold tracking-tight mb-6">Common Questions</h2>
+          <div class="divide-y divide-gray-100" x-data="{open:null}">
+            {[
+              { q: 'What is the difference between LAFD Regulation 4 and California Title 19?', a: 'California Title 19 is the statewide fire safety code that applies to all buildings in California. LAFD Regulation 4 is an additional, stricter layer that applies only to buildings within Los Angeles City limits. Buildings in LA City must comply with both — Title 19 as the baseline and Regulation 4 as a supplemental mandate.' },
+              { q: 'Does Regulation 4 apply to my building outside the City of Los Angeles?', a: 'No. Regulation 4 only applies to buildings serviced by the LAFD — within Los Angeles City limits. Buildings in West Hollywood, Culver City, Santa Monica, Burbank, or unincorporated LA County fall under separate jurisdictions and are not subject to Reg 4.' },
+              { q: 'Can I use any licensed fire contractor for Regulation 4 testing?', a: 'No. Regulation 4 testing must be performed by professionals who appear on the LAFD\'s official Reg 4 certified tester list for the specific system category being tested. There are 20+ distinct tester categories — each requiring separate LAFD certification. A California fire contractor license alone is not sufficient.' },
+              { q: 'What happens if deficiencies are found during inspection?', a: 'Per LAFD requirements, if defects are found in equipment being tested, correction must commence immediately and be completed within 30 days of the initial test date. Once repairs are complete, the system must be retested to confirm it is fully operable. FSSH fulfills most replacement components within 48 hours.' },
+              { q: 'What is The Compliance Engine and how do I file?', a: 'The Compliance Engine (thecomplianceengine.com) is the LAFD-mandated electronic reporting platform for Regulation 4 test result submission. Your LAFD-certified tester must submit results within 7 days of the test date. Property managers can register at thecomplianceengine.com to monitor their building\'s filing status.' },
+            ].map((faq, i) => (
+              <details class="group py-4">
+                <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+                  <span class="text-sm font-semibold text-gray-800 group-open:text-red-brand transition-colors">{faq.q}</span>
+                  <span class="w-6 h-6 flex-shrink-0 bg-gray-100 group-open:bg-red-brand rounded-full flex items-center justify-center text-gray-600 group-open:text-white text-base leading-none transition-all">+</span>
+                </summary>
+                <p class="text-sm text-gray-600 leading-relaxed mt-3 pb-1">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="space-y-5 lg:sticky lg:top-20">
+
+        <!-- Compliance Form -->
+        <div class="sidebar-form">
+          <div class="bg-white/10 border-b border-white/10 px-5 py-3.5">
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-300">Free Compliance Assessment</span>
+          </div>
+          <div class="p-5">
+            <p class="text-xs text-blue-200 mb-4 leading-relaxed">Tell us about your building. We'll review your Reg 4 requirements and connect you with an LAFD-certified tester.</p>
+            <input type="text" class="form-input-dark" placeholder="Building address" />
+            <select class="form-input-dark">
+              <option value="" style="background:#1a2744">Building type...</option>
+              <option style="background:#1a2744">High-Rise (75ft+)</option>
+              <option style="background:#1a2744">Hotel / Hospitality</option>
+              <option style="background:#1a2744">Hospital / Healthcare</option>
+              <option style="background:#1a2744">School / University</option>
+              <option style="background:#1a2744">Restaurant / Commercial Kitchen</option>
+              <option style="background:#1a2744">Commercial Office</option>
+              <option style="background:#1a2744">Warehouse / Industrial</option>
+              <option style="background:#1a2744">Other Commercial</option>
+            </select>
+            <input type="text" class="form-input-dark" placeholder="Number of floors" />
+            <select class="form-input-dark">
+              <option value="" style="background:#1a2744">Last inspection...</option>
+              <option style="background:#1a2744">Within the last year</option>
+              <option style="background:#1a2744">1–2 years ago</option>
+              <option style="background:#1a2744">2+ years ago</option>
+              <option style="background:#1a2744">Never / Unknown</option>
+            </select>
+            <input type="email" class="form-input-dark" placeholder="Email address" />
+            <button onclick="openRFQ('','','Reg 4 Compliance Assessment — LA City')" class="w-full bg-red-brand text-white py-3.5 rounded-lg text-sm font-bold hover:bg-red-dark transition-colors cursor-pointer border-0">
+              Get Free Assessment →
+            </button>
+            <p class="text-xs text-blue-300/50 text-center mt-3 leading-relaxed">Response within one business day. No spam.</p>
+          </div>
+        </div>
+
+        <!-- Quick Facts -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Regulation 4 Quick Facts</span>
+          </div>
+          <div class="p-4">
+            <div class="qf-row"><span class="text-gray-400 font-medium">Jurisdiction</span><span class="text-gray-800 font-semibold text-right">LA City (LAFD only)</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Fire Alarms</span><span class="text-gray-800 font-semibold">Annual</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Sprinklers / Standpipe</span><span class="text-red-brand font-bold">5 Years</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Tester Requirement</span><span class="text-gray-800 font-semibold text-right">LAFD-Certified only</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Filing Platform</span><span class="text-gray-800 font-semibold">Compliance Engine</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Filing Deadline</span><span class="text-gray-800 font-semibold">7 days</span></div>
+            <div class="qf-row"><span class="text-gray-400 font-medium">Repair/Retest Window</span><span class="text-red-brand font-bold">30 days</span></div>
+          </div>
+        </div>
+
+        <!-- Neighborhood Links -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">LA City Neighborhoods</span>
+          </div>
+          <div class="divide-y divide-gray-100">
+            {neighborhoods.map(hood => (
+              <a href={`/lafd-regulation-4/${hood.slug}/`} class="flex items-center justify-between px-4 py-2.5 text-sm text-gray-600 hover:text-gray-900 hover:bg-gray-50 no-underline transition-colors">
+                {hood.name}
+                <span class="text-gray-300 text-xs">→</span>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- LAFD Contact -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">LAFD Reg 4 Unit</span>
+          </div>
+          <div class="p-4 space-y-2">
+            <p class="text-xs text-gray-600 leading-relaxed">Bureau of Fire Prevention &amp; Public Safety<br/>Chief's Regulation No. 4 Unit<br/>200 North Main Street, Room 1750<br/>Los Angeles, CA 90012</p>
+            <a href="tel:+12139783560" class="block text-sm font-bold text-red-brand no-underline hover:text-red-dark">(213) 978-3560</a>
+            <a href="mailto:LafdReg4@lacity.org" class="block text-xs text-red-brand no-underline hover:text-red-dark">LafdReg4@lacity.org</a>
+          </div>
+        </div>
+
+        <!-- NFPA Tags -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden">
+          <div class="bg-gray-50 border-b border-gray-200 px-4 py-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">NFPA Standards Applied</span>
+          </div>
+          <div class="p-4 flex flex-wrap gap-1.5">
+            {['NFPA 10','NFPA 25','NFPA 72','NFPA 96','NFPA 101','NFPA 14','Title 19 CCR'].map(tag => (
+              <span class="nfpa-pill">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Base>
