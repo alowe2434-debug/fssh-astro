@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NFPA 96 Compliance Guide: Commercial Kitchen Fire Suppression",
+  "description": "Complete guide to NFPA 96 compliance for commercial kitchen ventilation systems and fire suppression. Inspection schedules, hood cleaning requirements, and system testing standards.",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "publisher": { "@type": "Organization", "name": "Fire Safety Supply House" },
+};
+---
+
+<Base
+  title="NFPA 96 Compliance — Commercial Kitchen Fire Suppression"
+  description="Complete NFPA 96 compliance guide for commercial kitchen hood systems and fire suppression. Inspection intervals, cleaning requirements, system testing, and wholesale equipment for contractors."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/compliance/" class="hover:text-gray-700 no-underline">Compliance</a>
+      <span>/</span>
+      <span class="text-gray-700">NFPA 96</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">NFPA 96</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Standard for Ventilation Control and Fire Protection of Commercial Cooking Operations</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">NFPA 96 governs the design, installation, operation, inspection, and maintenance of all commercial cooking equipment and hood systems. Every restaurant, cafeteria, food truck, and institutional kitchen in the US must comply.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Inspection & Cleaning Schedule</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Volume of Cooking</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Cleaning Frequency</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Inspection Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">High-volume (24-hr / solid fuels)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Monthly</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Monthly</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Moderate-volume (standard restaurant)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Quarterly</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Quarterly</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">Low-volume (seasonal / part-time)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Annually</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Annually</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Suppression system (all types)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">N/A</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Semi-annual</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Key NFPA 96 Requirements</h2>
+        <div class="flex flex-col gap-3 mb-8">
+          {[
+            'Hood must extend 6 inches beyond all sides of cooking equipment',
+            'Grease filters must be listed and installed at minimum 45° angle',
+            'Grease drip trays required and must be emptied when 2/3 full',
+            'Suppression system must be listed for the specific cooking hazard (Ansul, Amerex, etc.)',
+            'Suppression system discharge must cover entire cooking surface and plenum',
+            'Manual pull station required within 20 feet of cooking equipment',
+            'Fuel shutoff must activate automatically upon system discharge',
+            'Access panels required every 12 feet in ductwork for cleaning inspection',
+          ].map(req => (
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <span class="text-red-brand font-bold mt-0.5">→</span>
+              <span class="text-sm text-gray-700">{req}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Semi-Annual Suppression System Service</h2>
+        <p class="text-gray-600 mb-4">Regardless of cooking volume, all commercial kitchen suppression systems must be inspected and serviced every six months by a certified technician. This includes:</p>
+        <ul class="list-disc pl-6 space-y-2 text-sm text-gray-600 mb-8">
+          <li>Verify agent quantity and container pressure</li>
+          <li>Inspect nozzles, fusible links, and detection components</li>
+          <li>Test mechanical and electrical detection systems</li>
+          <li>Verify fuel shutoff and exhaust fan interlock operation</li>
+          <li>Check manual pull station and remote actuator</li>
+          <li>Review and update service tag</li>
+        </ul>
+
+        <div class="bg-red-light border border-red-brand/20 rounded-xl p-6 mb-8">
+          <h3 class="text-lg font-bold text-red-brand mb-2">Common NFPA 96 Violations</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>• Grease accumulation in hood, ductwork, or filters</li>
+            <li>• Suppression system past semi-annual service date</li>
+            <li>• Missing or damaged fusible links</li>
+            <li>• Cooking equipment repositioned without updating suppression coverage</li>
+            <li>• Fuel shutoff not functional or not tested</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 space-y-6">
+          <div class="border border-gray-200 rounded-xl p-6">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Related Standards</h3>
+            <ul class="space-y-2">
+              <li><a href="/compliance/nfpa-10/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 10 — Fire Extinguishers</a></li>
+              <li><a href="/compliance/nfpa-25/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 25 — Sprinkler Systems</a></li>
+              <li><a href="/compliance/nfpa-72/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 72 — Fire Alarms</a></li>
+            </ul>
+          </div>
+          <div class="bg-red-brand text-white rounded-xl p-6">
+            <h3 class="text-lg font-bold mb-2">Due for Service?</h3>
+            <p class="text-sm text-white/80 mb-4">Get a quote on semi-annual suppression system service or hood cleaning supplies.</p>
+            <button onclick="openRFQ('Kitchen Suppression', '', 'NFPA 96 Service')" class="w-full bg-white text-red-brand font-bold text-sm py-2.5 rounded-lg hover:bg-red-light transition-colors">
+              Request a Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
