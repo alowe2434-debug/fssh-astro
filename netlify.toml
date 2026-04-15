@@ -4,3 +4,23 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+# Redirect www → non-www (fixes redirect chain)
+[[redirects]]
+  from = "https://www.firesafetysupplyhouse.com/*"
+  to = "https://firesafetysupplyhouse.com/:splat"
+  status = 301
+  force = true
+
+# Redirect http → https
+[[redirects]]
+  from = "http://firesafetysupplyhouse.com/*"
+  to = "https://firesafetysupplyhouse.com/:splat"
+  status = 301
+  force = true
+
+# Fix sitemap-index.xml 404 (Ahrefs and Google look for this)
+[[redirects]]
+  from = "/sitemap-index.xml"
+  to = "/sitemap.xml"
+  status = 301
