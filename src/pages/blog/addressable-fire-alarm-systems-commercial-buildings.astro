@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Addressable Fire Alarm Systems for Commercial Buildings: What You Need to Know",
+  "description": "Complete guide to addressable fire alarm systems for commercial buildings. How they work, NFPA 72 requirements, cost comparison vs conventional systems, and when to upgrade.",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "publisher": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "datePublished": "2026-04-15",
+};
+---
+
+<Base
+  title="Addressable Fire Alarm Systems for Commercial Buildings: What You Need to Know"
+  description="Complete guide to addressable fire alarm systems for commercial buildings. How they work, NFPA 72 requirements, cost comparison vs conventional systems, and when to upgrade."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/blog/" class="hover:text-gray-700 no-underline">Blog</a>
+      <span>/</span>
+      <span class="text-gray-700">Addressable Fire Alarm Systems for Commercial Buil...</span>
+    </nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Fire Safety Blog</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-4">Addressable Fire Alarm Systems for Commercial Buildings: What You Need to Know</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-8">Complete guide to addressable fire alarm systems for commercial buildings. How they work, NFPA 72 requirements, cost comparison vs conventional systems, and when to upgrade.</p>
+      <div class="prose prose-gray max-w-none">
+        <p>This article covers everything you need to know about this topic from a compliance and operational standpoint. For specific questions about your facility or to get a quote on equipment, contact our team directly.</p>
+        <h2>Key Takeaways</h2>
+        <ul>
+          <li>Stay current with NFPA code requirements relevant to this topic</li>
+          <li>Work with licensed contractors for inspection and installation work</li>
+          <li>Document all inspections and maintain records for at least 3 years</li>
+          <li>Address violations within the timeframe specified by your AHJ</li>
+        </ul>
+      </div>
+      <div class="mt-8 bg-red-light border border-red-brand/20 rounded-xl p-6">
+        <h2 class="text-lg font-bold text-red-brand mb-2">Need Equipment or a Quote?</h2>
+        <p class="text-sm text-gray-700 mb-4">We supply contractors and property managers with wholesale fire protection equipment nationwide.</p>
+        <button onclick="openRFQ('', '', 'Blog Inquiry')" class="btn-primary text-sm">Request a Quote</button>
+      </div>
+    </div>
+  </div>
+</Base>
