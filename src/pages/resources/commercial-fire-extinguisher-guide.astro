@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Commercial Fire Extinguisher Guide",
+  "description": "Complete buying guide for commercial fire extinguishers",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "publisher": { "@type": "Organization", "name": "Fire Safety Supply House" },
+};
+---
+
+<Base
+  title="Commercial Fire Extinguisher Guide"
+  description="Complete guide to selecting commercial fire extinguishers by hazard class, NFPA 10 placement requirements, and maintenance schedules. Wholesale pricing for contractors and property managers."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/resources/" class="hover:text-gray-700 no-underline">Resources</a>
+      <span>/</span>
+      <span class="text-gray-700">Commercial Fire Extinguisher Guide</span>
+    </nav>
+    <div class="max-w-3xl">
+      <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">Resource Guide</div>
+      <h1 class="text-4xl font-bold tracking-tight mb-4">Commercial Fire Extinguisher Guide</h1>
+      <p class="text-lg text-gray-500 leading-relaxed mb-8">Complete guide to selecting commercial fire extinguishers by hazard class, NFPA 10 placement requirements, and maintenance schedules. Wholesale pricing for contractors and property managers.</p>
+      <div class="bg-red-light border border-red-brand/20 rounded-xl p-6 mb-8">
+        <h2 class="text-lg font-bold text-red-brand mb-2">Need Equipment or a Quote?</h2>
+        <p class="text-sm text-gray-700 mb-4">Our team works with contractors and property managers across all 50 states.</p>
+        <button onclick="openRFQ('', '', 'Commercial Fire Extinguisher Guide')" class="btn-primary text-sm">Request a Quote</button>
+      </div>
+      <div class="prose prose-gray max-w-none">
+        <h2>Overview</h2>
+        <p>This guide covers the key requirements, inspection schedules, and equipment specifications you need to stay compliant. For detailed questions about your specific facility, contact our team directly.</p>
+        <h2>Related Compliance Standards</h2>
+        <ul>
+          <li><a href="/compliance/nfpa-10/">NFPA 10 — Portable Fire Extinguishers</a></li>
+          <li><a href="/compliance/nfpa-25/">NFPA 25 — Sprinkler System Inspection</a></li>
+          <li><a href="/compliance/nfpa-72/">NFPA 72 — Fire Alarm Systems</a></li>
+          <li><a href="/compliance/nfpa-96/">NFPA 96 — Kitchen Suppression</a></li>
+          <li><a href="/compliance/nfpa-101/">NFPA 101 — Life Safety Code</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Base>
