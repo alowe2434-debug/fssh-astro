@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "NFPA 101 Compliance Guide: Life Safety Code",
+  "description": "Complete guide to NFPA 101 Life Safety Code requirements for commercial buildings. Egress, emergency lighting, exit signage, and occupancy-specific requirements.",
+  "author": { "@type": "Organization", "name": "Fire Safety Supply House" },
+  "publisher": { "@type": "Organization", "name": "Fire Safety Supply House" },
+};
+---
+
+<Base
+  title="NFPA 101 Compliance — Life Safety Code for Commercial Buildings"
+  description="NFPA 101 Life Safety Code compliance guide. Egress requirements, emergency lighting, exit signage standards, and occupancy classifications for commercial property managers and contractors."
+  schema={schema}
+>
+  <div class="section py-12">
+    <nav class="flex items-center gap-2 text-xs text-gray-400 mb-8">
+      <a href="/" class="hover:text-gray-700 no-underline">Home</a>
+      <span>/</span>
+      <a href="/compliance/" class="hover:text-gray-700 no-underline">Compliance</a>
+      <span>/</span>
+      <span class="text-gray-700">NFPA 101</span>
+    </nav>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2">
+        <div class="text-xs font-bold uppercase tracking-widest text-red-brand mb-2">NFPA 101</div>
+        <h1 class="text-4xl font-bold tracking-tight mb-4">Life Safety Code</h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8">NFPA 101 is the most widely adopted life safety standard in the US, establishing minimum requirements for egress, emergency lighting, exit signage, and occupant notification systems. It applies to virtually every commercial, industrial, and institutional building.</p>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Means of Egress Requirements</h2>
+        <div class="flex flex-col gap-3 mb-8">
+          {[
+            'Two accessible exits required for most occupancies over 49 persons',
+            'Exit access corridors: minimum 28 inches clear width (44 inches for high-occupancy)',
+            'Exit doors must swing in the direction of egress travel when serving 50+ persons',
+            'Travel distance to exit: 200 ft (unsprinklered) / 250 ft (sprinklered) for most occupancies',
+            'Dead-end corridors limited to 20 feet (50 feet in sprinklered buildings)',
+            'Exit discharge must lead directly to a public way',
+          ].map(req => (
+            <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
+              <span class="text-red-brand font-bold mt-0.5">→</span>
+              <span class="text-sm text-gray-700">{req}</span>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Emergency Lighting & Exit Signage</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-50">
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Component</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Standard</th>
+                <th class="text-left p-3 font-bold text-gray-700 border border-gray-200">Test Frequency</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">Emergency Lighting</td>
+                <td class="p-3 border border-gray-200 text-gray-600">1.5-hr battery backup, 1 fc at floor level</td>
+                <td class="p-3 border border-gray-200 text-gray-600">30-sec monthly, 90-min annually</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Exit Signs (illuminated)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Visible from 100 ft, red or green lettering</td>
+                <td class="p-3 border border-gray-200 text-gray-600">30-sec monthly, 90-min annually</td>
+              </tr>
+              <tr>
+                <td class="p-3 border border-gray-200 font-medium">Exit Signs (photoluminescent)</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Listed for the specific application</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Visual inspection annually</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 border border-gray-200 font-medium">Emergency Generator</td>
+                <td class="p-3 border border-gray-200 text-gray-600">10-sec startup, powers egress lighting</td>
+                <td class="p-3 border border-gray-200 text-gray-600">Monthly loaded test, annual 2-hr test</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-bold tracking-tight mb-4">Occupancy Classifications</h2>
+        <p class="text-gray-600 mb-4">NFPA 101 requirements vary significantly by occupancy type. Key commercial occupancies:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          {[
+            { type: 'Assembly (A)', example: 'Restaurants, theaters, churches', note: 'Strictest egress requirements' },
+            { type: 'Business (B)', example: 'Offices, banks, medical clinics', note: 'Standard commercial requirements' },
+            { type: 'Educational (E)', example: 'Schools, day care', note: 'Enhanced occupant protection' },
+            { type: 'Industrial (I)', example: 'Factories, warehouses', note: 'Hazard-based requirements' },
+            { type: 'Mercantile (M)', example: 'Retail stores, shops', note: 'Occupant load based' },
+            { type: 'Storage (S)', example: 'Warehouses, parking garages', note: 'Varies by commodity stored' },
+          ].map(occ => (
+            <div class="border border-gray-200 rounded-lg p-4">
+              <div class="font-bold text-sm text-gray-900 mb-1">{occ.type}</div>
+              <div class="text-xs text-gray-500 mb-1">{occ.example}</div>
+              <div class="text-xs text-red-brand font-medium">{occ.note}</div>
+            </div>
+          ))}
+        </div>
+
+        <div class="bg-red-light border border-red-brand/20 rounded-xl p-6 mb-8">
+          <h3 class="text-lg font-bold text-red-brand mb-2">Common NFPA 101 Violations</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>• Exit signs not illuminated or battery backup failed</li>
+            <li>• Emergency lighting not tested within 12 months</li>
+            <li>• Exit doors blocked, locked, or not opening in egress direction</li>
+            <li>• Storage blocking egress corridor width</li>
+            <li>• Missing or non-compliant exit signs added after renovation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-1">
+        <div class="sticky top-24 space-y-6">
+          <div class="border border-gray-200 rounded-xl p-6">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Related Standards</h3>
+            <ul class="space-y-2">
+              <li><a href="/compliance/nfpa-10/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 10 — Fire Extinguishers</a></li>
+              <li><a href="/compliance/nfpa-25/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 25 — Sprinkler Systems</a></li>
+              <li><a href="/compliance/nfpa-72/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 72 — Fire Alarms</a></li>
+              <li><a href="/compliance/nfpa-96/" class="text-sm text-gray-600 hover:text-red-brand no-underline">NFPA 96 — Kitchen Suppression</a></li>
+            </ul>
+          </div>
+          <div class="bg-red-brand text-white rounded-xl p-6">
+            <h3 class="text-lg font-bold mb-2">Compliance Audit</h3>
+            <p class="text-sm text-white/80 mb-4">Get a quote on exit signage, emergency lighting, or a full life safety compliance audit.</p>
+            <button onclick="openRFQ('Life Safety', '', 'NFPA 101 Compliance')" class="w-full bg-white text-red-brand font-bold text-sm py-2.5 rounded-lg hover:bg-red-light transition-colors">
+              Request a Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
