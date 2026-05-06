@@ -55,11 +55,12 @@ const fullTitle = title.includes(siteName) ? title : `${title} | FSSH`;
   )}
 
   <!-- Org schema on every page -->
-  <script type="application/ld+json">{JSON.stringify({
+  <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Fire Safety Supply House",
     "url": "https://firesafetysupplyhouse.com",
+    "logo": "https://firesafetysupplyhouse.com/images/logo.png",
     "description": "Wholesale fire protection equipment supplier for contractors, property managers, and facilities teams. Serving all 50 states.",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -68,7 +69,7 @@ const fullTitle = title.includes(siteName) ? title : `${title} | FSSH`;
     },
     "areaServed": "US",
     "serviceType": "Wholesale Fire Protection Equipment Supply"
-  })}</script>
+  })} />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
