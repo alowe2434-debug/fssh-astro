@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/andrelowe/Library/Application Support/Claude/local-agent-mode-sessions/db5ebe96-ebc3-41f4-b813-8de9090b1fa4/8d8e9b4b-4452-4ad5-ab47-67959834d7e3/local_46c01433-9a07-4516-af8a-34fde6890681/outputs/fssh-astro/.venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pip._internal.cli.main import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())

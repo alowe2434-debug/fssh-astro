@@ -15,7 +15,7 @@ const featuredProducts = products.filter(p => ['fire-extinguishers','fire-alarm-
 
 const schema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Service",
   "name": `Fire Safety Supply House — ${region.name}`,
   "description": `Wholesale fire protection equipment supplier serving ${region.name}, ${region.state}. ${region.fireCode}.`,
   "areaServed": {
@@ -31,8 +31,8 @@ const schema = {
 ---
 
 <Base
-  title={`Commercial Fire Protection Equipment in ${region.name}, ${region.stateCode} | FSSH`}
-  description={`Wholesale fire protection equipment for contractors and facilities teams in ${region.name}. ${region.fireCode}. Request contractor pricing on extinguishers, alarms, and sprinkler components.`}
+  title={`Fire Protection Equipment — ${region.name}, ${region.stateCode} | FSSH`}
+  description={`Wholesale fire protection equipment for contractors and facilities teams in ${region.name}. ${region.fireCode}.`}
   schema={schema}
 >
   <div class="section py-12">

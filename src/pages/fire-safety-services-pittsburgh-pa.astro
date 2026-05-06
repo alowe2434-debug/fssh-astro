@@ -12,7 +12,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "Service",
       "name": `Fire Safety Supply House — ${city}, ${state}`,
       "description": `Fire safety inspection, fire extinguisher service, fire alarm installation, fire sprinkler systems, and fire code compliance services in ${city}, ${stateFull}.`,
       "url": `https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`,
@@ -130,8 +130,8 @@ const services = [
 ---
 
 <Base
-  title={`Fire Safety Services in ${city}, ${state} — Inspection, Installation & Compliance`}
-  description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems, kitchen suppression, and IFC fire code compliance. ${fireDept} violation remediation and pre-inspection consulting.`}
+  title={`Fire Safety Services ${city}, ${state}`}
+  description={`Fire safety services for ${city}, ${state} commercial properties. Fire extinguisher inspection, fire alarm installation, sprinkler systems,`}
   canonical={`https://firesafetysupplyhouse.com/fire-safety-services-${slug}/`}
   schema={schema}
 >
